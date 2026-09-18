@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "cta": "Request a Demo"
+  },
+  "hero": {
+    "badge": "CRM for Business in Turkmenistan",
+    "headline": "Run Your Business Without Notebooks and Spreadsheets",
+    "description": "HasApp is an on-premise CRM and management system for small and medium businesses in Turkmenistan: deals, inventory, payroll, and work time — all in one place. Deployment takes 1–3 days."
+  },
+  "features": {
+    "badge": "Features",
+    "headline": "Everything to run your business in one system",
+    "description": "Deals, inventory, payroll, and work time — HasApp brings order where spreadsheets and notebooks used to be, and it works even without internet."
+  }
+}
