@@ -30,7 +30,7 @@
         {{ t('hero.description') }}
       </p>
 
-      <button class="btn-primary !px-6 !py-3 sm:!px-8 sm:!py-3.5 md:!px-10 md:!py-4">
+      <button class="btn-primary !px-6 !py-3 sm:!px-8 sm:!py-3.5 md:!px-10 md:!py-4 z-5">
         {{ t('nav.cta') }} →
       </button>
 

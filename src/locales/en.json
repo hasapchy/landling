@@ -11,5 +11,28 @@
     "badge": "Features",
     "headline": "Everything to run your business in one system",
     "description": "Deals, inventory, payroll, and work time — HasApp brings order where spreadsheets and notebooks used to be, and it works even without internet."
-  }
+  },
+  "howItWorks": {
+  "badge": "How it Works",
+  "headline": "Get Started with HasApp",
+  "description": "See how quickly you can set up the system and start managing your business in just a few steps"
+},
+"testimonials": {
+  "badge": "Testimonials",
+  "headline": "What Our Clients Say",
+  "description": "Real feedback from businesses already using HasApp"
+},
+
+"pricing": {
+  "badge": "Pricing",
+  "headline": "Flexible Plans for Every Business",
+  "description": "Choose the plan that fits you best and start managing your business today",
+  "monthly": "Monthly",
+  "annually": "Annually",
+  "discount": "20% Off",
+  "custom": "Custom",
+  "perMonth": "/month",
+  "perYear": "/year",
+  "features": "Features:"
+}
 }

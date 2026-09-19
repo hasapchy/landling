@@ -5,7 +5,7 @@ import en from './locales/en.json'
 
 export default createI18n({
   legacy: false,          // используем Composition API
-  locale: 'ru',           // язык по умолчанию — рынок Туркменистана
+  locale: 'en',           // язык по умолчанию — рынок Туркменистана
   fallbackLocale: 'ru',
   messages: { tm, ru, en }
 })
