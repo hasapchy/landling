@@ -1,7 +1,9 @@
 <template>
   <section class="relative overflow-hidden text-center pt-16 sm:pt-20 md:pt-24 px-6 sm:px-8 pb-10 sm:pb-12 md:pb-15 w-full max-w-[1440px] mx-auto">
 
-      <div class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
+      <div ref="headingRef" class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6
+           transition-all duration-700 ease-out"
+           :class="headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
   <LabelBadge>
       <template #icon>
           <svg viewBox="0 0 16 16" fill="currentColor">
@@ -27,7 +29,10 @@
       <!-- ===== 4 блока функций, чередование сторон ===== -->
       <div class="mt-12 sm:mt-16 md:mt-24 flex flex-col gap-12 sm:gap-16 md:gap-24">
           <div v-for="(feature, index) in features" :key="feature.title"
-              class="grid grid-cols-1 md:grid-cols-2 gap-0 sm:gap-1 md:gap-16 items-center text-center md:text-left">
+              :ref="el => setFeatureRef(el, index)"
+              class="grid grid-cols-1 md:grid-cols-2 gap-0 sm:gap-1 md:gap-16 items-center text-center md:text-left
+                     transition-all duration-700 ease-out"
+              :class="visibleFeatures.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'">
               <!-- текстовая колонка -->
               <div class="flex flex-col items-center text-center gap-4 sm:gap-5 md:items-start md:text-left md:gap-6" :class="index % 2 === 0 ? 'md:order-1' : 'md:order-2'">
                   <div class="inline-flex items-center gap-2.5 rounded-full bg-[#054C86]/10 pl-3 pr-4 py-1.5">
@@ -55,7 +60,6 @@
               </div>
 
               <!-- картинка через твой GlowCard -->
-              <!-- картинка через твой GlowCard -->
 <div class="relative -mt-8 sm:-mt-10 md:mt-0" :class="index % 2 === 0 ? 'md:order-2' : 'md:order-1'">
     <GlowCard :src="feature.img" :alt="feature.title" :fade="false" grid />
 </div>
@@ -66,6 +70,7 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 import GlowCard from '@/components/GlowCard.vue'
@@ -115,4 +120,42 @@ const features = [
     img: '/images/1.jpg',
   },
 ]
+
+const headingRef = ref(null)
+const headingVisible = ref(false)
+
+const featureRefs = []
+const visibleFeatures = ref(new Set())
+
+function setFeatureRef(el, index) {
+  if (el) featureRefs[index] = el
+}
+
+let observer
+
+onMounted(() => {
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (entry.target === headingRef.value) {
+          headingVisible.value = true
+          observer.unobserve(entry.target)
+        } else {
+          const index = featureRefs.indexOf(entry.target)
+          if (index !== -1) {
+            visibleFeatures.value = new Set(visibleFeatures.value).add(index)
+            observer.unobserve(entry.target)
+          }
+        }
+      }
+    })
+  }, { threshold: 0.2 })
+
+  if (headingRef.value) observer.observe(headingRef.value)
+  featureRefs.forEach((el) => el && observer.observe(el))
+})
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect()
+})
 </script>

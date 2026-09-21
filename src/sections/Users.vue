@@ -6,7 +6,9 @@
         <img src="/images/Right-2.png" alt=""
             class="absolute z-[1] pointer-events-none object-contain top-[-20px] w-[420px]  right-[-70px] sm:top-[-70px] sm:w-[550px] sm:right-[-210px] lg:top-[-130px] lg:w-[880px] lg:right-[-170px]" />
 
-        <div class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6 mb-10 sm:mb-14 md:mb-16">
+        <div ref="headingRef" class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6 mb-10 sm:mb-14 md:mb-16
+             transition-all duration-700 ease-out"
+             :class="headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
             <LabelBadge>
                 <template #icon>
                     <svg viewBox="0 0 16 16" fill="currentColor">
@@ -77,6 +79,7 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 
@@ -97,6 +100,28 @@ const row2 = [
     { name: 'Шохрат Гельдиев', role: 'IT-директор', text: 'Работает даже без интернета, а данные остаются на нашем сервере — то, что нужно.', avatar: '/images/avatars/9.jpg' },
     { name: 'Гозель Бердиева', role: 'Операционный директор', text: 'Развернули систему за 2 дня — команда начала работать в HasApp практически сразу.', avatar: '/images/avatars/10.jpg' },
 ]
+
+const headingRef = ref(null)
+const headingVisible = ref(false)
+
+let observer
+
+onMounted(() => {
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                headingVisible.value = true
+                observer.unobserve(entry.target)
+            }
+        })
+    }, { threshold: 0.15 })
+
+    if (headingRef.value) observer.observe(headingRef.value)
+})
+
+onBeforeUnmount(() => {
+    if (observer) observer.disconnect()
+})
 </script>
 
 <style>

@@ -6,9 +6,11 @@
                    top-[-50px] right-[-110px] w-[820px]
                    sm:right-[-100px] sm:w-[460px]
                    md:right-[-140px] md:w-[600px]
-                    lg:right-[-280px] lg:w-[960px] lg:top-[-200px]" />
+                    lg:right-[-280px] lg:w-[960px] lg:top-[-200px]" />
 
-        <div class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
+        <div ref="headingRef" class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6
+             transition-all duration-700 ease-out"
+             :class="headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
             <LabelBadge>
                 <template #icon>
                     <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,8 +36,10 @@
             </p>
         </div>
 
-        <!-- контент тарифов ниже (добавим позже) -->
-        <div class="relative z-[2] flex items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12">
+        <!-- переключатель Monthly/Annually -->
+        <div ref="toggleRef" class="relative z-[2] flex items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12
+             transition-all duration-700 ease-out"
+             :class="toggleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
             <span class="text-sm sm:text-base font-semibold" :class="isAnnual ? 'text-black/40' : 'text-[#054C86]'">
                 {{ t('pricing.monthly') }}
             </span>
@@ -58,15 +62,21 @@
         </div>
 
         <!-- карточки тарифов -->
-        <!-- карточки тарифов -->
-<div class="relative z-[2] mt-10 sm:mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
-            <div v-for="plan in plans" :key="plan.name"
-                class="pricing-card relative overflow-hidden rounded-[24px] p-6 sm:p-8 text-left flex flex-col"
-                :class="plan.highlight ? 'bg-[linear-gradient(180deg,rgba(5,76,134,0.12)_0%,rgba(6,90,157,0.03)_100%)]' : 'bg-white'">
+        <div
+            class="relative z-[2] mt-10 sm:mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
+            <div v-for="(plan, index) in plans" :key="plan.name"
+                :ref="el => setCardRef(el, index)"
+                class="pricing-card relative overflow-hidden rounded-[24px] p-6 sm:p-8 text-left flex flex-col
+                       transition-all duration-700 ease-out"
+                :class="[
+                    plan.highlight ? 'bg-[linear-gradient(180deg,rgba(5,76,134,0.12)_0%,rgba(6,90,157,0.03)_100%)]' : 'bg-white',
+                    visibleCards.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                ]"
+                :style="{ transitionDelay: visibleCards.has(index) ? `${index * 120}ms` : '0ms' }">
 
                 <!-- эффект в правом верхнем углу у первой карточки -->
-                <div v-if="plan.corner === 'glow'" class="absolute -top-40 -right-40 w-130 h-130 rounded-full pointer-events-none
-                           bg-[radial-gradient(circle,rgba(3,146,255,0.35)_0%,transparent_70%)] blur-4xl"></div>
+                <div v-if="plan.corner === 'glow'" class="absolute -top-40 -right-40 w-100 h-100 rounded-full pointer-events-none
+                           bg-[radial-gradient(circle,rgba(3,80,221,0.20)_0%,transparent_70%)] blur-7xl"></div>
 
                 <!-- картинка в правом верхнем углу у второй карточки -->
                 <img v-if="plan.corner === 'image'" src="/images/corner-2.png" alt=""
@@ -127,10 +137,10 @@
                     </ul>
 
                     <button type="button"
-                        class="mt-8 sm:mt-10 w-full rounded-full py-3 sm:py-3.5 text-sm sm:text-base font-bold transition"
+                        class="mt-8 sm:mt-10 w-full rounded-full py-3 sm:py-3.5 text-sm sm:text-base font-bold transition-all duration-200"
                         :class="plan.highlight
                             ? 'btn-primary'
-                            : 'bg-transparent border border-[#0392FF]/60 text-[#054C86] hover:bg-[#054C86]/5'">
+                            : 'bg-transparent border border-[#0392FF]/60 text-[#054C86] hover:text-white hover:border-transparent hover:bg-[linear-gradient(90deg,#0392FF,#054C86)]'">
                         {{ plan.cta }}
                     </button>
                 </div>
@@ -140,7 +150,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 
@@ -202,6 +212,50 @@ const plans = [
         cta: 'Связаться с нами',
     },
 ]
+
+const headingRef = ref(null)
+const headingVisible = ref(false)
+const toggleRef = ref(null)
+const toggleVisible = ref(false)
+
+const cardRefs = []
+const visibleCards = ref(new Set())
+
+function setCardRef(el, index) {
+    if (el) cardRefs[index] = el
+}
+
+let observer
+
+onMounted(() => {
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                if (entry.target === headingRef.value) {
+                    headingVisible.value = true
+                    observer.unobserve(entry.target)
+                } else if (entry.target === toggleRef.value) {
+                    toggleVisible.value = true
+                    observer.unobserve(entry.target)
+                } else {
+                    const index = cardRefs.indexOf(entry.target)
+                    if (index !== -1) {
+                        visibleCards.value = new Set(visibleCards.value).add(index)
+                        observer.unobserve(entry.target)
+                    }
+                }
+            }
+        })
+    }, { threshold: 0.2 })
+
+    if (headingRef.value) observer.observe(headingRef.value)
+    if (toggleRef.value) observer.observe(toggleRef.value)
+    cardRefs.forEach((el) => el && observer.observe(el))
+})
+
+onBeforeUnmount(() => {
+    if (observer) observer.disconnect()
+})
 </script>
 
 <style scoped>

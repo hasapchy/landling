@@ -1,5 +1,5 @@
 <template>
-    <section class="relative overflow-hidden text-center pt-16 sm:pt-20 md:pt-24 px-6 sm:px-8 pb-16 sm:pb-20 md:pb-24 w-full max-w-[1440px] mx-auto">
+    <section class="relative overflow-hidden text-center pt-16 sm:pt-20 md:pt-24 px-6 sm:px-8 pb-16 sm:pb-20 md:pb-42 w-full max-w-[1440px] mx-auto">
 
         <!-- место под изображение, добавишь сама -->
         <img src="/images/faq-bg.png" alt=""
@@ -10,7 +10,9 @@
            md:w-[900px] md:top-[360px]
            lg:w-[1100px] lg:top-[500px]" />
 
-        <div class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
+        <div ref="headingRef" class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6
+             transition-all duration-700 ease-out"
+             :class="headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
             <LabelBadge>
                 <template #icon>
                     <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +38,12 @@
 
         <div class="relative z-[2] mt-10 sm:mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 md:gap-x-8 text-left">
             <div v-for="(column, colIndex) in [leftColumn, rightColumn]" :key="colIndex" class="flex flex-col gap-4 sm:gap-5">
-                <div v-for="item in column" :key="item.id" class="faq-card rounded-[16px] px-5 sm:px-6 overflow-hidden">
+                <div v-for="item in column" :key="item.id"
+                    :ref="el => setCardRef(el, item.id)"
+                    class="faq-card rounded-[16px] px-5 sm:px-6 overflow-hidden
+                           transition-[opacity,transform] duration-700 ease-out"
+                    :class="visibleCards.has(item.id) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+                    :style="{ transitionDelay: visibleCards.has(item.id) ? `${(item.id - 1) * 90}ms` : '0ms' }">
                     <button type="button" @click="toggle(item.id)"
                         class="w-full flex items-center justify-between gap-4 py-5 sm:py-6 text-left">
                         <span class="font-bold text-base sm:text-lg text-black">{{ item.question }}</span>
@@ -55,15 +62,15 @@
                             </p>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
-
     </section>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 
@@ -94,6 +101,46 @@ const faqs = [
 
 const leftColumn = computed(() => faqs.filter((_, i) => i % 2 === 0))
 const rightColumn = computed(() => faqs.filter((_, i) => i % 2 === 1))
+
+const headingRef = ref(null)
+const headingVisible = ref(false)
+
+const cardRefs = new Map()
+const visibleCards = ref(new Set())
+
+function setCardRef(el, id) {
+    if (el) cardRefs.set(id, el)
+}
+
+let observer
+
+onMounted(() => {
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                if (entry.target === headingRef.value) {
+                    headingVisible.value = true
+                    observer.unobserve(entry.target)
+                } else {
+                    for (const [id, el] of cardRefs.entries()) {
+                        if (el === entry.target) {
+                            visibleCards.value = new Set(visibleCards.value).add(id)
+                            observer.unobserve(entry.target)
+                            break
+                        }
+                    }
+                }
+            }
+        })
+    }, { threshold: 0.15 })
+
+    if (headingRef.value) observer.observe(headingRef.value)
+    cardRefs.forEach((el) => observer.observe(el))
+})
+
+onBeforeUnmount(() => {
+    if (observer) observer.disconnect()
+})
 </script>
 
 <style scoped>

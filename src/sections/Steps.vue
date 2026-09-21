@@ -5,7 +5,9 @@
         <img src="/images/Left.png" alt="" class="how-it-works__side how-it-works__side--left" />
         <img src="/images/Right.png" alt="" class="how-it-works__side how-it-works__side--right" />
 
-        <div class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
+        <div ref="headingRef" class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6
+             transition-all duration-700 ease-out"
+             :class="headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
             <LabelBadge>
                 <template #icon>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,8 +34,12 @@
 
         <!-- контент шагов ниже -->
         <div class="mt-10 sm:mt-14 md:mt-16 lg:mt-20 flex flex-wrap justify-center gap-6 lg:gap-8 relative z-[2]">
-            <div v-for="step in steps" :key="step.title"
-                class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] max-w-[520px] flex flex-col items-start text-left overflow-hidden rounded-[18px] sm:rounded-[24px] border border-[#0392FF]/60 bg-[radial-gradient(circle_at_50%_50%,rgba(0,94,173,0.3)_0%,rgba(218,236,248,0.2)_100%)] p-5 sm:p-8 ">
+            <div v-for="(step, index) in steps" :key="step.title"
+                :ref="el => setStepRef(el, index)"
+                class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] max-w-[520px] flex flex-col items-start text-left overflow-hidden rounded-[18px] sm:rounded-[24px] border border-[#0392FF]/60 bg-[radial-gradient(circle_at_50%_50%,rgba(0,94,173,0.3)_0%,rgba(218,236,248,0.2)_100%)] p-5 sm:p-8
+                       transition-all duration-700 ease-out"
+                :class="visibleSteps.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
+                :style="{ transitionDelay: visibleSteps.has(index) ? `${index * 120}ms` : '0ms' }">
                 <img :src="step.img" :alt="step.title" class="w-full block rounded-[12px] sm:rounded-[16px]" />
 
                 <div class="flex flex-col items-start gap-4 sm:gap-5 pt-5 sm:pt-6 pb-2 sm:pb-3">
@@ -63,6 +69,7 @@ bg-[linear-gradient(90deg,#054C86,#065A9D)]
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 
@@ -88,6 +95,44 @@ const steps = [
         img: '/images/1.jpg',
     },
 ]
+
+const headingRef = ref(null)
+const headingVisible = ref(false)
+
+const stepRefs = []
+const visibleSteps = ref(new Set())
+
+function setStepRef(el, index) {
+    if (el) stepRefs[index] = el
+}
+
+let observer
+
+onMounted(() => {
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                if (entry.target === headingRef.value) {
+                    headingVisible.value = true
+                    observer.unobserve(entry.target)
+                } else {
+                    const index = stepRefs.indexOf(entry.target)
+                    if (index !== -1) {
+                        visibleSteps.value = new Set(visibleSteps.value).add(index)
+                        observer.unobserve(entry.target)
+                    }
+                }
+            }
+        })
+    }, { threshold: 0.2 })
+
+    if (headingRef.value) observer.observe(headingRef.value)
+    stepRefs.forEach((el) => el && observer.observe(el))
+})
+
+onBeforeUnmount(() => {
+    if (observer) observer.disconnect()
+})
 </script>
 
 <style scoped>

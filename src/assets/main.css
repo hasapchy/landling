@@ -5,7 +5,7 @@
   --color-bg: white;
 
   /* шрифты */
-  --font-display: "PT Serif", Georgia, serif;
+  --font-display: "Aspekta", "Inter", sans-serif;
   --font-sans: "Golos Text", ui-sans-serif, system-ui, sans-serif;
   --font-aspekta: "Aspekta", "Inter", sans-serif;
   --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -39,15 +39,27 @@ body {
            rounded-full border border-transparent
            px-10 py-4 text-sm font-semibold text-white font-inter
            whitespace-nowrap leading-tight
-           relative overflow-hidden
+           relative overflow-hidden isolate
            transition-all duration-200 ease-in-out
            [background-clip:padding-box,border-box]
            [background-origin:border-box]
            [-webkit-text-fill-color:inherit]
            bg-[radial-gradient(circle_at_50%_100%,#0a6bb0,#054c86_51%),linear-gradient(#065a9d,#3d8fc9)]
-           shadow-[0_2px_0_1px_#043a66]
-           hover:shadow-[0_3px_0_1px_#043a66]
-           hover:bg-[radial-gradient(circle_at_50%_100%,#0a6bb0_18%,#054c86_51%),linear-gradient(#065a9d,#3d8fc9)];
+           shadow-[0_2px_0_1px_#043a66];
+  }
+  
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(circle at 50% 100%, #38A6EA 18%, #054c86 100%), linear-gradient(#065a9d, #3d8fc9);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .btn-primary:hover::after {
+    opacity: 1;
   }
 
   /* ===== Секция карточки: только боковые/нижние отступы, без верхнего ===== */
@@ -84,8 +96,8 @@ body {
       /* свечение */
       radial-gradient(
         ellipse 65% 100% at 50% 100%,
-        rgba(3, 146, 255, 0.62) 20%,
-        rgba(0, 137, 241, 0.62) 30%,
+        rgba(0, 90, 255, 0.62) 20%,
+        rgba(3, 80, 221, 0.62) 30%,
         transparent 75%
       ),
       /* сетка */
@@ -119,14 +131,19 @@ body {
     background-origin: border-box;
     background-image:
       linear-gradient(180deg, #0a1a2b 0%, #061220 100%),
-      linear-gradient(
-        180deg,
-        #7fc4ff 0%,
-        #1f7ec9 15%,
-        #0d5a94 50%,
-        #06375e 85%,
-        #041f36 100%
-      );
+      conic-gradient(
+  from 0deg,
+  #0059ff 0%,
+  #38A6EA 8%,
+  #008cff 15%,
+  #008cff 30%,
+  #ffffff 45%,
+  #ffffff 55%,
+  #008cff 70%,
+  #008cff 85%,
+  #38A6EA 92%,
+  #0059ff 100%
+);
       box-shadow:
       0 0 2px 0 rgba(127, 196, 255, 0.9),
       0 0 8px 0 rgba(60, 170, 255, 0.7),
@@ -163,7 +180,7 @@ body {
   .star {
     position: absolute;
     border-radius: 9999px;
-    background: #7fc4ff;
+    background: #38A6EA;
     /* box-shadow:
       0 0 4px 1px #fff,
       0 0 14px 4px #4fb0ff,

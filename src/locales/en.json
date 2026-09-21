@@ -34,5 +34,16 @@
   "perMonth": "/month",
   "perYear": "/year",
   "features": "Features:"
+},
+"faq": {
+  "badge": "FAQ",
+  "headline": "Frequently Asked Questions",
+  "description": "Quick answers to common questions about HasApp"
+},
+"cta": {
+  "badge": "start",
+  "headline": "Ready to Transform Your Business?",
+  "description": "Join the companies already using HasApp to run their business without the chaos",
+  "button": "Get Started"
 }
 }
