@@ -22,7 +22,7 @@
                 <div>
                     <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#054C86]">{{ t('footer.pages')
                         }}</p>
-                    <ul class="mt-4 flex flex-col gap-2.5 sm:gap-3">
+                    <ul class="mt-4 flex flex-col font-medium gap-2.5 sm:gap-3">
                         <li v-for="link in pageLinks" :key="link.label">
                             <a :href="link.href"
                                 class="inline-block text-sm sm:text-base text-black/70 transition-transform duration-200 ease-in-out hover:translate-x-1.5 hover:text-[#054C86]">
@@ -35,7 +35,7 @@
                 <div>
                     <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#054C86]">{{
                         t('footer.resources') }}</p>
-                    <ul class="mt-4 flex flex-col gap-2.5 sm:gap-3">
+                    <ul class="mt-4 flex flex-col font-medium gap-2.5 sm:gap-3">
                         <li v-for="link in resourceLinks" :key="link.label">
                             <a :href="link.href"
                                 class="inline-block text-sm sm:text-base text-black/70 transition-transform duration-200 ease-in-out hover:translate-x-1.5 hover:text-[#054C86]">
@@ -49,22 +49,19 @@
                 <div class="col-span-2 sm:col-span-1">
                     <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#054C86]">{{
                         t('footer.socialMedia') }}</p>
-                    <div class="mt-4 flex items-center gap-4 sm:gap-5">
+                    <div class="mt-4 flex items-center gap-4 sm:gap-5 [perspective:800px]">
                         <a v-for="social in socialLinks" :key="social.name" :href="social.href" target="_blank"
                             rel="noopener"
-                            class="group relative inline-flex transition-transform duration-200 ease-in-out ">
+                            class="group relative inline-flex [transform-style:preserve-3d] transition-transform duration-700 ease-in-out hover:[transform:rotateY(360deg)]">
 
-                            <!-- обычная (серая) иконка -->
                             <span class="block [&_svg]:h-8 [&_svg]:w-8 sm:[&_svg]:h-10 sm:[&_svg]:w-10"
                                 v-html="social.svg"></span>
 
-                            <!-- градиентная копия: на мобильных активна всегда, на md+ только при hover -->
-                            <span class="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300
-                 [&_svg]:h-8 [&_svg]:w-8 sm:[&_svg]:h-10 sm:[&_svg]:w-10 [&_path]:!fill-[url(#social-gradient)]"
+                            <span class="absolute inset-0 opacity-100 transition-opacity duration-300
+             [&_svg]:h-8 [&_svg]:w-8 sm:[&_svg]:h-10 sm:[&_svg]:w-10 [&_path]:!fill-[url(#social-gradient)]"
                                 v-html="social.svg"></span>
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -87,22 +84,25 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+const { t, tm } = useI18n()
 
-const pageLinks = [
-    { label: 'Features', href: '#features' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'FAQ', href: '#faq' },
-]
+const hrefs = ['#features', '#how-it-works', '#testimonials', '#pricing', '#faq']
+const pageLinks = computed(() =>
+    tm('footer.pageLinks').map((link, i) => ({
+        label: link.label,
+        href: hrefs[i],
+    }))
+)
 
-const resourceLinks = [
-    { label: 'Changelog', href: '#' },
-    { label: 'Licenses', href: '#' },
-    { label: 'Style Guide', href: '#' },
-]
+const resourceHrefs = ['#', '#', '#']
+const resourceLinks = computed(() =>
+    tm('footer.resourceLinks').map((link, i) => ({
+        label: link.label,
+        href: resourceHrefs[i],
+    }))
+)
 
 const socialLinks = [
     {
@@ -113,18 +113,19 @@ const socialLinks = [
 </svg>`
     },
     {
-        name: 'LinkedIn',
-        href: '#',
-        svg: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0ZM8 20H11V10.5H8V20ZM18.0615 10C16.8499 10 15.7939 10.8246 15.5 12V10.5H12.5V20H16V14.5C16 13.6716 16.6716 13 17.5 13C18.3284 13 19 13.6716 19 14.5V20H22V13.3691C21.9999 11.5085 20.4915 10.0001 18.6309 10H18.0615ZM9.5 6C8.67157 6 8 6.67157 8 7.5C8 8.32843 8.67157 9 9.5 9C10.3284 9 11 8.32843 11 7.5C11 6.67157 10.3284 6 9.5 6Z" fill="#9CA4AA"/>
-</svg>`
-    },
-    {
         name: 'Telegram',
         href: '#',
         svg: `<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 0C31.0457 0 40 8.95431 40 20C40 31.0457 31.0457 40 20 40C8.95431 40 0 31.0457 0 20C0 8.95431 8.95431 0 20 0ZM30.0676 13.5848C30.4374 12.013 29.6977 11.4578 28.8656 11.735L10.9261 18.6703C9.724 19.1326 9.72417 19.8723 10.7413 20.1498L15.3646 21.6292L25.9985 14.9715C26.4608 14.6942 26.9231 14.8789 26.5536 15.1562L17.9541 22.924L17.5838 27.64C17.9537 27.64 18.1389 27.4552 18.4163 27.1777L20.6356 25.0504L25.1668 28.3797C25.9064 28.7494 26.4614 28.5646 26.6463 27.64L30.0676 13.5848Z" fill="#9CA4AA"/>
 </svg>`
     },
+    {
+        name: 'LinkedIn',
+        href: '#',
+        svg: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0ZM8 20H11V10.5H8V20ZM18.0615 10C16.8499 10 15.7939 10.8246 15.5 12V10.5H12.5V20H16V14.5C16 13.6716 16.6716 13 17.5 13C18.3284 13 19 13.6716 19 14.5V20H22V13.3691C21.9999 11.5085 20.4915 10.0001 18.6309 10H18.0615ZM9.5 6C8.67157 6 8 6.67157 8 7.5C8 8.32843 8.67157 9 9.5 9C10.3284 9 11 8.32843 11 7.5C11 6.67157 10.3284 6 9.5 6Z" fill="#9CA4AA"/>
+</svg>`
+    },
+
 ]
 </script>

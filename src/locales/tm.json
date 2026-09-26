@@ -1,48 +1,186 @@
 {
   "nav": {
-    "cta": "Оставить заявку"
+    "cta": "Arza galdyrmak",
+    "features": "Mümkinçilikler",
+    "howItWorks": "Ulgam nähili işleýär",
+    "testimonials": "Pikirler",
+    "pricing": "Tarifler",
+    "faq": "Soraglar"
   },
   "hero": {
-    "badge": "CRM для бизнеса в Туркменистане",
-    "headline": "Управление бизнесом без тетрадей и таблиц",
-    "description": "HasApp — коробочная CRM и система управления для малого и среднего бизнеса в Туркменистане: сделки, склад, зарплата и рабочее время в одном месте. Внедрение — за 1–3 дня."
+    "badge": "Türkmenistandaky telekeçilik üçin CRM",
+    "headline": "Biznesi depdersiz we tablisasyz dolandyrmak",
+    "description": "HasApp — Türkmenistandaky kiçi we orta telekeçilik üçin gutuly (taýýar) CRM we dolandyryş ulgamydyr: söwdalar, ammar, aýlyk we iş wagty bir ýerde. Ulgamy ornaşdyrmak — 1–3 günüň içinde."
   },
   "features": {
-    "badge": "Возможности",
-    "headline": "Всё для управления бизнесом в одной системе",
-    "description": "Сделки, склад, зарплата и рабочее время — HasApp наводит порядок там, где раньше были Excel и тетради, и работает даже без интернета."
+    "badge": "Mümkinçilikler",
+    "headline": "Biznesi dolandyrmak üçin ähli zat taýýar",
+    "description": "Söwda, ammar, maliýe we işgärler — dürli-dürli tablisasyz hem-de ýitirilen ýüztutmalarsyz, bitewi bir ulgamda.",
+    "items": [
+      {
+        "label": "CRM we söwda",
+        "title": "Söwdalar, meýiller we müşderiler",
+        "titleAccent": " ýekeje penjirede",
+        "subtitle": "Indi ýitirilen ýüztutmalar we dagynyk tablisalar bolmaz: söwda tapgyrlary, müşderi binýady we harytlar — her bir söwda boýunça doly aýdyňlygy üpjün edýän bitewi ulgamda."
+      },
+      {
+        "label": "Ammar hasabaty",
+        "title": "Ammara real wagt režiminde",
+        "titleAccent": " gözegçilik etmet",
+        "subtitle": "Haryt kabul edişligi, satyn almalar, hasapdan öçürmeler, yzyna gaýtarmalar we inwentarizasiýa — Excel-syz we «hiç kimiň düşündirip bilmeýän kemçilikleri» bolmazdan."
+      },
+      {
+        "label": "Aýlyk we wagt",
+        "title": "Zähmet haky we iş wagty",
+        "titleAccent": " ýalňyşsyz",
+        "subtitle": "Iş wagtynyň hasabaty, işgärleriň hasabatlary, rugsat günleriniň tertibi we aýlyk hasaplamalary — iş gününiň başlangyjyny we ahyryny belläp alýan fiziki registrator goldawy bilen."
+      },
+      {
+        "label": "Çeýelik we howpsuzlyk",
+        "title": "Biznesiňize laýyklykda",
+        "titleAccent": " düzülýär",
+        "subtitle": "Ulgamda 300-den gowrak ygtyýarlyklar arkaly şahsy meýdançalary, kategoriýalary we giriş hukuklaryny sazlaň. Birnäçe ýuridik şahsy bolan telekeçilik üçin köp pul birligi (multiwalyuta) we köp kompaniýalylyk goldawy. Internetsiz hem işleýär, maglumatlar bolsa öz serweriňizde galýar."
+      }
+    ]
   },
   "howItWorks": {
-  "badge": "Как это работает",
-  "headline": "Начните работу с HasApp",
-  "description": "Посмотри, как быстро настроить систему и начать управлять бизнесом в пару шагов"
-},
-"testimonials": {
-  "badge": "Отзывы",
-  "headline": "Что говорят наши клиенты",
-  "description": "Реальный опыт компаний, которые уже перешли на HasApp"
-},
-"pricing": {
-  "badge": "Тарифы",
-  "headline": "Гибкие тарифы под любой бизнес",
-  "description": "Выберите план, который подходит именно вам, и начните управлять бизнесом уже сегодня",
-  "monthly": "Ежемесячно",
-  "annually": "Ежегодно",
-  "discount": "Скидка 20%",
-  "custom": "Индивидуально",
-  "perMonth": "/месяц",
-  "perYear": "/год",
-  "features": "Возможности:"
-},
-"faq": {
-  "badge": "FAQ",
-  "headline": "Частые вопросы",
-  "description": "Быстрые ответы на популярные вопросы о HasApp"
-},
-"cta": {
-  "badge": "Начать",
-  "headline": "Готовы преобразить свой бизнес?",
-  "description": "Присоединяйтесь к компаниям, которые уже перешли на HasApp и управляют бизнесом без хаоса",
-  "button": "Начать"
-}
+    "badge": "Ulgam nähili işleýär",
+    "headline": "3 ädimde işe girizmek",
+    "description": "Hasaba alnanyňdan başlap ulgamyň doly güýjünde işlemegine çenli — çylşyrymly gurnamalar bolmazdan, bary-ýogy 1–3 gün.",
+    "steps": [
+      {
+        "label": "1-nji ÄDIM",
+        "title": "Hasabyňyzy sazlaň",
+        "subtitle": "Kompaniýa we işgärler baradaky esasy maglumatlardan başlaň — hasaba almak birnäçe minut alýar."
+      },
+      {
+        "label": "2-nji ÄDIM",
+        "title": "Modullary birikdiriň",
+        "subtitle": "Biznesiňiziň maksatlaryna görä degişli bölümleri — söwda, ammar, maliýe, işgärler — saýlap alyň."
+      },
+      {
+        "label": "3-nji ÄDIM",
+        "title": "Işe başlaň",
+        "subtitle": "Ulgam 1–3 günüň içinde taýýar bolar: giriş hukuklaryny sazlaň we biznesi dolandyryp başlaň."
+      }
+    ]
+  },
+  "testimonials": {
+    "badge": "Pikirler",
+    "headline": "Müşderilerimiziň pikirleri",
+    "description": "Eýýäm HasApp ulgamyna geçen kompaniýalaryň hakyky tejribesi"
+  },
+  "pricing": {
+    "badge": "Tarifler",
+    "headline": "Özüňize laýyk tarifi saýlaň",
+    "description": "Gurnamak we öwretmek hyzmaty içinde — aýlyk tölegsiz, lisenziýany bir gezeklik satyn almak.",
+    "custom": "Isleg boýunça",
+    "oneTime": "bir gezeklik",
+    "features": "Mümkinçilikler:",
+    "plans": [
+      {
+        "name": "Esasy",
+        "description": "Hasap we söwdanyň esasy modullaryna mätäç bolan kiçi toparlar üçin.",
+        "features": [
+          "10 ulanyja çenli",
+          "CRM we söwda",
+          "Ammar hasabaty",
+          "Iş wagtynyň hasabaty",
+          "Gurnamak we öwretmek içinde",
+          "1 ýyllyk mugt täzelemeler"
+        ],
+        "cta": "Başlamak"
+      },
+      {
+        "name": "Standart",
+        "description": "Çeýe sazlamalara we has köp ulanyja mätäç bolan ösüp barýan kompaniýalar üçin.",
+        "features": [
+          "50 ulanyja çenli",
+          "«Esasy» tarifiň ähli mümkinçilikleri",
+          "Köp pul birligi we köp kompaniýalylyk",
+          "300-den gowrak giriş hukugy",
+          "Fiziki wagt registrotory",
+          "Ilkinji nobatdaky goldaw"
+        ],
+        "cta": "Başlamak"
+      },
+      {
+        "name": "Korporatiw",
+        "description": "Hususy talaplary we integrasiýalary bolan iri guramalar üçin.",
+        "features": [
+          "«Standart» tarifiň ähli mümkinçilikleri",
+          "Çäksiz ulanyjy sany",
+          "Şahsy goşmaça işläp taýýarlamalar",
+          "Ýörite berkidilen menejer",
+          "Öz serweriňizde ýerleşdirmek",
+          "Topary öwretmek we uýgunlaşdyrmak"
+        ],
+        "cta": "Biz bilen habarlaşmak"
+      }
+    ]
+  },
+  "faq": {
+    "badge": "Soraglar",
+    "headline": "Ýygy-ýygydan berilýän soraglar",
+    "description": "HasApp barada iň köp berilýän soraglaryň jogaplaryny ýygnadyk — eger öz soragyňyzy tapmadyk bolsaňyz, bize ýazyň.",
+    "items": [
+      { "question": "HasApp näme?", "answer": "HasApp — biznesi dolandyrmak üçin ulgamdyr: söwda, ammar, maliýe, işgärler we aragatnaşyk bir ýerde." },
+      { "question": "HasApp ulgamynda meniň maglumatlarym näderejede howpsuz?", "answer": "Maglumatlar öz serweriňizde galýar, giriş bolsa hukuklar ulgamy (300-den gowrak giriş hukugy) arkaly sazlanýar." },
+      { "question": "Ulgam nähili işleýär?", "answer": "Siz kompaniýany hasaba alýarsyňyz, gerekli modullary birikdirýärsiňiz we işläp başlaýarsyňyz — ulgamy ýerleşdirmek 1–3 gün alýar." },
+      { "question": "Bellikleri we ýatlatmalary sazlap bolýarmy?", "answer": "Hawa, bellikler we ýatlatmalar işgärlere hem-de biznes-proseslere laýyklykda sazlanýar." },
+      { "question": "HasApp birnäçe kompaniýany goldaýarmy?", "answer": "Hawa, ulgam birnäçe ýuridik şahsy bolan telekeçilik üçin köp kompaniýalylygy we köp pul birligini (multiwalyuta) goldaýar." },
+      { "question": "HasApp bilen işe nähili başlamaly?", "answer": "Ýüztutma galdyryň — biz 1–3 günüň içinde ulgamy biznesiňize laýyklykda ýerleşdireris we giriş hukuklaryny sazlap bereris." },
+      { "question": "HasApp işgärleriň iş wagtyny hasaba alyp bilýärmi?", "answer": "Hawa, iş gününiň başlangyjyny we ahyryny belläp alýan fiziki registrator goldawy hem muňa degişlidir." },
+      { "question": "HasApp-yň nähili tarifleri bar?", "answer": "Lisenziýa bir gezeklik satyn alynýar — ulanyjylaryň sanyna görä paketler we iri biznes üçin aýratyn tarif bar, jikme-jiklikler «Tarifler» bölüminde." },
+      { "question": "Satyn almazdan ozal HasApp-y synap görüp bolýarmy?", "answer": "Hawa, gysgaça gürrüňdeşlikden soň, siziň ugruňyza laýyklykda görkezme maglumatlary bolan 1 aýlyk demo-giriş hödürleýäris — satyn almazdan ozal ulgama özüňiz baha berip bilersiňiz." }
+    ]
+  },
+  "cta": {
+    "badge": "Başlamak",
+    "headline": "Biznesiňizi özgertmäge taýýarmy?",
+    "description": "Eýýäm HasApp ulgamyna geçen we biznesini tertipli dolandyrýan kompaniýalara goşulyň",
+    "button": "Başlamak"
+  },
+  "contactModal": {
+    "title": "Biz bilen habarlaşyň",
+    "subtitle": "Maslahat almak ýa-da biziň bilen duşuşmak üçin arzaňyzy galdyryň — biz iň gysga wagtda siziň bilen habarlaşarys.",
+    "name": "Adyňyz",
+    "email": "Email salgyňyz",
+    "phone": "Telefon belgiňiz",
+    "messagePlaceholder": "Eger anyklamak isleýän zadyňyz bolsa, ýazyň...",
+    "submit": "Ugratmak",
+    "sending": "Ugradylýar...",
+    "successTitle": "Ugradyldy!",
+    "successText": "Biz ýakyn wagtda siziň bilen habarlaşarys.",
+    "address": "Türkmenistan, Aşgabat ş.",
+    "phoneValue": "+993 12 75 37 13",
+    "emailValue": "info{'@'}ltm.studio",
+    "sendError": "Arzany ugratmak başartmady. Gaýtadan synanyşyň ýa-da bize göni ýazyň.",
+    "errors": {
+      "name": "Adyňyzy giriziň",
+      "phone": "Dogry telefon belgisini giriziň",
+      "email": "Dogry email salgysyny giriziň",
+      "message": "Habary giriziň"
+    }
+  },
+  "footer": {
+    "description": "HasApp — biznesi dolandyrmak üçin döwrebap ulgamdyr: söwda, ammar, maliýe we işgärler bir ýerde.",
+    "pages": "Sahypalar",
+    "resources": "Resurslar",
+    "socialMedia": "Sosial ulgamlar",
+    "copyright": "© HasApp, 2026. Ähli hukuklar goralan.",
+    "pageLinks": [
+      { "label": "Mümkinçilikler" },
+      { "label": "Nähili işleýär" },
+      { "label": "Pikirler" },
+      { "label": "Tarifler" },
+      { "label": "Soraglar" }
+    ],
+    "resourceLinks": [
+      { "label": "Täzelenmeler žurnaly" },
+      { "label": "Ygtyýarnamalar" },
+      { "label": "Stil gollanmasy" }
+    ]
+  
+  }
 }

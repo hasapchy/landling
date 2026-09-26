@@ -15,7 +15,7 @@
             <img
               :src="logo.src"
               :alt="logo.alt"
-              class="h-8 sm:h-12 md:h-18 w-auto object-contain opacity-60 grayscale transition-opacity duration-200 hover:opacity-100 hover:grayscale-0"
+              class="h-8 sm:h-12 md:h-18 w-auto object-contain opacity-100  transition-opacity duration-200"
             />
           </div>
         </div>

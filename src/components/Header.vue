@@ -14,15 +14,15 @@
 
         <!-- навигация -->
         <nav class="hidden md:flex items-center gap-6 lg:gap-8">
-          <a href="#features" class="text-sm font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
+          <a href="#features" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
             t('nav.features') }}</a>
-          <a href="#how-it-works" class="text-sm font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
+          <a href="#how-it-works" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
             t('nav.howItWorks') }}</a>
-          <a href="#testimonials" class="text-sm font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
+          <a href="#testimonials" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
             t('nav.testimonials') }}</a>
-          <a href="#pricing" class="text-sm font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
+          <a href="#pricing" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
             t('nav.pricing') }}</a>
-          <a href="#faq" class="text-sm font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
+          <a href="#faq" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
             t('nav.faq') }}</a>
         </nav>
 

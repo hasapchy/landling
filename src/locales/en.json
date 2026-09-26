@@ -1,6 +1,11 @@
 {
   "nav": {
-    "cta": "Request a Demo"
+    "cta": "Request a Demo",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "testimonials": "Testimonials",
+    "pricing": "Pricing",
+    "faq": "FAQ"
   },
   "hero": {
     "badge": "CRM for Business in Turkmenistan",
@@ -8,42 +13,174 @@
     "description": "HasApp is an on-premise CRM and management system for small and medium businesses in Turkmenistan: deals, inventory, payroll, and work time — all in one place. Deployment takes 1–3 days."
   },
   "features": {
-    "badge": "Features",
-    "headline": "Everything to run your business in one system",
-    "description": "Deals, inventory, payroll, and work time — HasApp brings order where spreadsheets and notebooks used to be, and it works even without internet."
-  },
-  "howItWorks": {
-  "badge": "How it Works",
-  "headline": "Get Started with HasApp",
-  "description": "See how quickly you can set up the system and start managing your business in just a few steps"
+  "badge": "Features",
+  "headline": "Everything to run your business",
+  "description": "Sales, inventory, finance and HR — all in one system, no scattered spreadsheets and no lost leads.",
+  "items": [
+    {
+      "label": "CRM & Sales",
+      "title": "Deals, leads and clients",
+      "titleAccent": " in one window",
+      "subtitle": "No more lost requests or scattered spreadsheets: sales pipeline, client base and products — all in one system, with full visibility into every deal."
+    },
+    {
+      "label": "Inventory",
+      "title": "Real-time",
+      "titleAccent": " warehouse control",
+      "subtitle": "Receipts, purchases, write-offs, returns and stocktaking — no Excel, no «shortages nobody can explain»."
+    },
+    {
+      "label": "Payroll & Time",
+      "title": "Payroll and working hours",
+      "titleAccent": " without errors",
+      "subtitle": "Time tracking, employee reports, vacation schedules and payroll calculation — including support for a physical clock-in/clock-out time recorder."
+    },
+    {
+      "label": "Flexibility & Security",
+      "title": "Configurable",
+      "titleAccent": " to your business",
+      "subtitle": "Custom fields, categories and access rights — 300+ permissions in the system. Multi-currency and multi-company support for businesses with several legal entities. Works even offline, with data staying on your own server."
+    }
+  ]
+},
+ "howItWorks": {
+  "badge": "How It Works",
+  "headline": "Up and running in 3 steps",
+  "description": "From registration to a fully working system — just 1–3 days, no complicated rollout.",
+  "steps": [
+    {
+      "label": "STEP 1",
+      "title": "Set up your account",
+      "subtitle": "Start with basic info about your company and employees — registration takes just a couple of minutes."
+    },
+    {
+      "label": "STEP 2",
+      "title": "Connect the modules",
+      "subtitle": "Pick the sections you need — sales, inventory, finance, HR — tailored to your business needs."
+    },
+    {
+      "label": "STEP 3",
+      "title": "Start working",
+      "subtitle": "The system is ready in 1–3 days: configure access rights and start managing your business."
+    }
+  ]
 },
 "testimonials": {
   "badge": "Testimonials",
   "headline": "What Our Clients Say",
   "description": "Real feedback from businesses already using HasApp"
 },
-
 "pricing": {
   "badge": "Pricing",
-  "headline": "Flexible Plans for Every Business",
-  "description": "Choose the plan that fits you best and start managing your business today",
-  "monthly": "Monthly",
-  "annually": "Annually",
-  "discount": "20% Off",
+  "headline": "Choose your plan",
+  "description": "A one-time license purchase, no monthly subscription — installation and training included.",
   "custom": "Custom",
-  "perMonth": "/month",
-  "perYear": "/year",
-  "features": "Features:"
+  "oneTime": "one-time",
+  "features": "Features:",
+  "plans": [
+    {
+      "name": "Basic",
+      "description": "For small teams that need core sales and accounting modules.",
+      "features": [
+        "Up to 10 users",
+        "CRM & Sales",
+        "Inventory management",
+        "Time tracking",
+        "Installation and training included",
+        "Free updates for 1 year"
+      ],
+      "cta": "Get Started"
+    },
+    {
+      "name": "Standard",
+      "description": "For growing companies that need flexible setup and more users.",
+      "features": [
+        "Up to 50 users",
+        "Everything in Basic",
+        "Multi-currency and multi-company",
+        "300+ access permissions",
+        "Physical time recorder",
+        "Priority support"
+      ],
+      "cta": "Get Started"
+    },
+    {
+      "name": "Enterprise",
+      "description": "For large organizations with custom requirements and integrations.",
+      "features": [
+        "Everything in Standard",
+        "Unlimited users",
+        "Custom development",
+        "Dedicated account manager",
+        "On-premise deployment",
+        "Team training and onboarding"
+      ],
+      "cta": "Contact Us"
+    }
+  ]
 },
 "faq": {
   "badge": "FAQ",
   "headline": "Frequently Asked Questions",
-  "description": "Quick answers to common questions about HasApp"
+  "description": "We've gathered answers to the most common questions about HasApp — if you can't find yours, reach out to us.",
+  "items": [
+    { "question": "What is HasApp?", "answer": "HasApp is a business management system: sales, inventory, finance, HR and communication all in one place." },
+    { "question": "How secure is my data in HasApp?", "answer": "Your data stays on your own server, with access controlled through a permission system (300+ access rights)." },
+    { "question": "How does the system work?", "answer": "You register your company, connect the modules you need, and start working — deployment takes 1–3 days." },
+    { "question": "Can I set up notifications and reminders?", "answer": "Yes, notifications and reminders can be configured for employees and business processes." },
+    { "question": "Does HasApp support multiple companies?", "answer": "Yes, the system supports multiple companies and multiple currencies for businesses with several legal entities." },
+    { "question": "How do I get started with HasApp?", "answer": "Leave a request — we'll deploy the system for your business and configure access rights within 1–3 days." },
+    { "question": "Can HasApp track employee working hours?", "answer": "Yes, including support for a physical clock-in/clock-out time recorder." },
+    { "question": "What pricing plans does HasApp offer?", "answer": "The license is a one-time purchase — there are packages by number of users, and a custom plan for large businesses. See the «Pricing» section for details." },
+    { "question": "Can I try HasApp before buying?", "answer": "Yes, after a short conversation we provide a 1-month demo access with sample data tailored to your industry, so you can evaluate the system yourself before purchasing." }
+  ]
 },
 "cta": {
   "badge": "start",
   "headline": "Ready to Transform Your Business?",
   "description": "Join the companies already using HasApp to run their business without the chaos",
   "button": "Get Started"
+},
+"contactModal": {
+  "title": "Let's talk",
+  "subtitle": "Leave a request to get a consultation or meet with us — we'll get back to you shortly.",
+  "name": "Your Name",
+  "email": "Your Email",
+  "phone": "Your Phone",
+  "messagePlaceholder": "Type something if you want...",
+  "submit": "Send Message",
+  "sending": "Sending...",
+  "successTitle": "Message sent!",
+  "successText": "We'll get back to you as soon as possible.",
+  "address": "Ashgabat, Turkmenistan",
+  "phoneValue": "+993 12 75 37 13",
+  "emailValue": "info{'@'}ltm.studio",
+  "sendError": "Failed to send your request. Please try again or contact us directly.",
+  "errors": {
+    "name": "Please enter your name",
+    "phone": "Please enter a valid phone number",
+    "email": "Please enter a valid email",
+    "message": "Please enter a message",
+    "email": "Enter a valid email"
+  }
+},
+"footer": {
+  "description": "HasApp is a modern business management system — sales, inventory, finance and HR all in one place.",
+  "pages": "Pages",
+  "resources": "Resources",
+  "socialMedia": "Social Media",
+  "copyright": "© HasApp, 2026. All rights reserved.",
+  "pageLinks": [
+    { "label": "Features" },
+    { "label": "How It Works" },
+    { "label": "Testimonials" },
+    { "label": "Pricing" },
+    { "label": "FAQ" }
+  ],
+  "resourceLinks": [
+    { "label": "Changelog" },
+    { "label": "Licenses" },
+    { "label": "Style Guide" }
+  ]
 }
 }

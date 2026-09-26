@@ -30,7 +30,13 @@ body {
   color: #0a1a2b;
   font-family: var(--font-sans);
 }
+html {
+  scroll-behavior: smooth;
+}
 
+section[id] {
+  scroll-margin-top: 100px;
+}
 @layer components {
 
   /* ===== Кнопка ===== */

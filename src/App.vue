@@ -33,7 +33,7 @@ provide('openContactModal', openContactModal)
   <LogoMarquee />
   <Features />
   <Steps />
-  <Users />
+  <!-- <Users /> -->
   <Pricing />
   <FAQ />
   <CTA />

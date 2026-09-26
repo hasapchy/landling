@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<title>Вход — HasApp Admin</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:#F4F7FC;
+  }
+  .card {
+    width:100%;
+    max-width:380px;
+    background:#fff;
+    border-radius:20px;
+    padding:36px 32px;
+    box-shadow:0 20px 50px rgba(5,76,134,0.15);
+  }
+  .logo {
+    font-size:20px;
+    font-weight:700;
+    background:linear-gradient(90deg,#102D65,#1B4BB1);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:6px;
+  }
+  h1 { font-size:18px; margin:0 0 24px; color:#0B1220; }
+  label { display:block; font-size:12px; font-weight:600; color:#8A94A6; text-transform:uppercase; letter-spacing:0.4px; margin-bottom:6px; }
+  input {
+    width:100%;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid #E1E7F0;
+    font-size:14px;
+    margin-bottom:16px;
+    outline:none;
+    transition:border-color 0.2s;
+  }
+  input:focus { border-color:#1B4BB1; }
+  button {
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:999px;
+    background:linear-gradient(90deg,#102D65,#1B4BB1);
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    transition:opacity 0.2s;
+  }
+  button:hover { opacity:0.9; }
+  .error {
+    background:#FEF2F2;
+    color:#DC2626;
+    font-size:13px;
+    padding:10px 14px;
+    border-radius:10px;
+    margin-bottom:16px;
+    display:none;
+  }
+  .error.show { display:block; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">HasApp</div>
+    <h1>Вход в админ-панель</h1>
+    <div id="error" class="error">Неверный логин или пароль</div>
+    <form method="POST" action="/admin/login">
+      <label>Имя пользователя</label>
+      <input type="text" name="username" autocomplete="username" required autofocus />
+      <label>Пароль</label>
+      <input type="password" name="password" autocomplete="current-password" required />
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAFBCcz5vrfyW7EuI"></div>
+      <button type="submit">Войти</button>
+    </form>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>

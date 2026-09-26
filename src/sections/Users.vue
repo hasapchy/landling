@@ -1,5 +1,5 @@
 <template>
-    <section class="relative  text-center pt-16 sm:pt-20 md:pt-24 px-4 sm:px-6 pb-10 sm:pb-12 md:pb-16 w-full max-w-[1440px] mx-auto">
+    <section id="testimonials" class="relative  text-center pt-16 sm:pt-20 md:pt-24 px-4 sm:px-6 pb-10 sm:pb-12 md:pb-16 w-full max-w-[1440px] mx-auto">
 
         <img src="/images/Left-2.png" alt=""
             class="absolute z-[1] pointer-events-none object-contain top-[-70px] w-[300px]  left-[-70px] sm:top-[-80px] sm:w-[420px] sm:left-[-110px] lg:top-[-250px] lg:w-[880px] lg:left-[-350px]" />
@@ -11,9 +11,11 @@
              :class="headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
             <LabelBadge>
                 <template #icon>
-                    <svg viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M4 8c0-2.2 1.8-4 4-4V2C4.7 2 2 4.7 2 8s2.7 6 6 6v-2c-2.2 0-4-1.8-4-4zm8 0c0-2.2 1.8-4 4-4V2c-3.3 0-6 2.7-6 6s2.7 6 6 6v-2c-2.2 0-4-1.8-4-4z" />
-                    </svg>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="CurrentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.98809 2.49361C4.75685 2.99804 3.0061 4.71278 2.46895 6.91982C2.17523 8.12663 2.17792 9.39653 2.47163 10.6034C3.01718 12.8449 4.62194 14.7104 6.7747 15.5796L6.86854 15.6175C7.80015 15.9937 8.86733 15.5406 9.24953 14.6177C9.35475 14.3636 9.60525 14.1951 9.88208 14.1951H10.7249C13.0173 14.1951 15.0116 12.6374 15.5496 10.4266C15.8168 9.32865 15.8168 8.18347 15.5496 7.08556L15.479 6.79566C14.9604 4.66468 13.27 3.00903 11.1157 2.52198L10.813 2.45356C9.61245 2.18215 8.36573 2.18215 7.16522 2.45356L6.98809 2.49361ZM6.37646 6.27502C6.08787 6.27502 5.85393 6.50712 5.85393 6.79344C5.85393 7.07976 6.08787 7.31187 6.37646 7.31187H11.1663C11.4549 7.31187 11.6888 7.07976 11.6888 6.79344C11.6888 6.50712 11.4549 6.27502 11.1663 6.27502H6.37646ZM7.24734 8.86717C6.95876 8.86717 6.72482 9.09923 6.72482 9.38558C6.72482 9.67185 6.95876 9.90398 7.24734 9.90398H10.2954C10.584 9.90398 10.8179 9.67185 10.8179 9.38558C10.8179 9.09923 10.584 8.86717 10.2954 8.86717H7.24734Z"/>
+</svg>
+
+
                 </template>
                 {{ t('testimonials.badge') }}
             </LabelBadge>
