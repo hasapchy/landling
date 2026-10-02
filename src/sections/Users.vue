@@ -81,9 +81,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
+import { useScrollReveal } from '@/composables/useScrollReveal'
 
 const { t } = useI18n()
 
@@ -103,27 +103,7 @@ const row2 = [
     { name: 'Гозель Бердиева', role: 'Операционный директор', text: 'Развернули систему за 2 дня — команда начала работать в HasApp практически сразу.', avatar: '/images/avatars/10.jpg' },
 ]
 
-const headingRef = ref(null)
-const headingVisible = ref(false)
-
-let observer
-
-onMounted(() => {
-    observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                headingVisible.value = true
-                observer.unobserve(entry.target)
-            }
-        })
-    }, { threshold: 0.15 })
-
-    if (headingRef.value) observer.observe(headingRef.value)
-})
-
-onBeforeUnmount(() => {
-    if (observer) observer.disconnect()
-})
+const { headingRef, headingVisible } = useScrollReveal()
 </script>
 
 <style>

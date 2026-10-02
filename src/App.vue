@@ -15,8 +15,12 @@ import CTA from './sections/CTA.vue';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import ContactModal from './components/ContactModal.vue';
+import { useSeo } from '@/composables/useSeo'
+import About from './sections/About.vue';
 
 const { locale, t } = useI18n()
+
+useSeo()
 
 const isModalOpen = ref(false)
 function openContactModal() {
@@ -31,6 +35,7 @@ provide('openContactModal', openContactModal)
   <Header />
   <Hero />
   <LogoMarquee />
+  <About />
   <Features />
   <Steps />
   <!-- <Users /> -->

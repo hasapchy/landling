@@ -14,12 +14,14 @@
 
         <!-- навигация -->
         <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+          <a href="#about" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
+            t('about.badge') }}</a>
           <a href="#features" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
             t('nav.features') }}</a>
           <a href="#how-it-works" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
             t('nav.howItWorks') }}</a>
-          <a href="#testimonials" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
-            t('nav.testimonials') }}</a>
+          <!-- <a href="#testimonials" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
+            t('nav.testimonials') }}</a> -->
           <a href="#pricing" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
             t('nav.pricing') }}</a>
           <a href="#faq" class="text-md font-medium text-black/70 hover:text-[#054C86] transition-colors">{{
@@ -77,6 +79,11 @@ const flagCodes = { tm: 'tm', ru: 'ru', en: 'gb' }
 const openContactModal = inject('openContactModal')
 function setLocale(lang) {
   locale.value = lang
+  try {
+    localStorage.setItem('hasapp_locale', lang)
+  } catch {
+    // localStorage недоступен (приватный режим и т.п.) — просто не сохранится
+  }
   langOpen.value = false
 }
 </script>

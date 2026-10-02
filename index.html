@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="ru">
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
     <link rel="preconnect" href="https://api.fontshare.com">
-<link href="https://api.fontshare.com/v2/css?f[]=aspekta@400,500,600,700,900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=aspekta@400,500,600,700,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <title>Vite App</title>
+
+    <!-- ===== SEO: базовые фолбэк-теги =====
+         Реальные title/description будут подменяться на лету через @unhead/vue
+         (см. src/composables/useSeo.js), синхронно с текущим языком.
+         Эти теги — то, что увидит бот/соцсеть, если JS ещё не выполнился,
+         или если он не выполняется совсем (некоторые превью-боты). -->
+    <title>HasApp — управление бизнесом онлайн</title>
+    <meta name="description" content="HasApp — сервис для управления бизнесом: учёт, отчёты и автоматизация в одном месте.">
+
+    <!-- Open Graph (превью при шаринге в соцсети/мессенджеры) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HasApp — управление бизнесом онлайн">
+    <meta property="og:description" content="HasApp — сервис для управления бизнесом: учёт, отчёты и автоматизация в одном месте.">
+    <meta property="og:image" content="https://hasapp.example/images/og-cover.jpg">
+    <meta property="og:url" content="https://hasapp.example/">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter/X card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HasApp — управление бизнесом онлайн">
+    <meta name="twitter:description" content="HasApp — сервис для управления бизнесом: учёт, отчёты и автоматизация в одном месте.">
+    <meta name="twitter:image" content="https://hasapp.example/images/og-cover.jpg">
+
+    <!-- на будущее, когда появятся другие языковые версии -->
+    <!-- <link rel="alternate" hreflang="ru" href="https://hasapp.example/"> -->
+    <!-- <link rel="alternate" hreflang="en" href="https://hasapp.example/en"> -->
+
+    <link rel="canonical" href="https://hasapp.example/">
   </head>
   <body>
     <div id="app"></div>

@@ -21,7 +21,7 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12 md:gap-16">
                 <div>
                     <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#054C86]">{{ t('footer.pages')
-                        }}</p>
+                    }}</p>
                     <ul class="mt-4 flex flex-col font-medium gap-2.5 sm:gap-3">
                         <li v-for="link in pageLinks" :key="link.label">
                             <a :href="link.href"
@@ -37,7 +37,11 @@
                         t('footer.resources') }}</p>
                     <ul class="mt-4 flex flex-col font-medium gap-2.5 sm:gap-3">
                         <li v-for="link in resourceLinks" :key="link.label">
-                            <a :href="link.href"
+                            <button v-if="link.action === 'contact'" type="button" @click="openContactModal"
+                                class="inline-block text-left text-sm sm:text-base text-black/70 transition-transform duration-200 ease-in-out hover:translate-x-1.5 hover:text-[#054C86]">
+                                {{ link.label }}
+                            </button>
+                            <a v-else :href="link.href"
                                 class="inline-block text-sm sm:text-base text-black/70 transition-transform duration-200 ease-in-out hover:translate-x-1.5 hover:text-[#054C86]">
                                 {{ link.label }}
                             </a>
@@ -86,9 +90,10 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { CONTACTS } from '@/config/contacts'
 const { t, tm } = useI18n()
 
-const hrefs = ['#features', '#how-it-works', '#testimonials', '#pricing', '#faq']
+const hrefs = ['#about', '#features', '#how-it-works', '#pricing', '#faq']
 const pageLinks = computed(() =>
     tm('footer.pageLinks').map((link, i) => ({
         label: link.label,
@@ -96,32 +101,33 @@ const pageLinks = computed(() =>
     }))
 )
 
-const resourceHrefs = ['#', '#', '#']
+const resourceHrefs = ['#', '#']
 const resourceLinks = computed(() =>
     tm('footer.resourceLinks').map((link, i) => ({
         label: link.label,
-        href: resourceHrefs[i],
+        href: i === 0 ? null : resourceHrefs[i],
+        action: i === 0 ? 'contact' : null,
     }))
 )
 
 const socialLinks = [
     {
         name: 'Instagram',
-        href: '#',
+        href: CONTACTS.instagram,
         svg: `<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 0C31.0457 2.57703e-07 40 8.95431 40 20C40 31.0457 31.0457 40 20 40C8.95431 40 2.5772e-07 31.0457 0 20C0 8.95431 8.95431 0 20 0ZM13.5713 8.57227C10.8101 8.57242 8.57144 10.8111 8.57129 13.5723V27.1436C8.57129 29.9049 10.81 32.1434 13.5713 32.1436H27.1426C29.904 32.1436 32.1426 29.905 32.1426 27.1436V13.5723C32.1424 10.811 29.9039 8.57227 27.1426 8.57227H13.5713ZM27.1426 10.5723C28.7993 10.5723 30.1424 11.9155 30.1426 13.5723V27.1436C30.1426 28.8004 28.7994 30.1436 27.1426 30.1436H13.5713C11.9146 30.1434 10.5713 28.8003 10.5713 27.1436V13.5723C10.5714 11.9156 11.9147 10.5724 13.5713 10.5723H27.1426ZM20.3574 14.2871C17.0044 14.2872 14.2862 17.0054 14.2861 20.3584C14.2863 23.7114 17.0044 26.4296 20.3574 26.4297C23.7104 26.4295 26.4286 23.7113 26.4287 20.3584C26.4286 17.0054 23.7104 14.2873 20.3574 14.2871ZM20.3574 16.2871C22.6058 16.2873 24.4286 18.11 24.4287 20.3584C24.4286 22.6068 22.6058 24.4295 20.3574 24.4297C18.109 24.4296 16.2863 22.6068 16.2861 20.3584C16.2862 18.1099 18.1089 16.2872 20.3574 16.2871ZM27.1426 12.8584C26.3538 12.8586 25.7148 13.4983 25.7148 14.2871C25.715 15.0758 26.3539 15.7156 27.1426 15.7158C27.9315 15.7158 28.5711 15.076 28.5713 14.2871C28.5713 13.4981 27.9316 12.8584 27.1426 12.8584Z" fill="#9CA4AA"/>
 </svg>`
     },
     {
         name: 'Telegram',
-        href: '#',
+        href: CONTACTS.telegram,
         svg: `<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 0C31.0457 0 40 8.95431 40 20C40 31.0457 31.0457 40 20 40C8.95431 40 0 31.0457 0 20C0 8.95431 8.95431 0 20 0ZM30.0676 13.5848C30.4374 12.013 29.6977 11.4578 28.8656 11.735L10.9261 18.6703C9.724 19.1326 9.72417 19.8723 10.7413 20.1498L15.3646 21.6292L25.9985 14.9715C26.4608 14.6942 26.9231 14.8789 26.5536 15.1562L17.9541 22.924L17.5838 27.64C17.9537 27.64 18.1389 27.4552 18.4163 27.1777L20.6356 25.0504L25.1668 28.3797C25.9064 28.7494 26.4614 28.5646 26.6463 27.64L30.0676 13.5848Z" fill="#9CA4AA"/>
 </svg>`
     },
     {
         name: 'LinkedIn',
-        href: '#',
+        href: CONTACTS.linkedin,
         svg: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0ZM8 20H11V10.5H8V20ZM18.0615 10C16.8499 10 15.7939 10.8246 15.5 12V10.5H12.5V20H16V14.5C16 13.6716 16.6716 13 17.5 13C18.3284 13 19 13.6716 19 14.5V20H22V13.3691C21.9999 11.5085 20.4915 10.0001 18.6309 10H18.0615ZM9.5 6C8.67157 6 8 6.67157 8 7.5C8 8.32843 8.67157 9 9.5 9C10.3284 9 11 8.32843 11 7.5C11 6.67157 10.3284 6 9.5 6Z" fill="#9CA4AA"/>
 </svg>`

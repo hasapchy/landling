@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "HasApp — manage your business online",
+    "description": "HasApp is a business management platform: accounting, reports and automation in one place."
+  },
   "nav": {
     "cta": "Request a Demo",
     "features": "Features",
@@ -103,19 +107,6 @@
         "Priority support"
       ],
       "cta": "Get Started"
-    },
-    {
-      "name": "Enterprise",
-      "description": "For large organizations with custom requirements and integrations.",
-      "features": [
-        "Everything in Standard",
-        "Unlimited users",
-        "Custom development",
-        "Dedicated account manager",
-        "On-premise deployment",
-        "Team training and onboarding"
-      ],
-      "cta": "Contact Us"
     }
   ]
 },
@@ -127,11 +118,11 @@
     { "question": "What is HasApp?", "answer": "HasApp is a business management system: sales, inventory, finance, HR and communication all in one place." },
     { "question": "How secure is my data in HasApp?", "answer": "Your data stays on your own server, with access controlled through a permission system (300+ access rights)." },
     { "question": "How does the system work?", "answer": "You register your company, connect the modules you need, and start working — deployment takes 1–3 days." },
-    { "question": "Can I set up notifications and reminders?", "answer": "Yes, notifications and reminders can be configured for employees and business processes." },
+    { "question": "Can I customize the system for my business?", "answer": "Yes, every module lets you add custom fields, categories, and rearrange interface elements to fit your workflow." },
     { "question": "Does HasApp support multiple companies?", "answer": "Yes, the system supports multiple companies and multiple currencies for businesses with several legal entities." },
     { "question": "How do I get started with HasApp?", "answer": "Leave a request — we'll deploy the system for your business and configure access rights within 1–3 days." },
     { "question": "Can HasApp track employee working hours?", "answer": "Yes, including support for a physical clock-in/clock-out time recorder." },
-    { "question": "What pricing plans does HasApp offer?", "answer": "The license is a one-time purchase — there are packages by number of users, and a custom plan for large businesses. See the «Pricing» section for details." },
+    { "question": "What plans does HasApp offer?", "answer": "The license is a one-time purchase: the Basic plan for up to 10 users — $1000, and the Standard plan for up to 50 users — $2000. See the Pricing section for details." },
     { "question": "Can I try HasApp before buying?", "answer": "Yes, after a short conversation we provide a 1-month demo access with sample data tailored to your industry, so you can evaluate the system yourself before purchasing." }
   ]
 },
@@ -171,16 +162,37 @@
   "socialMedia": "Social Media",
   "copyright": "© HasApp, 2026. All rights reserved.",
   "pageLinks": [
+    { "label": "About Us" },
     { "label": "Features" },
     { "label": "How It Works" },
-    { "label": "Testimonials" },
     { "label": "Pricing" },
     { "label": "FAQ" }
   ],
-  "resourceLinks": [
-    { "label": "Changelog" },
-    { "label": "Licenses" },
-    { "label": "Style Guide" }
-  ]
+"resourceLinks": [
+  { "label": "Contact" },
+  { "label": "Privacy Policy" }
+]
+},
+"about": {
+    "badge": "About us",
+    "storyBadge": "Our story",
+    "headline": "A local team, ",
+    "headlineAccent": "a system built for your business",
+    "description": "HasApp is a business management system built by a local team specifically for the Turkmenistan market. Sales and CRM, inventory, finance, HR, projects and communications — all in one place, available in Turkmen, Russian and English. We don't sell a cloud product — your data stays on your own server.",
+    "stats": [
+  { "value": "Flexible setup", "label": "for any kind of business" },
+  { "value": "Local support", "label": "in your language" },
+  { "value": "No subscription", "label": "one fixed price" }
+],
+    "storyHeadline": "How we got ",
+    "storyHeadlineAccent": "here",
+    "storyDescription": "Development of HasApp started two years ago with a single module — a simple cash income and expense tracker. It gradually grew into a full business management platform, and we keep improving it together with our first clients.",
+    "knowMore": "Get in touch",
+    "timeline": [
+      { "year": "2024", "label": "Prototype: cash tracking" },
+      { "year": "2025", "label": "Module growth: CRM, inventory, finance" },
+      { "year": "2026", "label": "Platform launch — Nov 1" }
+    ]
+  }
 }
-}
+

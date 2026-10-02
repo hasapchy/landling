@@ -31,9 +31,9 @@
 
     <!-- ===== 4 блока функций, чередование сторон ===== -->
     <div class="mt-12 sm:mt-16 md:mt-24 flex flex-col gap-12 sm:gap-16 md:gap-24">
-      <div v-for="(feature, index) in features" :key="feature.title" :ref="el => setFeatureRef(el, index)" class="grid grid-cols-1 md:grid-cols-2 gap-0 sm:gap-1 md:gap-16 items-center text-center md:text-left
+      <div v-for="(feature, index) in features" :key="feature.title" :ref="el => setItemRef(el, index)" class="grid grid-cols-1 md:grid-cols-2 gap-0 sm:gap-1 md:gap-16 items-center text-center md:text-left
                      transition-all duration-700 ease-out"
-        :class="visibleFeatures.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'">
+        :class="visibleItems.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'">
         <!-- текстовая колонка -->
         <div class="flex flex-col items-center text-center gap-4 sm:gap-5 md:items-start md:text-left md:gap-6"
           :class="index % 2 === 0 ? 'md:order-1' : 'md:order-2'">
@@ -158,10 +158,11 @@
 </template>
 
 <script setup>
-import { computed, reactive, ref, onMounted, onBeforeUnmount } from 'vue'
+import { computed, reactive, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 import GlowCard from '@/components/GlowCard.vue'
+import { useScrollReveal } from '@/composables/useScrollReveal'
 
 const { t, tm } = useI18n()
 
@@ -345,47 +346,16 @@ function handleLightboxKeydown(e) {
   else if (e.key === 'ArrowRight') lightboxNext()
 }
 
-// ---- анимация появления при скролле (как было) ----
-const headingRef = ref(null)
-const headingVisible = ref(false)
-
-const featureRefs = []
-const visibleFeatures = ref(new Set())
-
-function setFeatureRef(el, index) {
-  if (el) featureRefs[index] = el
-}
-
-let observer
+// ---- анимация появления при скролле ----
+const { headingRef, headingVisible, setItemRef, visibleItems } = useScrollReveal()
 
 onMounted(() => {
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        if (entry.target === headingRef.value) {
-          headingVisible.value = true
-          observer.unobserve(entry.target)
-        } else {
-          const index = featureRefs.indexOf(entry.target)
-          if (index !== -1) {
-            visibleFeatures.value = new Set(visibleFeatures.value).add(index)
-            observer.unobserve(entry.target)
-          }
-        }
-      }
-    })
-  }, { threshold: 0.2 })
-
-  if (headingRef.value) observer.observe(headingRef.value)
-  featureRefs.forEach((el) => el && observer.observe(el))
-
   iconKeys.forEach((_, index) => startCarousel(index))
 
   window.addEventListener('keydown', handleLightboxKeydown)
 })
 
 onBeforeUnmount(() => {
-  if (observer) observer.disconnect()
   iconKeys.forEach((_, index) => stopCarousel(index))
   window.removeEventListener('keydown', handleLightboxKeydown)
   document.body.style.overflow = ''

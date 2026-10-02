@@ -121,7 +121,7 @@
                       stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
                   </svg>
                 </span>
-                <p class="text-sm text-black/70">{{ t('contactModal.phoneValue') }}</p>
+                <p class="text-sm text-black/70">{{ CONTACTS.phone }}</p>
               </div>
 
               <div class="flex items-center gap-3">
@@ -132,13 +132,13 @@
                       stroke-linejoin="round" />
                   </svg>
                 </span>
-                <p class="text-sm text-black/70">{{ t('contactModal.emailValue') }}</p>
+                <p class="text-sm text-black/70">{{ CONTACTS.email }}</p>
               </div>
             </div>
 
             <!-- соц-иконки -->
             <div class="flex items-center gap-3">
-              <a href="#"
+              <a :href="CONTACTS.instagram" target="_blank" rel="noopener"
                 class="flex h-9 w-9 items-center justify-center rounded-full bg-[linear-gradient(135deg,#0392FF_0%,#054C86_100%)] text-white">
                 <svg viewBox="0 0 16 16" fill="none" class="h-4 w-4">
                   <rect x="2" y="2" width="12" height="12" rx="3.5" stroke="currentColor" stroke-width="1.3" />
@@ -146,7 +146,7 @@
                   <circle cx="11.3" cy="4.7" r="0.6" fill="currentColor" />
                 </svg>
               </a>
-              <a href="#"
+              <a :href="CONTACTS.telegram" target="_blank" rel="noopener"
                 class="flex h-9 w-9 items-center justify-center rounded-full bg-[linear-gradient(135deg,#0392FF_0%,#054C86_100%)] text-white">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -155,7 +155,7 @@
                 </svg>
 
               </a>
-              <a href="#"
+              <a :href="CONTACTS.linkedin" target="_blank" rel="noopener"
                 class="flex h-9 w-9 items-center justify-center rounded-full bg-[linear-gradient(135deg,#0392FF_0%,#054C86_100%)] text-white">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4.57086 5.85547H2V13.9965H4.57086V5.85547Z" fill="currentColor" />
@@ -178,6 +178,7 @@
 <script setup>
 import { ref, reactive, computed, watch, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { CONTACTS } from '@/config/contacts'
 
 const { t } = useI18n()
 
