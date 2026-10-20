@@ -11,7 +11,9 @@
     "pricing": "Pricing",
     "faq": "FAQ",
     "darkMode": "Dark mode",
-    "lightMode": "Light mode"
+    "lightMode": "Light mode",
+    "contacts": "Contacts",
+    "tryDemo": "Try demo"
   },
   "hero": {
     "badge": "CRM for Business in Turkmenistan",
@@ -195,7 +197,20 @@
         ],
         "cta": "Get Started"
       }
-    ]
+    ],
+    "perMonth": "per month",
+    "modes": {
+      "boxed": "On-premise",
+      "cloud": "Cloud"
+    },
+    "modeHint": {
+      "boxed": "The on-premise edition is installed on any server you choose. All data stays with you — on your own infrastructure.",
+      "cloud": "The cloud edition runs on our servers. All data is stored in the cloud — no infrastructure to manage on your side."
+    },
+    "modeDescription": {
+      "boxed": "A one-time license purchase, no monthly subscription — installation and training included.",
+      "cloud": "A subscription with access from anywhere — updates and support included, servers on our side."
+    }
   },
   "faq": {
     "badge": "FAQ",
@@ -247,8 +262,8 @@
     "button": "Get Started"
   },
   "contactModal": {
-    "title": "Let's talk",
-    "subtitle": "Leave a request to get a consultation or meet with us — we'll get back to you shortly.",
+    "title": "Leave a request",
+    "subtitle": "Fill in the form — we'll get back to you as soon as possible.",
     "name": "Your Name",
     "email": "Your Email",
     "phone": "Your Phone",
@@ -339,5 +354,14 @@
         "label": "New modules: HR, payroll, time tracking"
       }
     ]
+  },
+  "contacts": {
+    "badge": "Contacts",
+    "headline": "Get in touch",
+    "description": "Leave a request or reach out directly — we'll get back to you shortly.",
+    "infoTitle": "Our contacts",
+    "addressLabel": "Address",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email"
   }
 }

@@ -44,21 +44,23 @@
                 {{ t('cta.description') }}
             </p>
 
-            <button type="button" @click="openContactModal" class="btn-primary mt-4 sm:mt-6">
-                {{ t('cta.button') }}
-            </button>
+            <div class="mt-4 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <a href="https://demo.hasapp.online/auth/login#signup" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary text-center no-underline">
+                    {{ t('cta.demoButton') }}
+                </a>
+            </div>
         </div>
 
     </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, inject } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 
 const { t } = useI18n()
-const openContactModal = inject('openContactModal')
 const contentRef = ref(null)
 const contentVisible = ref(false)
 

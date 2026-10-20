@@ -137,9 +137,9 @@
                         {{ t('about.storyDescription') }}
                     </p>
 
-                    <button type="button" @click="openContactModal" class="btn-primary mt-6 sm:mt-8">
+                    <a href="#contacts" class="btn-primary mt-6 sm:mt-8 no-underline">
                         {{ t('about.knowMore') }}
-                    </button>
+                    </a>
                 </div>
 
                 <!-- таймлайн — ниже, на всю ширину -->
@@ -166,13 +166,11 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, inject, onMounted, onBeforeUnmount } from 'vue'
+import { ref, reactive, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 
 const { t, tm } = useI18n()
-
-const openContactModal = inject('openContactModal')
 
 const stats = computed(() => tm('about.stats'))
 const timeline = computed(() => tm('about.timeline'))

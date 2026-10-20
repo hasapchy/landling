@@ -39,16 +39,32 @@
                 {{ t('pricing.headline') }}
             </h2>
 
+            <div class="inline-flex p-1 rounded-full bg-[#F0F6FC] dark:bg-white/5 border border-[#054C86]/10 dark:border-white/10"
+                role="tablist" :aria-label="t('pricing.badge')">
+                <button v-for="item in modes" :key="item.id" type="button" role="tab"
+                    :aria-selected="mode === item.id" @click="mode = item.id"
+                    class="min-w-[140px] sm:min-w-[160px] px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-200"
+                    :class="mode === item.id
+                        ? 'bg-[linear-gradient(90deg,#0392FF,#054C86)] text-white shadow-[0_2px_8px_rgba(5,76,134,0.25)]'
+                        : 'text-[#054C86]/70 dark:text-white/60 hover:text-[#054C86] dark:hover:text-white'">
+                    {{ item.label }}
+                </button>
+            </div>
+
             <p
                 class="max-w-[90%] sm:max-w-md md:max-w-xl lg:max-w-2xl text-black/70 dark:text-white/70 text-base sm:text-lg md:text-xl leading-[1.3] sm:leading-[1.2]">
-                {{ t('pricing.description') }}
+                {{ t(`pricing.modeDescription.${mode}`) }}
+            </p>
+
+            <p
+                class="max-w-[90%] sm:max-w-md md:max-w-xl lg:max-w-2xl -mt-1 sm:-mt-2 text-sm sm:text-base text-[#054C86]/80 dark:text-[#6cb6f2]/80 leading-relaxed">
+                {{ t(`pricing.modeHint.${mode}`) }}
             </p>
         </div>
 
-        <!-- карточки тарифов -->
-        <div
+        <div :key="mode"
             class="relative z-[2] mt-10 sm:mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-start max-w-[1000px] mx-auto">
-            <div v-for="(plan, index) in plans" :key="plan.name" class="relative">
+            <div v-for="(plan, index) in plans" :key="`${mode}-${plan.name}`" class="relative">
                 <!-- внешний ореол свечения вокруг выделенного тарифа -->
                 <div v-if="plan.highlight" class="absolute -inset-5 sm:-inset-7 rounded-[36px] blur-2xl pointer-events-none z-0
                            bg-[radial-gradient(ellipse_75%_65%_at_50%_0%,rgba(3,80,221,0.45)_0%,transparent_70%)]
@@ -114,18 +130,17 @@
                                 bg-clip-text text-transparent bg-[linear-gradient(90deg,#054C86,#065A9D)] [-webkit-text-fill-color:transparent]">
                                 {{ plan.price }} TMT
                             </span>
-                            <span class="text-sm sm:text-base text-black/50 dark:text-white/50 mb-1">{{ t('pricing.oneTime') }}</span>
+                            <span class="text-sm sm:text-base text-black/50 dark:text-white/50 mb-1">{{ periodLabel }}</span>
                         </template>
                     </div>
 
-                    <!-- кнопка сразу под ценой, как в референсе -->
-                    <button type="button" @click="openContactModal"
-                        class="mt-5 sm:mt-6 w-full rounded-full py-3 sm:py-3.5 text-sm sm:text-base font-bold transition-all duration-200"
+                    <a href="#contacts"
+                        class="mt-5 sm:mt-6 w-full rounded-full py-3 sm:py-3.5 text-sm sm:text-base font-bold transition-all duration-200 text-center no-underline"
                         :class="plan.highlight
                             ? 'btn-primary'
                             : 'bg-transparent border border-[#0392FF]/60 text-[#054C86] hover:text-white hover:border-transparent hover:bg-[linear-gradient(90deg,#0392FF,#054C86)]'">
                         {{ plan.cta }}
-                    </button>
+                    </a>
 
                     <!-- разделитель -->
                     <div class="mt-6 sm:mt-8 border-t border-black/10 dark:border-white/10"></div>
@@ -155,7 +170,7 @@
 </template>
 
 <script setup>
-import { computed, inject } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 import { useScrollReveal } from '@/composables/useScrollReveal'
@@ -163,8 +178,15 @@ import { useTheme } from '@/composables/useTheme'
 
 const { t, tm } = useI18n()
 
-const openContactModal = inject('openContactModal')
 const { isDark } = useTheme()
+const mode = ref('boxed')
+const modes = computed(() => [
+    { id: 'boxed', label: t('pricing.modes.boxed') },
+    { id: 'cloud', label: t('pricing.modes.cloud') },
+])
+const periodLabel = computed(() =>
+    mode.value === 'cloud' ? t('pricing.perMonth') : t('pricing.oneTime')
+)
 
 const planMeta = [
     {
@@ -192,6 +214,10 @@ const plans = computed(() =>
 )
 
 const { headingRef, headingVisible, setItemRef, visibleItems } = useScrollReveal()
+
+watch(mode, () => {
+    visibleItems.value = new Set([0, 1])
+})
 </script>
 
 <style scoped>

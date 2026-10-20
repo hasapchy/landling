@@ -11,7 +11,9 @@
     "pricing": "Tarifler",
     "faq": "Soraglar",
     "darkMode": "Garaňky tema",
-    "lightMode": "Açyk tema"
+    "lightMode": "Açyk tema",
+    "contacts": "Habarlaşmak",
+    "tryDemo": "Demo synap görmek"
   },
   "hero": {
     "badge": "Türkmenistandaky telekeçilik üçin CRM",
@@ -195,7 +197,20 @@
         ],
         "cta": "Başlamak"
       }
-    ]
+    ],
+    "perMonth": "aýlyk",
+    "modes": {
+      "boxed": "Gutyçaly",
+      "cloud": "Bulutly"
+    },
+    "modeHint": {
+      "boxed": "Gutyçaly çözgüt satyn alanda isleýän serweriňize gurnalýar. Ähli maglumatlar şol ýerde — siziň infrastrukturasyňyzda saklanýar.",
+      "cloud": "Bulutly çözgüt biziň serwerlerimizde işleýär. Ähli maglumatlar bulutda saklanýar — öz infrastrukturasyňyz gerek däl."
+    },
+    "modeDescription": {
+      "boxed": "Gurnamak we öwretmek hyzmaty içinde — aýlyk tölegsiz, lisenziýany bir gezeklik satyn almak.",
+      "cloud": "Islendik ýerden girişli abuna — täzelemeler we goldaw içinde, serwerler biziň tarapymyzda."
+    }
   },
   "faq": {
     "badge": "Soraglar",
@@ -247,8 +262,8 @@
     "button": "Başlamak"
   },
   "contactModal": {
-    "title": "Biz bilen habarlaşyň",
-    "subtitle": "Maslahat almak ýa-da biziň bilen duşuşmak üçin arzaňyzy galdyryň — biz iň gysga wagtda siziň bilen habarlaşarys.",
+    "title": "Arza galdyrmak",
+    "subtitle": "Formany dolduryň — biz iň gysga wagtda siziň bilen habarlaşarys.",
     "name": "Adyňyz",
     "email": "Email salgyňyz",
     "phone": "Telefon belgiňiz",
@@ -339,5 +354,14 @@
         "label": "Täze modullar: işgärler, aýlyk, iş wagty"
       }
     ]
+  },
+  "contacts": {
+    "badge": "Habarlaşmak",
+    "headline": "Biz bilen habarlaşyň",
+    "description": "Arza galdyryň ýa-da göni ýazyň — ýakyn wagtda jogap bereris.",
+    "infoTitle": "Biziň kontaktlarymyz",
+    "addressLabel": "Salgysy",
+    "phoneLabel": "Telefon",
+    "emailLabel": "Email"
   }
 }
