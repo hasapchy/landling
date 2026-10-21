@@ -2,7 +2,8 @@
     <section
         class="relative overflow-hidden text-center pt-16 sm:pt-20 md:pt-24 px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24 w-full max-w-[1440px] mx-auto">
 
-        <img src="/images/center.png" alt="" class="absolute z-[1] pointer-events-none object-contain top-0 left-1/2 -translate-x-1/2
+        <img src="/images/center.png" alt="" width="2672" height="1120" loading="lazy" decoding="async"
+          class="absolute z-[1] pointer-events-none object-contain top-0 left-1/2 -translate-x-1/2
                    w-[700px]
                    sm:w-[900px]
                    md:w-[1100px]

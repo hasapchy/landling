@@ -8,7 +8,9 @@
 
     <div class="glow-card" :class="{ 'fade-bottom': fade }">
       <div class="glow-card__panel">
-        <img v-if="src" :src="src" :alt="alt ?? ''" class="feature-image__img" />
+        <img v-if="src" :src="src" :alt="alt ?? ''" class="feature-image__img"
+          :loading="eager ? 'eager' : 'lazy'" :fetchpriority="eager ? 'high' : 'auto'" decoding="async"
+          :width="width" :height="height" />
         <slot v-else />
       </div>
     </div>
@@ -25,10 +27,14 @@ withDefaults(
     alt?: string
     fade?: boolean
     grid?: boolean
+    eager?: boolean
+    width?: number | string
+    height?: number | string
   }>(),
   {
     fade: true,
     grid: false,
+    eager: false,
   }
 )
 </script>

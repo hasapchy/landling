@@ -17,6 +17,7 @@ import Footer from './components/Footer.vue';
 import ContactModal from './components/ContactModal.vue';
 import { useSeo } from '@/composables/useSeo'
 import About from './sections/About.vue';
+import Cases from './sections/Cases.vue';
 
 const { locale, t } = useI18n()
 
@@ -33,11 +34,12 @@ provide('openContactModal', openContactModal)
 
 <template class="overflow-x-hidden max-w-[100vw]">
   <Header />
-  <Hero />
-  <LogoMarquee />
+  <Hero />  
   <About />
+  <LogoMarquee />
   <Features />
   <Steps />
+  <Cases />
   <!-- <Users /> -->
   <Pricing />
   <FAQ />

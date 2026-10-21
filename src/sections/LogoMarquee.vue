@@ -1,10 +1,10 @@
 <template>
   <div
-    class="relative overflow-hidden w-full max-w-7xl mx-auto py-8 sm:py-10 md:py-12 flex items-center justify-center
+    class="relative overflow-hidden w-full max-w-7xl mx-auto py-8 sm:py-10 md:py-12 flex items-center justify-start
            [mask-image:linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)]
            [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)]"
   >
-    <div class="flex w-max marquee-track" :style="{ animationDuration: `${duration}s` }">
+    <div class="flex w-max shrink-0 marquee-track" :style="{ animationDuration: `${duration}s` }">
       <div v-for="s in 2" :key="s" class="flex items-center shrink-0">
         <div v-for="r in repeatWithin" :key="r" class="flex items-center shrink-0">
           <div
@@ -12,10 +12,19 @@
             :key="i"
             class="flex items-center justify-center shrink-0 px-5 sm:px-7 md:px-10"
           >
+            <!-- светлая тема: тёмная версия логотипа; тёмная тема: оригинал (белый текст).
+                 Оба файла лежат на странице, тема просто переключает видимость — без задержки -->
             <img
-              :src="logo.src"
+              :src="logo.light"
               :alt="logo.alt"
-              class="h-8 sm:h-12 md:h-18 w-auto object-contain opacity-100  transition-opacity duration-200"
+              :width="logo.width" :height="logo.height" loading="lazy" decoding="async"
+              class="h-8 sm:h-12 md:h-16 w-auto object-contain dark:hidden"
+            />
+            <img
+              :src="logo.dark"
+              :alt="logo.alt"
+              :width="logo.width" :height="logo.height" decoding="async"
+              class="hidden dark:block h-8 sm:h-12 md:h-16 w-auto object-contain"
             />
           </div>
         </div>
@@ -29,11 +38,11 @@ defineProps({
   logos: {
     type: Array,
     default: () => [
-      { src: '/images/logo.png', alt: 'Logo 1' },
-      { src: '/images/logo.png', alt: 'Logo 2' },
-      { src: '/images/logo.png', alt: 'Logo 3' },
-      { src: '/images/logo.png', alt: 'Logo 4' },
-      { src: '/images/logo.png', alt: 'Logo 5' },
+      { alt: 'Takyk Abzal', light: '/images/partners/ta-light.svg', dark: '/images/partners/ta-dark.svg', width: 712, height: 200 },
+      { alt: 'Altyn Arzuw', light: '/images/partners/aa-light.svg', dark: '/images/partners/aa-dark.svg', width: 754, height: 200 },
+      { alt: 'Lebizli Türkmen', light: '/images/partners/lt-light.svg', dark: '/images/partners/lt-dark.svg', width: 331, height: 200 },
+      { alt: 'ZNY-logistics', light: '/images/partners/ZNY.png', dark: '/images/partners/ZNY.png', width: 331, height: 200 },
+      // Zehinli Logistik — добавить, когда будет файл: { alt, light, dark, width, height }
     ],
   },
   repeatWithin: {

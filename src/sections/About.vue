@@ -44,7 +44,8 @@
         w-24 h-24 sm:w-60 sm:h-60 rounded-[22px] sm:rounded-[28px]  bg-[linear-gradient(180deg,#64BBFA_0%,#E2F3FF_100%)]"></div>
 
                     <!-- само фото -->
-                    <img src="/images/about.jpg" alt="HasApp"
+                    <img src="/images/about.jpg" alt="HasApp" width="1400" height="706" loading="lazy"
+                        decoding="async"
                         class="relative w-full h-[260px] sm:h-[320px] md:h-[380px] object-cover rounded-[20px] sm:rounded-[24px] bg-[#F4F7FC]" />
                 </div>
             </div>
@@ -52,7 +53,7 @@
             <!-- правая колонка: коллаж из 2 фото + текст + факты -->
             <div class="text-left">
                 <div class="">
-                    <img src="/images/user.webp" alt=""
+                    <img src="/images/user.webp" alt="" width="1440" height="720" loading="lazy" decoding="async"
     class="w-full h-[260px] sm:h-[320px] object-contain
     [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]
     [-webkit-mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]" />
@@ -87,19 +88,25 @@
             :class="storyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
 
             <!-- фоновое фото на весь блок — путь оставила, вставишь своё -->
-            <img src="/images/ab-2.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+            <img src="/images/ab-2.jpg" alt="" width="1400" height="645" loading="lazy" decoding="async"
+                class="absolute inset-0 w-full h-full object-cover rounded-[30px] lg:rounded-[40px] bg-black" />
 
-            <!-- осветляющий градиент слева направо — текст слева читаемый -->
+            <!-- осветляющий градиент слева направо — текст слева читаемый
+                 (на тёмной теме — тёмный градиент вместо белого, иначе
+                 текст становится невидимым: белый на белом) -->
             <div
                 class="absolute inset-0
-        bg-[linear-gradient(90deg,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.85)_30%,rgba(255,255,255,0.2)_60%,transparent_85%)]">
+        bg-[linear-gradient(90deg,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.85)_30%,rgba(255,255,255,0.2)_60%,transparent_85%)]
+        dark:bg-[linear-gradient(90deg,rgba(10,20,32,0.96)_0%,rgba(10,20,32,0.85)_30%,rgba(10,20,32,0.2)_60%,transparent_85%)]">
             </div>
             <!-- осветляющий градиент снизу — под таймлайн, на всю ширину -->
             <div class="absolute inset-0
-        bg-[linear-gradient(0deg,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.6)_30%,transparent_55%)]"></div>
+        bg-[linear-gradient(0deg,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.6)_30%,transparent_55%)]
+        dark:bg-[linear-gradient(0deg,rgba(10,20,32,0.95)_0%,rgba(10,20,32,0.6)_30%,transparent_55%)]"></div>
             <!-- на мобильных (колонка одна, во всю ширину) добавляем ещё и градиент сверху вниз -->
             <div class="absolute inset-0 lg:hidden
-        bg-[linear-gradient(180deg,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.55)_55%,rgba(255,255,255,0.15)_100%)]">
+        bg-[linear-gradient(180deg,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.55)_55%,rgba(255,255,255,0.15)_100%)]
+        dark:bg-[linear-gradient(180deg,rgba(10,20,32,0.95)_0%,rgba(10,20,32,0.55)_55%,rgba(10,20,32,0.15)_100%)]">
             </div>
 
             <div class="relative z-[1] p-6 sm:p-10 md:p-14">

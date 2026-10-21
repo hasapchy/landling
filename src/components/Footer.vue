@@ -10,7 +10,8 @@
             <!-- лого + описание -->
             <div class="max-w-full md:max-w-xs">
                 <a href="#" class="flex items-center gap-2">
-                    <img src="/images/logo.png" alt="HasApp" class="h-7 sm:h-8 w-auto" />
+                    <img src="/images/logo.png" alt="HasApp" width="2612" height="719" loading="lazy"
+                        decoding="async" class="h-7 sm:h-8 w-auto" />
                 </a>
                 <p class="mt-4 text-sm sm:text-base text-black/60 leading-relaxed">
                     {{ t('footer.description') }}
@@ -56,7 +57,7 @@
                     <div class="mt-4 flex items-center gap-4 sm:gap-5 [perspective:800px]">
                         <a v-for="social in socialLinks" :key="social.name" :href="social.href" target="_blank"
                             rel="noopener"
-                            class="group relative inline-flex [transform-style:preserve-3d] transition-transform duration-700 ease-in-out hover:[transform:rotateY(360deg)]">
+                            class="group relative inline-flex rounded-full bg-[#ffffff] shadow-[0_2px_10px_rgba(0,0,0,0.12)] [transform-style:preserve-3d] transition-transform duration-700 ease-in-out hover:[transform:rotateY(360deg)]">
 
                             <span class="block [&_svg]:h-8 [&_svg]:w-8 sm:[&_svg]:h-10 sm:[&_svg]:w-10"
                                 v-html="social.svg"></span>
@@ -70,10 +71,15 @@
             </div>
         </div>
 
-        <div class="mx-auto max-w-[1320px] mt-10 sm:mt-14 pt-6 border-t border-black/5">
+        <div class="mx-auto max-w-[1320px] mt-10 sm:mt-14 pt-6 border-t border-black/5
+             flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <p class="text-xs sm:text-sm text-black/50">
                 {{ t('footer.copyright') }}
             </p>
+            <a href="https://ltm.studio" target="_blank" rel="noopener"
+                class="text-xs sm:text-sm text-black/50 hover:text-[#054C86] dark:hover:text-[#6cb6f2] transition-colors">
+                Powered by LTM
+            </a>
         </div>
         <!-- градиент для соц-иконок при hover -->
         <svg width="0" height="0" class="absolute">
@@ -93,13 +99,13 @@ import { useI18n } from 'vue-i18n'
 import { CONTACTS } from '@/config/contacts'
 const { t, tm } = useI18n()
 
-const hrefs = ['#about', '#features', '#how-it-works', '#pricing', '#faq']
-const pageLinks = computed(() =>
-    tm('footer.pageLinks').map((link, i) => ({
-        label: link.label,
-        href: hrefs[i],
-    }))
-)
+const hrefs = ['#about', '#features', '#how-it-works', '#cases', '#pricing', '#faq']
+const pageLinks = computed(() => {
+    const links = tm('footer.pageLinks').map((link) => ({ label: link.label }))
+    // «Кейсы» ставим после «Как это работает»
+    links.splice(3, 0, { label: t('cases.badge') })
+    return links.map((link, i) => ({ label: link.label, href: hrefs[i] }))
+})
 
 const resourceHrefs = ['#', '#']
 const resourceLinks = computed(() =>

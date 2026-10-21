@@ -57,7 +57,7 @@
 
     <!-- слой контента (блюрится/гаснет в конце) -->
     <div class="absolute inset-0 transition-[filter] duration-700"
-      :style="{ filter: `blur(${blurPx}px)`, opacity: phase === 'logo' ? 0 : 1 }">
+      :style="{ filter: `blur(${blurPx}px)`, opacity: (phase === 'install' || phase === 'done') ? 0 : 1 }">
 
       <!-- 1) обзорная лента — мелкие иконки в ряд -->
       <div class="absolute inset-0 flex items-center transition-opacity duration-500"
@@ -85,10 +85,32 @@
       </div>
     </div>
 
-    <!-- лого в конце -->
-    <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-700"
-      :style="{ opacity: phase === 'logo' ? 1 : 0 }">
+    <!-- экран установки -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center demo-gap text-center transition-opacity duration-700"
+      :style="{ opacity: phase === 'install' ? 1 : 0 }">
       <svg class="demo-logo-svg-big"><use href="#hasapp-mark-step2" /></svg>
+      <p class="demo-install-text">Устанавливаем систему...</p>
+      <div class="demo-progress-track">
+        <div class="demo-progress-fill" :style="{ width: installPct + '%' }"></div>
+      </div>
+    </div>
+
+    <!-- экран "готово, система запущена" -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center demo-gap text-center transition-opacity duration-700"
+      :style="{ opacity: phase === 'done' ? 1 : 0 }">
+      <div class="demo-done-check" :class="{ 'demo-done-check--pop': phase === 'done' }">
+        <svg viewBox="0 0 24 24" fill="none" width="100%" height="100%">
+          <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <h3 class="demo-done-title">Готово! Система запущена</h3>
+      <p class="demo-install-text">Можно начинать работу</p>
+      <div class="demo-done-btn">
+        ПЕРЕЙТИ В СИСТЕМУ
+        <svg viewBox="0 0 24 24" fill="none" class="demo-btn-arrow">
+          <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
     </div>
 
     <!-- курсор -->
@@ -105,6 +127,8 @@
 
 <script setup>
 import { ref, reactive, onMounted, onBeforeUnmount, nextTick } from 'vue'
+
+const emit = defineEmits(['finished'])
 
 const stage = ref(null)
 const track = ref(null)
@@ -145,7 +169,8 @@ function particleStyle(p) {
   return { '--px': px, '--py': py, animationDelay: (p % 5) * 14 + 'ms' }
 }
 
-const phase = ref('row') // 'row' | 'hero' | 'logo'
+const phase = ref('row') // 'row' | 'hero' | 'install' | 'done'
+const installPct = ref(0)
 const focusIndex = ref(0)
 const heroIndex = ref(-1)
 const heroVisible = ref(false)
@@ -168,8 +193,7 @@ function wait(ms) {
 
 function centerPoint() {
   if (!stage.value) return { x: 0, y: 0 }
-  const box = stage.value.getBoundingClientRect()
-  return { x: box.width / 2, y: box.height / 2 }
+  return { x: stage.value.offsetWidth / 2, y: stage.value.offsetHeight / 2 }
 }
 
 async function moveToCenter(ms = 400) {
@@ -195,8 +219,9 @@ async function tap() {
 function measureDelta(i) {
   const stageBox = stage.value.getBoundingClientRect()
   const cardBox = moduleRefs[i].getBoundingClientRect()
-  const cardCenterRelStage = (cardBox.left - stageBox.left) + cardBox.width / 2
-  const stageCenter = stageBox.width / 2
+  const k = stageBox.width / stage.value.offsetWidth || 1 // сцена может быть масштабирована родителем
+  const cardCenterRelStage = ((cardBox.left - stageBox.left) + cardBox.width / 2) / k
+  const stageCenter = stage.value.offsetWidth / 2
   return stageCenter - cardCenterRelStage
 }
 
@@ -227,6 +252,7 @@ function resetAll() {
   fastPhase.value = false
   trackX.value = 0
   focusIndex.value = 0
+  installPct.value = 0
 }
 
 async function run() {
@@ -289,9 +315,22 @@ async function run() {
     await wait(550)
     if (!alive) return
 
-    phase.value = 'logo'
-    await wait(1700)
+    // прогресс установки
+    phase.value = 'install'
+    await nextTick()
+    await wait(120)
     if (!alive) return
+    installPct.value = 100
+    await wait(1900)
+    if (!alive) return
+
+    // система запущена
+    phase.value = 'done'
+    await wait(2000)
+    if (!alive) return
+
+    emit('finished')
+    return
   }
 }
 
@@ -454,6 +493,82 @@ onBeforeUnmount(() => {
   color: #fff;
 }
 
+.demo-install-text {
+  font-size: clamp(6.5px, 1.8cqw, 11px);
+  color: rgba(255, 255, 255, .75);
+  line-height: 1.3;
+}
+
+.demo-progress-track {
+  width: clamp(110px, 44cqw, 260px);
+  height: clamp(4px, 1.4cqw, 7px);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .18);
+  overflow: hidden;
+  margin-top: clamp(2px, 1cqw, 5px);
+}
+
+.demo-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fff, #BFE4FF);
+  transition: width 1.8s cubic-bezier(.4, 0, .2, 1);
+}
+
+.demo-done-check {
+  width: clamp(26px, 9cqw, 54px);
+  height: clamp(26px, 9cqw, 54px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22B86A, #0F6F3E);
+  color: #fff;
+  padding: clamp(6px, 2cqw, 12px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transform: scale(0);
+}
+
+.demo-done-check--pop {
+  animation: demoDoneCheckPop .5s cubic-bezier(.34, 1.56, .64, 1) forwards;
+}
+
+@keyframes demoDoneCheckPop {
+  0% {
+    transform: scale(0);
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.demo-done-title {
+  font-weight: 800;
+  font-size: clamp(9px, 3.1cqw, 17px);
+  color: #fff;
+  line-height: 1.15;
+}
+
+.demo-done-btn {
+  white-space: nowrap;
+  height: clamp(13px, 4.8cqw, 30px);
+  border-radius: 999px;
+  background: #fff;
+  color: #0A3F7A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: .04em;
+  font-size: clamp(6px, 1.4cqw, 9.5px);
+  padding: 0 clamp(8px, 2.5cqw, 16px);
+  margin-top: clamp(2px, 1cqw, 4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
 .demo-ring {
   position: absolute;
   left: -9px;
@@ -485,5 +600,11 @@ onBeforeUnmount(() => {
     opacity: 0;
     transform: scale(1.6);
   }
+}
+.demo-btn-arrow {
+  width: clamp(7px, 2cqw, 12px);
+  height: clamp(7px, 2cqw, 12px);
+  margin-left: clamp(3px, 1cqw, 6px);
+  flex-shrink: 0;
 }
 </style>

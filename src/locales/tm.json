@@ -1,15 +1,17 @@
 {
   "seo": {
-  "title": "HasApp — biznesi onlaýn dolandyrmak",
-  "description": "HasApp — döwrebap biznes dolandyryş ulgamy: hasaba alyş, hasabatlar we awtomatlaşdyrma bir ýerde."
-},
+    "title": "HasApp — biznesi onlaýn dolandyrmak",
+    "description": "HasApp — döwrebap biznes dolandyryş ulgamy: hasaba alyş, hasabatlar we awtomatlaşdyrma bir ýerde."
+  },
   "nav": {
     "cta": "Arza galdyrmak",
     "features": "Mümkinçilikler",
     "howItWorks": "Ulgam nähili işleýär",
     "testimonials": "Pikirler",
     "pricing": "Tarifler",
-    "faq": "Soraglar"
+    "faq": "Soraglar",
+    "darkMode": "Garaňky tema",
+    "lightMode": "Açyk tema"
   },
   "hero": {
     "badge": "Türkmenistandaky telekeçilik üçin CRM",
@@ -50,22 +52,94 @@
   "howItWorks": {
     "badge": "Ulgam nähili işleýär",
     "headline": "3 ädimde işe girizmek",
-    "description": "Hasaba alnanyňdan başlap ulgamyň doly güýjünde işlemegine çenli — çylşyrymly gurnamalar bolmazdan, bary-ýogy 1–3 gün.",
+    "description": "Ýüztutmaňyzdan başlap ulgamyň doly güýjünde işlemegine çenli — çylşyrymly gurnamalar bolmazdan, bary-ýogy 1–3 gün.",
     "steps": [
       {
         "label": "1-nji ÄDIM",
-        "title": "Hasabyňyzy sazlaň",
-        "subtitle": "Kompaniýa we işgärler baradaky esasy maglumatlardan başlaň — hasaba almak birnäçe minut alýar."
+        "title": "Ýüztutma goýuň",
+        "subtitle": "Biznesiňiz barada gysgaça maglumat beriň — ugry, işgärleriň sany we habarlaşmak üçin maglumatlar. Birnäçe minut alýar."
       },
       {
         "label": "2-nji ÄDIM",
-        "title": "Modullary birikdiriň",
-        "subtitle": "Biznesiňiziň maksatlaryna görä degişli bölümleri — söwda, ammar, maliýe, işgärler — saýlap alyň."
+        "title": "Habarlaşyp, demo guruşdyrarys",
+        "subtitle": "Biznesiňiziň isleglerini maslahatlaşarys we ulgamy satyn almazdan öň synap görmek üçin pudagyňyza görä demo giriş bereris."
       },
       {
         "label": "3-nji ÄDIM",
-        "title": "Işe başlaň",
-        "subtitle": "Ulgam 1–3 günüň içinde taýýar bolar: giriş hukuklaryny sazlaň we biznesi dolandyryp başlaň."
+        "title": "Gurnama we işe girizmek",
+        "subtitle": "Siz razy bolanyňyzdan soň ulgamy biznesiňiz üçin ýaýbaňlandyrarys, giriş hukuklaryny sazlarys we işgärleri okadarys — bary-ýogy 1–3 gün."
+      }
+    ]
+  },
+  "cases": {
+    "badge": "Keýsler",
+    "headline": "Öz pudagyňyzy saýlaň",
+    "description": "HasApp-yň size meňzeş biznes üçin nädip sazlanýandygyny görüň.",
+    "more": "Giňişleýin",
+    "soon": "Ýakynda",
+    "items": [
+      {
+        "client": "Altyn Arzuw",
+        "industry": "Metbugat",
+        "title": "Metbugat üçin CRM",
+        "text": "Sargytlar, bahany hasaplamak, materiallar ammary we önümçiligiň barşy bir ulgamda.",
+        "modules": [
+          "Sargytlar",
+          "Ammar",
+          "Önümçilik",
+          "Hasabatlar"
+        ]
+      },
+      {
+        "client": "Zehinli",
+        "industry": "Logistika",
+        "title": "Logistika üçin CRM",
+        "text": "Daşamak arzalary, müşderiler, sürüjiler we eltip bermegiň ýagdaýlary gözegçilikde.",
+        "modules": [
+          "Arzalar",
+          "Müşderiler",
+          "Maliýe"
+        ]
+      },
+      {
+        "client": "LT",
+        "industry": "Mahabat we önümçilik",
+        "title": "Mahabat-önümçilik kompaniýasy üçin CRM",
+        "text": "Müşderiniň arzasyndan taýýar önüme çenli: möhletler, materiallar, sehiň ýüklenmesi.",
+        "modules": [
+          "Sargytlar",
+          "Ammar",
+          "Taslamalar"
+        ]
+      },
+      {
+        "client": "Takyk Abzal",
+        "industry": "Bilim",
+        "title": "Okuw merkezi üçin CRM",
+        "text": "Diňleýjiler, toparlar, tertip we kurs tölegleri — tablisasyz.",
+        "modules": [
+          "Müşderiler",
+          "Tölegler",
+          "Tertip"
+        ]
+      },
+      {
+        "client": "7 Hammam",
+        "industry": "Hammam toplumy",
+        "title": "Hammam toplumy üçin CRM",
+        "text": "Myhmanlaryň ýazylyşy, tölegler, abonementler we zallaryň ýüklenmesi.",
+        "modules": [
+          "Onlaýn ýazylyş",
+          "Kassa",
+          "Hasabatlar"
+        ]
+      },
+      {
+        "client": "Ýakynda",
+        "industry": "Owadanlyk salony",
+        "title": "Owadanlyk salony üçin CRM",
+        "text": "Keýs taýýarlanylýar — HasApp-yň owadanlyk salonlaryna nädip kömek edýändigini ýakynda görkezeris.",
+        "modules": []
       }
     ]
   },
@@ -80,6 +154,7 @@
     "description": "Gurnamak we öwretmek hyzmaty içinde — aýlyk tölegsiz, lisenziýany bir gezeklik satyn almak.",
     "custom": "Isleg boýunça",
     "oneTime": "bir gezeklik",
+    "popularBadge": "Maslahat berýäris",
     "features": "Mümkinçilikler:",
     "plans": [
       {
@@ -91,7 +166,8 @@
           "Ammar hasabaty",
           "Iş wagtynyň hasabaty",
           "Gurnamak we öwretmek içinde",
-          "1 ýyllyk mugt täzelemeler"
+          "1 ýyllyk mugt täzelemeler",
+          "1 ýyllyk mugt kepillik goldawy"
         ],
         "cta": "Başlamak"
       },
@@ -100,11 +176,16 @@
         "description": "Çeýe sazlamalara we has köp ulanyja mätäç bolan ösüp barýan kompaniýalar üçin.",
         "features": [
           "50 ulanyja çenli",
-          "«Esasy» tarifiň ähli mümkinçilikleri",
+          "CRM we söwda",
+          "Ammar hasabaty",
+          "Iş wagtynyň hasabaty",
+          "Gurnamak we öwretmek içinde",
+          "1 ýyllyk mugt täzelemeler",
           "Köp pul birligi we köp kompaniýalylyk",
           "300-den gowrak giriş hukugy",
           "Fiziki wagt registrotory",
-          "Ilkinji nobatdaky goldaw"
+          "Ilkinji nobatdaky goldaw",
+          "1 ýyllyk mugt kepillik goldawy"
         ],
         "cta": "Başlamak"
       }
@@ -115,15 +196,42 @@
     "headline": "Ýygy-ýygydan berilýän soraglar",
     "description": "HasApp barada iň köp berilýän soraglaryň jogaplaryny ýygnadyk — eger öz soragyňyzy tapmadyk bolsaňyz, bize ýazyň.",
     "items": [
-      { "question": "HasApp näme?", "answer": "HasApp — biznesi dolandyrmak üçin ulgamdyr: söwda, ammar, maliýe, işgärler we aragatnaşyk bir ýerde." },
-      { "question": "HasApp ulgamynda meniň maglumatlarym näderejede howpsuz?", "answer": "Maglumatlar öz serweriňizde galýar, giriş bolsa hukuklar ulgamy (300-den gowrak giriş hukugy) arkaly sazlanýar." },
-      { "question": "Ulgam nähili işleýär?", "answer": "Siz kompaniýany hasaba alýarsyňyz, gerekli modullary birikdirýärsiňiz we işläp başlaýarsyňyz — ulgamy ýerleşdirmek 1–3 gün alýar." },
-      { "question": "Ulgamy öz biznesime görä sazlap bilerinmi?", "answer": "Hawa, ähli modullarda öz meýdançalaryňyzy, kategoriýalaryňyzy goşup bilersiňiz we interfeýs elementleriniň ýerleşişini islegiňize görä üýtgedip bilersiňiz." },
-      { "question": "HasApp birnäçe kompaniýany goldaýarmy?", "answer": "Hawa, ulgam birnäçe ýuridik şahsy bolan telekeçilik üçin köp kompaniýalylygy we köp pul birligini (multiwalyuta) goldaýar." },
-      { "question": "HasApp bilen işe nähili başlamaly?", "answer": "Ýüztutma galdyryň — biz 1–3 günüň içinde ulgamy biznesiňize laýyklykda ýerleşdireris we giriş hukuklaryny sazlap bereris." },
-      { "question": "HasApp işgärleriň iş wagtyny hasaba alyp bilýärmi?", "answer": "Hawa, iş gününiň başlangyjyny we ahyryny belläp alýan fiziki registrator goldawy hem muňa degişlidir." },
-      { "question": "HasApp-yň nähili tarifleri bar?", "answer": "Lisenziýa bir gezeklik satyn alynýar: 10 ulanyjy üçin «Esasy» tarifi — $1000, 50 ulanyjy üçin «Standart» tarifi — $2000. Has giňişleýin maglumat «Tarifler» bölüminde." },
-      { "question": "Satyn almazdan ozal HasApp-y synap görüp bolýarmy?", "answer": "Hawa, gysgaça gürrüňdeşlikden soň, siziň ugruňyza laýyklykda görkezme maglumatlary bolan 1 aýlyk demo-giriş hödürleýäris — satyn almazdan ozal ulgama özüňiz baha berip bilersiňiz." }
+      {
+        "question": "HasApp näme?",
+        "answer": "HasApp — biznesi dolandyrmak üçin ulgamdyr: söwda, ammar, maliýe, işgärler we aragatnaşyk bir ýerde."
+      },
+      {
+        "question": "HasApp ulgamynda meniň maglumatlarym näderejede howpsuz?",
+        "answer": "Maglumatlar öz serweriňizde galýar, giriş bolsa hukuklar ulgamy (300-den gowrak giriş hukugy) arkaly sazlanýar."
+      },
+      {
+        "question": "Ulgam nähili işleýär?",
+        "answer": "Siz kompaniýany hasaba alýarsyňyz, gerekli modullary birikdirýärsiňiz we işläp başlaýarsyňyz — ulgamy ýerleşdirmek 1–3 gün alýar."
+      },
+      {
+        "question": "Ulgamy öz biznesime görä sazlap bilerinmi?",
+        "answer": "Hawa, ähli modullarda öz meýdançalaryňyzy, kategoriýalaryňyzy goşup bilersiňiz we interfeýs elementleriniň ýerleşişini islegiňize görä üýtgedip bilersiňiz."
+      },
+      {
+        "question": "HasApp birnäçe kompaniýany goldaýarmy?",
+        "answer": "Hawa, ulgam birnäçe ýuridik şahsy bolan telekeçilik üçin köp kompaniýalylygy we köp pul birligini (multiwalyuta) goldaýar."
+      },
+      {
+        "question": "HasApp bilen işe nähili başlamaly?",
+        "answer": "Ýüztutma galdyryň — biz 1–3 günüň içinde ulgamy biznesiňize laýyklykda ýerleşdireris we giriş hukuklaryny sazlap bereris."
+      },
+      {
+        "question": "HasApp işgärleriň iş wagtyny hasaba alyp bilýärmi?",
+        "answer": "Hawa, iş gününiň başlangyjyny we ahyryny belläp alýan fiziki registrator goldawy hem muňa degişlidir."
+      },
+      {
+        "question": "HasApp-yň nähili tarifleri bar?",
+        "answer": "Lisenziýa bir gezeklik satyn alynýar: 10 ulanyjy üçin «Esasy» tarifi — $1000, 50 ulanyjy üçin «Standart» tarifi — $2000. Has giňişleýin maglumat «Tarifler» bölüminde."
+      },
+      {
+        "question": "Satyn almazdan ozal HasApp-y synap görüp bolýarmy?",
+        "answer": "Hawa, gysgaça gürrüňdeşlikden soň, siziň ugruňyza laýyklykda görkezme maglumatlary bolan 1 aýlyk demo-giriş hödürleýäris — satyn almazdan ozal ulgama özüňiz baha berip bilersiňiz."
+      }
     ]
   },
   "cta": {
@@ -143,7 +251,8 @@
     "sending": "Ugradylýar...",
     "successTitle": "Ugradyldy!",
     "successText": "Biz ýakyn wagtda siziň bilen habarlaşarys.",
-    "address": "Türkmenistan, Aşgabat ş.",
+    "address": "Aşgabat ş., 2127 köçe (G. Kulyýew), «Gökje» binasy 26A",
+    "showOnMap": "Kartada görkez",
     "phoneValue": "+993 12 75 37 13",
     "emailValue": "info{'@'}ltm.studio",
     "sendError": "Arzany ugratmak başartmady. Gaýtadan synanyşyň ýa-da bize göni ýazyň.",
@@ -161,18 +270,30 @@
     "socialMedia": "Sosial ulgamlar",
     "copyright": "© HasApp, 2026. Ähli hukuklar goralan.",
     "pageLinks": [
-      { "label": "Biz barada" } ,
-      { "label": "Mümkinçilikler" },
-      { "label": "Nähili işleýär" },
-      { "label": "Tarifler" },
-      { "label": "Soraglar" }
-      
+      {
+        "label": "Biz barada"
+      },
+      {
+        "label": "Mümkinçilikler"
+      },
+      {
+        "label": "Nähili işleýär"
+      },
+      {
+        "label": "Tarifler"
+      },
+      {
+        "label": "Soraglar"
+      }
     ],
-"resourceLinks": [
-  { "label": "Habarlaşmak" },
-  { "label": "Gizlinlik syýasaty" }
-]
-  
+    "resourceLinks": [
+      {
+        "label": "Habarlaşmak"
+      },
+      {
+        "label": "Gizlinlik syýasaty"
+      }
+    ]
   },
   "about": {
     "badge": "Biz barada",
@@ -181,19 +302,36 @@
     "headlineAccent": "öz biznesiňize görä gurnalan ulgam",
     "description": "HasApp — ýerli hünärmenler tarapyndan ýörite Türkmenistanyň bazary üçin taýýarlanan biznesi dolandyryş ulgamydyr. Söwda we CRM, ammar, maliýe, HR, taslamalar we aragatnaşyk — ählisi bir ýerde, türkmen, rus we iňlis dillerinde elýeterli. Biz bulut (cloud) önümini satmaýarys — maglumatlaryňyz diňe öz serweriňizde galýar.",
     "stats": [
-  { "value": "Çeýe sazlama", "label": "islendik iş üçin" },
-  { "value": "Ýerli goldaw", "label": "siziň diliňizde" },
-  { "value": "Bellenen baha", "label": "gizlin töleg ýok" }
-],
+      {
+        "value": "Çeýe sazlama",
+        "label": "islendik iş üçin"
+      },
+      {
+        "value": "Ýerli goldaw",
+        "label": "siziň diliňizde"
+      },
+      {
+        "value": "Bellenen baha",
+        "label": "gizlin töleg ýok"
+      }
+    ],
     "storyHeadline": "Biz bu seplere nädip ",
     "storyHeadlineAccent": "ýetdik",
-    "storyDescription": "HasApp-yň işlenip taýýarlanylmagy mundan iki ýyl ozal ýekeje modul — nagt pul akymlaryny we çykdajylaryny yzarlaýan ýönekeý gural bilen başlandy. Wagtyň geçmegi bilen ol doly derejeli biznesi dolandyryş platformasyna öwrüldi we biz ony ilkinji müşderilerimiz bilen bilelikde kämilleşdirmegi dowam etdirýäris.",
+    "storyDescription": "HasApp-yň işlenip taýýarlanylmagy mundan iki ýyl ozal ýekeje modul — nagt pul akymlaryny we çykdajylaryny yzarlaýan ýönekeý gural bilen başlandy. Wagtyň geçmegi bilen ol doly derejeli biznesi dolandyryş platformasyna öwrüldi.",
     "knowMore": "Habarlaşmak",
     "timeline": [
-      { "year": "2024", "label": "Prototip: nagt pul yzarlamasy" },
-      { "year": "2025", "label": "Modullaryň ösmegi: CRM, ammar, maliýe" },
-      { "year": "2026", "label": "Platformanyň işe girizilmegi — 1-nji noýabr" }
+      {
+        "year": "2024",
+        "label": "Prototip: nagt pul yzarlamasy"
+      },
+      {
+        "year": "2025",
+        "label": "Modullaryň ösmegi: CRM, ammar, maliýe"
+      },
+      {
+        "year": "2026",
+        "label": "Täze modullar: işgärler, aýlyk, iş wagty"
+      }
     ]
   }
-
 }

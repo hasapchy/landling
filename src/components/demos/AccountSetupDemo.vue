@@ -1,5 +1,5 @@
 <template>
-  <div ref="stage" class="relative w-full overflow-hidden rounded-[12px] sm:rounded-[16px] bg-white select-none"
+  <div ref="stage" class="demo-no-dark relative w-full overflow-hidden rounded-[12px] sm:rounded-[16px] bg-white select-none"
     style="aspect-ratio: 900 / 481; container-type: inline-size; container-name: demo-stage;">
 
     <!-- логотип объявлен один раз, дальше переиспользуется через <use> -->
@@ -21,72 +21,41 @@
       </symbol>
     </svg>
 
-    <!-- контент, который зумится и уходит в блюр -->
-    <div class="absolute inset-0 transition-[filter,transform] duration-700 ease-[cubic-bezier(.4,0,.2,1)]"
-      :style="{ filter: `blur(${blurPx}px)`, transform: `scale(${zoomScale})`, transformOrigin: '72% 50%' }">
+    <!-- форма заявки, как на реальном сайте (имя / телефон / email / сообщение) -->
+    <div class="absolute inset-0 flex items-center justify-center transition-[filter,transform] duration-700 ease-[cubic-bezier(.4,0,.2,1)]"
+      :style="{ filter: `blur(${blurPx}px)`, transform: `scale(${zoomScale})`, transformOrigin: '50% 45%', opacity: phase === 'success' ? 0 : 1 }">
 
-      <!-- ===== экран "Войти" ===== -->
-      <div class="absolute inset-0 flex transition-transform duration-700 ease-[cubic-bezier(.4,0,.2,1)]"
-        :style="{ transform: phase === 'login' ? 'translateX(0%)' : 'translateX(-100%)' }">
+      <div class="w-full h-full bg-white flex flex-col justify-center demo-gap px-[9%]">
+        <svg class="demo-logo-svg"><use href="#hasapp-mark-step1" /></svg>
+        <h3 class="demo-h1">Оставить заявку</h3>
+        <p class="demo-sub">Расскажите немного о своём бизнесе</p>
 
-        <div class="w-1/2 h-full bg-white flex flex-col justify-center demo-gap px-[7%]">
-          <svg class="demo-logo-svg"><use href="#hasapp-mark-step1" /></svg>
-          <h3 class="demo-h1">Войти</h3>
-          <p class="demo-sub">Войдите, используя свой аккаунт</p>
-
-          <div ref="loginEmail" class="demo-input">
-            <span class="demo-placeholder">Введите email</span>
-          </div>
-          <div ref="loginPass" class="demo-input flex items-center justify-between">
-            <span class="demo-placeholder">Введите пароль</span>
-            <span class="demo-eye">👁</span>
-          </div>
-          <div ref="toRegisterFromLoginBtn" class="demo-btn-solid">ВОЙТИ</div>
+        <div ref="fName" class="demo-input">
+          <span :class="{ 'demo-placeholder': !form.name }">{{ form.name || 'Ваше имя' }}</span>
         </div>
-
-        <div class="w-1/2 h-full demo-blue flex flex-col items-center justify-center demo-gap text-center px-[7%]">
-          <h3 class="demo-h1 demo-h1--white">С возвращением!</h3>
-          <p class="demo-sub demo-sub--white">Войдите, чтобы продолжить</p>
-          <div ref="toRegisterBtn" class="demo-btn-outline">ЗАРЕГИСТРИРОВАТЬСЯ</div>
+        <div ref="fPhone" class="demo-input">
+          <span :class="{ 'demo-placeholder': !form.phone }">{{ form.phone || 'Ваш телефон' }}</span>
         </div>
-      </div>
-
-      <!-- ===== экран "Создать аккаунт" ===== -->
-      <div class="absolute inset-0 flex transition-transform duration-700 ease-[cubic-bezier(.4,0,.2,1)]"
-        :style="{ transform: phase === 'login' ? 'translateX(100%)' : 'translateX(0%)' }">
-
-        <div class="w-1/2 h-full demo-blue flex flex-col items-center justify-center demo-gap text-center px-[7%]">
-          <h3 class="demo-h1 demo-h1--white">Привет, друг!</h3>
-          <p class="demo-sub demo-sub--white">Введите данные, чтобы начать</p>
-          <div class="demo-btn-outline">ВОЙТИ</div>
+        <div ref="fEmail" class="demo-input">
+          <span :class="{ 'demo-placeholder': !form.email }">{{ form.email || 'Ваш email' }}</span>
         </div>
-
-        <div class="w-1/2 h-full bg-white flex flex-col justify-center demo-gap px-[7%]">
-          <svg class="demo-logo-svg"><use href="#hasapp-mark-step1" /></svg>
-          <h3 class="demo-h1">Создать аккаунт</h3>
-          <p class="demo-sub">Используйте email для регистрации</p>
-
-          <div ref="regName" class="demo-input">
-            <span :class="{ 'demo-placeholder': !regValues.name }">{{ regValues.name || 'Название' }}</span>
-          </div>
-          <div ref="regEmail" class="demo-input">
-            <span :class="{ 'demo-placeholder': !regValues.email }">{{ regValues.email || 'Введите email' }}</span>
-          </div>
-          <div ref="regPass" class="demo-input flex items-center justify-between">
-            <span :class="{ 'demo-placeholder': !regValues.pass }">
-              {{ regValues.pass ? (regShowPass ? regValues.pass : '•'.repeat(regValues.pass.length)) : 'Введите пароль' }}
-            </span>
-            <span ref="eyeIcon" class="demo-eye" :class="{ 'demo-eye--on': regShowPass }">👁</span>
-          </div>
-          <div ref="regSubmit" class="demo-btn-solid">ЗАРЕГИСТРИРОВАТЬСЯ</div>
+        <div ref="fMessage" class="demo-input demo-input--area">
+          <span :class="{ 'demo-placeholder': !form.message }">{{ form.message || 'Напишите, если хотите что-то уточнить...' }}</span>
         </div>
+        <div ref="submitBtn" class="demo-btn-solid">ОТПРАВИТЬ ЗАЯВКУ</div>
       </div>
     </div>
 
-    <!-- логотип, проступающий сквозь блюр -->
-    <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-700"
-      :style="{ opacity: phase === 'logo' ? 1 : 0 }">
-      <svg class="demo-logo-svg demo-logo-svg--big"><use href="#hasapp-mark-step1" /></svg>
+    <!-- экран успешной отправки -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center demo-gap text-center transition-opacity duration-700"
+      :style="{ opacity: phase === 'success' ? 1 : 0 }">
+      <div class="demo-check">
+        <svg viewBox="0 0 24 24" fill="none" width="100%" height="100%">
+          <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <h3 class="demo-h1">Заявка отправлена!</h3>
+      <p class="demo-sub">Мы свяжемся с вами в ближайшее время</p>
     </div>
 
     <!-- курсор -->
@@ -104,29 +73,25 @@
 <script setup>
 import { ref, reactive, onMounted, onBeforeUnmount, nextTick } from 'vue'
 
+const emit = defineEmits(['finished'])
+
 const stage = ref(null)
 const ring = ref(null)
 
-const loginEmail = ref(null)
-const loginPass = ref(null)
-const toRegisterFromLoginBtn = ref(null)
-const toRegisterBtn = ref(null)
+const fName = ref(null)
+const fPhone = ref(null)
+const fEmail = ref(null)
+const fMessage = ref(null)
+const submitBtn = ref(null)
 
-const regName = ref(null)
-const regEmail = ref(null)
-const regPass = ref(null)
-const regSubmit = ref(null)
-const eyeIcon = ref(null)
-
-const phase = ref('login') // 'login' | 'register' | 'logo'
+const phase = ref('form') // 'form' | 'success'
 const cursorX = ref(0)
 const cursorY = ref(0)
 const cursorVisible = ref(false)
 const zoomScale = ref(1)
 const blurPx = ref(0)
 
-const regValues = reactive({ name: '', email: '', pass: '' })
-const regShowPass = ref(false)
+const form = reactive({ name: '', phone: '', email: '', message: '' })
 
 let alive = true
 
@@ -137,9 +102,10 @@ function wait(ms) {
 function pointOf(el) {
   const stageBox = stage.value.getBoundingClientRect()
   const box = el.getBoundingClientRect()
+  const k = stageBox.width / stage.value.offsetWidth || 1 // сцена может быть масштабирована родителем
   return {
-    x: box.left - stageBox.left + box.width / 2,
-    y: box.top - stageBox.top + box.height / 2,
+    x: (box.left - stageBox.left + box.width / 2) / k,
+    y: (box.top - stageBox.top + box.height / 2) / k,
   }
 }
 
@@ -173,11 +139,11 @@ async function typeInto(obj, key, text, perChar = 45) {
 }
 
 function resetAll() {
-  phase.value = 'login'
-  regValues.name = ''
-  regValues.email = ''
-  regValues.pass = ''
-  regShowPass.value = false
+  phase.value = 'form'
+  form.name = ''
+  form.phone = ''
+  form.email = ''
+  form.message = ''
   zoomScale.value = 1
   blurPx.value = 0
   cursorVisible.value = false
@@ -189,54 +155,49 @@ async function run() {
     await wait(900)
     if (!alive) return
 
-    // клик "Зарегистрироваться" на экране входа
-    await moveTo(toRegisterBtn.value)
-    await tap()
-    phase.value = 'register'
-    await wait(750)
-    if (!alive) return
-
     // зум к полям формы
-    zoomScale.value = 1.22
+    zoomScale.value = 1.16
     await wait(500)
     if (!alive) return
 
     // заполнение формы
-    await moveTo(regName.value, 500)
+    await moveTo(fName.value, 500)
     await tap()
-    await typeInto(regValues, 'name', 'Alem Trading')
+    await typeInto(form, 'name', 'Мердан Оразов')
     if (!alive) return
 
-    await moveTo(regEmail.value, 500)
+    await moveTo(fPhone.value, 500)
     await tap()
-    await typeInto(regValues, 'email', 'info@alemtrading.tm')
+    await typeInto(form, 'phone', '+993 65 00 00 00')
     if (!alive) return
 
-    await moveTo(regPass.value, 500)
+    await moveTo(fEmail.value, 500)
     await tap()
-    await typeInto(regValues, 'pass', 'hasapp2026')
+    await typeInto(form, 'email', 'info@alemtrading.tm')
     if (!alive) return
 
-    await moveTo(eyeIcon.value, 400)
+    await moveTo(fMessage.value, 500)
     await tap()
-    regShowPass.value = true
-    await wait(550)
+    await typeInto(form, 'message', 'Хочу подключить CRM для магазина')
     if (!alive) return
 
-    await moveTo(regSubmit.value, 500)
+    await moveTo(submitBtn.value, 500)
     await tap()
     if (!alive) return
 
-    // блюр + проявление логотипа
+    // блюр + переход на экран успеха
     cursorVisible.value = false
     zoomScale.value = 1.3
     blurPx.value = 14
-    await wait(550)
+    await wait(450)
     if (!alive) return
 
-    phase.value = 'logo'
-    await wait(1700)
+    phase.value = 'success'
+    await wait(1900)
     if (!alive) return
+
+    emit('finished')
+    return
   }
 }
 
@@ -303,6 +264,12 @@ onBeforeUnmount(() => {
   background: #fff;
 }
 
+.demo-input--area {
+  height: clamp(20px, 7cqw, 42px);
+  align-items: flex-start;
+  padding-top: clamp(3px, 1cqw, 6px);
+}
+
 .demo-placeholder {
   color: #A7B0BE;
 }
@@ -339,6 +306,16 @@ onBeforeUnmount(() => {
   letter-spacing: .04em;
   font-size: clamp(6px, 1.4cqw, 9.5px);
   white-space: nowrap;
+}
+
+.demo-check {
+  width: clamp(26px, 9cqw, 54px);
+  height: clamp(26px, 9cqw, 54px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1B9E5A, #0F6F3E);
+  color: #fff;
+  padding: clamp(6px, 2cqw, 12px);
+  box-shadow: 0 6px 18px rgba(15, 111, 62, 0.3);
 }
 
 .demo-ring {

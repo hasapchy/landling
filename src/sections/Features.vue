@@ -138,7 +138,7 @@
 
           <!-- картинка -->
           <div class="relative z-[1] max-w-[92vw] max-h-[86vh] flex flex-col items-center gap-4" @click.stop>
-            <img :src="lightboxImage" :alt="lightboxAlt"
+            <img :src="lightboxImage" :alt="lightboxAlt" decoding="async"
               class="max-w-[92vw] max-h-[78vh] object-contain rounded-2xl shadow-2xl select-none" draggable="false" />
 
             <!-- точки внутри лайтбокса, переключают только эту группу -->

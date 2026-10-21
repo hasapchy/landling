@@ -2,8 +2,10 @@
     <section id="how-it-works"
         class="relative  text-center pt-16 sm:pt-20 md:pt-24 px-6 sm:px-8 pb-10 sm:pb-12 md:pb-15 w-full max-w-[1440px] mx-auto">
 
-        <img src="/images/Left.png" alt="" class="how-it-works__side how-it-works__side--left" />
-        <img src="/images/Right.png" alt="" class="how-it-works__side how-it-works__side--right" />
+        <img src="/images/Left.png" alt="" width="1560" height="1740" loading="lazy" decoding="async"
+            class="how-it-works__side how-it-works__side--left" />
+        <img src="/images/Right.png" alt="" width="1740" height="1740" loading="lazy" decoding="async"
+            class="how-it-works__side how-it-works__side--right" />
 
         <div ref="headingRef" class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6
              transition-all duration-700 ease-out"
@@ -44,38 +46,64 @@
             </p>
         </div>
 
-        <!-- контент шагов ниже -->
-        <div class="mt-10 sm:mt-14 md:mt-16 lg:mt-20 flex flex-wrap justify-center gap-6 lg:gap-8 relative z-[2]">
-            <div v-for="(step, index) in steps" :key="step.title" :ref="el => setItemRef(el, index)" class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] max-w-[520px] flex flex-col items-start text-left overflow-hidden rounded-[18px] sm:rounded-[24px] border border-[#0392FF]/60 bg-[radial-gradient(circle_at_50%_50%,rgba(0,94,173,0.3)_0%,rgba(218,236,248,0.2)_100%)] p-5 sm:p-8
-                       transition-all duration-700 ease-out"
-                :class="visibleItems.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
-                :style="{ transitionDelay: visibleItems.has(index) ? `${index * 120}ms` : '0ms' }">
+        <!-- вкладки + общая сцена -->
+        <div ref="showcaseRef" class="relative z-[2] mt-10 sm:mt-14 md:mt-16 lg:mt-20 w-full max-w-[880px] mx-auto
+                   transition-all duration-700 ease-out"
+            :class="inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
 
-                <AccountSetupDemo v-if="index === 0" class="w-full block rounded-[12px] sm:rounded-[16px]" />
-                <AccountModulesDemo v-else-if="index === 1" class="w-full block rounded-[12px] sm:rounded-[16px]" />
-                <DashboardReportsDemo v-else-if="index === 2" class="w-full block rounded-[12px] sm:rounded-[16px]" />
-                <img v-else :src="step.img" :alt="step.title" class="w-full block rounded-[12px] sm:rounded-[16px]" />
+            <!-- кнопки-вкладки -->
+            <div class="grid grid-cols-3 gap-2 sm:gap-4" role="tablist">
+                <button v-for="(step, index) in steps" :key="step.title" type="button" role="tab"
+                    :aria-selected="active === index" @click="selectStep(index)"
+                    class="relative overflow-hidden rounded-[16px] sm:rounded-[22px] border px-2 sm:px-5 py-3 sm:py-5
+                           flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 text-center
+                           font-display font-bold leading-tight transition-all duration-300 cursor-pointer
+                           text-[11px] sm:text-base lg:text-xl"
+                    :class="active === index
+                        ? 'bg-white/90 dark:bg-white/[0.09] border-[#0392FF]/40 text-[#054C86] dark:text-[#6cb6f2] shadow-[0_10px_30px_rgba(3,146,255,0.18)]'
+                        : 'bg-white/50 dark:bg-white/[0.04] border-black/5 dark:border-white/10 text-black/55 dark:text-white/50 hover:bg-white/75 dark:hover:bg-white/[0.07] hover:text-black/80 dark:hover:text-white/80'">
 
-                <div class="flex flex-col items-start gap-4 sm:gap-5 pt-5 sm:pt-6 pb-2 sm:pb-3">
-                    <div class="inline-flex items-center gap-2.5 rounded-full bg-[#054C86]/10 pl-3 pr-4 py-1.5">
-                        <span class="text-sm font-bold uppercase tracking-wider
- bg-clip-text text-transparent
- bg-[linear-gradient(180deg,#054C86,#065A9D)]
- [-webkit-text-fill-color:transparent]">
-                            {{ step.label }}
-                        </span>
+                    <span class="flex h-7 w-7 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-[9px] sm:rounded-[11px] text-white
+                                 bg-[linear-gradient(135deg,#0392FF,#054C86)] transition-opacity duration-300"
+                        :class="active === index ? 'opacity-100' : 'opacity-60'">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 sm:h-5 sm:w-5"
+                            v-html="tabIcons[index]"></svg>
+                    </span>
+                    <span>{{ step.title }}</span>
+
+                    <!-- индикатор воспроизведения -->
+                    <span class="absolute left-0 right-0 bottom-0 h-[3px] bg-[#0392FF]/10" v-if="active === index">
+                        <span class="block h-full rounded-r-full bg-[linear-gradient(90deg,#0392FF,#054C86)]"
+                            :style="{ width: (progress * 100) + '%' }"></span>
+                    </span>
+                </button>
+            </div>
+
+            <!-- сцена -->
+            <div class="mt-3 sm:mt-5 rounded-[18px] sm:rounded-[28px] border border-[#0392FF]/60
+                        bg-[radial-gradient(circle_at_50%_50%,rgba(0,94,173,0.3)_0%,rgba(218,236,248,0.2)_100%)] p-2.5 sm:p-5">
+                <div ref="stageRef" class="relative w-full overflow-hidden rounded-[12px] sm:rounded-[18px]"
+                    style="aspect-ratio: 900 / 481;">
+                    <div v-if="inView" class="absolute left-0 top-0"
+                        :style="{ width: BASE_W + 'px', transform: `scale(${stageScale})`, transformOrigin: '0 0' }">
+                        <component :is="demos[active]" :key="active + '-' + runId" @finished="onDemoFinished"
+                            class="w-full block rounded-[12px] sm:rounded-[16px]" />
                     </div>
+                </div>
+            </div>
 
-                    <h3 class="font-display font-bold leading-tight text-2xl sm:text-3xl md:text-4xl
-bg-clip-text text-transparent
-bg-[linear-gradient(90deg,#054C86,#065A9D)]
-[-webkit-text-fill-color:transparent]">
-                        {{ step.title }}
-                    </h3>
-
-                    <p class="text-black/70 text-base sm:text-lg leading-relaxed">
-                        {{ step.subtitle }}
-                    </p>
+            <!-- описание активного шага -->
+            <div class="relative mt-5 sm:mt-7 min-h-[88px] sm:min-h-[84px]">
+                <div v-for="(step, index) in steps" :key="'d-' + step.title"
+                    class="absolute inset-0 flex flex-col items-center gap-3 text-center transition-all duration-500"
+                    :class="active === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'">
+                    <div class="inline-flex items-center rounded-full bg-[#054C86]/10 px-4 py-1.5">
+                        <span class="text-xs sm:text-sm font-bold uppercase tracking-wider
+                                     bg-clip-text text-transparent bg-[linear-gradient(180deg,#054C86,#065A9D)]
+                                     [-webkit-text-fill-color:transparent]">{{ step.label }}</span>
+                    </div>
+                    <p class="max-w-2xl text-black/70 text-base sm:text-lg leading-relaxed">{{ step.subtitle }}</p>
                 </div>
             </div>
         </div>
@@ -83,28 +111,116 @@ bg-[linear-gradient(90deg,#054C86,#065A9D)]
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 import AccountSetupDemo from '@/components/demos/AccountSetupDemo.vue'
+import ContactDemoSetup from '@/components/demos/ContactDemoSetup.vue'
 import AccountModulesDemo from '@/components/demos/AccountModulesDemo.vue'
-import DashboardReportsDemo from '@/components/demos/DashboardReportsDemo.vue'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 
 const { t, tm } = useI18n()
 
-const images = ['/images/1.jpg', '/images/1.jpg', '/images/1.jpg']
+const demos = [AccountSetupDemo, ContactDemoSetup, AccountModulesDemo]
+
+// иконки на кнопках-вкладках (24x24, stroke)
+const tabIcons = [
+    '<path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4"/><path d="M10 13h6M10 17h4"/>',
+    '<path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12z"/>',
+    '<path d="M12 15l-3-3a22 22 0 0 1 2-4 12 12 0 0 1 9-5c0 3-1 6-5 9a22 22 0 0 1-3 3z"/><path d="M9 12H4s.5-3 2-4c1.5-1 5 0 5 0"/><path d="M12 15v5s3-.5 4-2c1-1.5 0-5 0-5"/><path d="M5 15c-1 1-1.5 4-1.5 4s3-.5 4-1.5"/>',
+]
 
 const steps = computed(() =>
-    tm('howItWorks.steps').map((step, i) => ({
+    tm('howItWorks.steps').map((step) => ({
         label: step.label,
         title: step.title,
         subtitle: step.subtitle,
-        img: images[i],
     }))
 )
 
-const { headingRef, headingVisible, setItemRef, visibleItems } = useScrollReveal()
+// примерная длительность одного прогона каждой анимации (мс) — для полоски-индикатора;
+// переключение на следующую вкладку происходит по событию finished от самой анимации
+const DURATIONS = [12000, 11500, 15600]
+
+const BASE_W = 560 // ширина, при которой анимации задуманы; дальше масштабируются под сцену
+
+const active = ref(0)
+const progress = ref(0)
+const runId = ref(0)
+const inView = ref(false)
+const stageScale = ref(1)
+
+const showcaseRef = ref(null)
+const stageRef = ref(null)
+
+let raf = 0
+let startT = 0
+let io = null
+let ro = null
+
+function stopProgress() {
+    cancelAnimationFrame(raf)
+}
+
+function startProgress() {
+    stopProgress()
+    progress.value = 0
+    startT = performance.now()
+    const tick = (now) => {
+        progress.value = Math.min(1, (now - startT) / DURATIONS[active.value])
+        raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+}
+
+function selectStep(i) {
+    active.value = i
+    runId.value++
+    if (inView.value) startProgress()
+}
+
+function onDemoFinished() {
+    if (!inView.value) return
+    progress.value = 1
+    selectStep((active.value + 1) % demos.length)
+}
+
+function updateScale() {
+    if (!stageRef.value) return
+    stageScale.value = stageRef.value.clientWidth / BASE_W
+}
+
+onMounted(() => {
+    updateScale()
+    ro = new ResizeObserver(updateScale)
+    if (stageRef.value) ro.observe(stageRef.value)
+
+    io = new IntersectionObserver(
+        ([entry]) => {
+            const visible = entry.isIntersecting
+            if (visible === inView.value) return
+            inView.value = visible
+            if (visible) {
+                updateScale()
+                runId.value++
+                startProgress()
+            } else {
+                stopProgress()
+                progress.value = 0
+            }
+        },
+        { threshold: 0.35 },
+    )
+    if (showcaseRef.value) io.observe(showcaseRef.value)
+})
+
+onBeforeUnmount(() => {
+    stopProgress()
+    if (io) io.disconnect()
+    if (ro) ro.disconnect()
+})
+
+const { headingRef, headingVisible } = useScrollReveal()
 </script>
 
 <style scoped>

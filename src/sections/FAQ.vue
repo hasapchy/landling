@@ -3,7 +3,8 @@
         class="relative overflow-hidden text-center pt-16 sm:pt-20 md:pt-24 px-6 sm:px-8 pb-16 sm:pb-20 md:pb-42 w-full max-w-[1440px] mx-auto">
 
         <!-- место под изображение, добавишь сама -->
-        <img src="/images/faq-bg.png" alt="" class="absolute z-[1] pointer-events-none object-contain left-1/2 -translate-x-1/2 -translate-y-1/2
+        <img src="/images/faq-bg.png" alt="" width="1740" height="1740" loading="lazy" decoding="async"
+          class="absolute z-[1] pointer-events-none object-contain left-1/2 -translate-x-1/2 -translate-y-1/2
            w-[600px]
            top-[520px]
            sm:w-[750px] sm:top-[580px]
@@ -35,7 +36,7 @@
             </h2>
 
             <p
-                class="max-w-[90%] sm:max-w-md md:max-w-xl lg:max-w-2xl text-black/70 text-base sm:text-lg md:text-xl leading-[1.3] sm:leading-[1.2]">
+                class="max-w-[90%] sm:max-w-md md:max-w-xl lg:max-w-2xl text-black/70 dark:text-white/70 text-base sm:text-lg md:text-xl leading-[1.3] sm:leading-[1.2]">
                 {{ t('faq.description') }}
             </p>
         </div>
@@ -47,11 +48,16 @@
                 <div v-for="item in column" :key="item.id" :ref="el => setCardRef(el, item.id)" class="faq-card rounded-[16px] px-5 sm:px-6 overflow-hidden
                            transition-[opacity,transform] duration-700 ease-out"
                     :class="visibleCards.has(item.id) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-                    :style="{ transitionDelay: visibleCards.has(item.id) ? `${(item.id - 1) * 90}ms` : '0ms' }">
+                    :style="{
+                        transitionDelay: visibleCards.has(item.id) ? `${(item.id - 1) * 90}ms` : '0ms',
+                        backgroundImage: isDark
+                            ? 'linear-gradient(180deg, rgba(14,24,38,1) 0%, rgba(14,24,38,1) 100%), linear-gradient(180deg, #0392ff 0%, #2f6fa8 35%, #0e1826 100%)'
+                            : 'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%), linear-gradient(180deg, #0392ff 0%, #7fc4ff 35%, #ffffff 100%)'
+                    }">
                     <button type="button" @click="toggle(item.id)"
                         class="w-full flex items-center justify-between gap-4 py-5 sm:py-6 text-left">
-                        <span class="font-bold text-base sm:text-lg text-black">{{ item.question }}</span>
-                        <span class="relative h-6 w-6 shrink-0 flex items-center justify-center text-[#054C86]">
+                        <span class="font-bold text-base sm:text-lg text-black dark:text-white">{{ item.question }}</span>
+                        <span class="relative h-6 w-6 shrink-0 flex items-center justify-center text-[#054C86] dark:text-[#6cb6f2]">
                             <span class="absolute w-6 h-[2px] bg-current"></span>
                             <span class="absolute w-[2px] h-6 bg-current transition-transform duration-300"
                                 :class="openIds.has(item.id) ? 'scale-y-0' : 'scale-y-100'"></span>
@@ -61,7 +67,7 @@
                     <div class="grid transition-[grid-template-rows] duration-300 ease-in-out"
                         :style="{ gridTemplateRows: openIds.has(item.id) ? '1fr' : '0fr' }">
                         <div class="overflow-hidden">
-                            <p class="pb-5 sm:pb-6 text-sm sm:text-base text-black/60 leading-relaxed">
+                            <p class="pb-5 sm:pb-6 text-sm sm:text-base text-black/60 dark:text-white/60 leading-relaxed">
                                 {{ item.answer }}
                             </p>
                         </div>
@@ -77,8 +83,10 @@
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
+import { useTheme } from '@/composables/useTheme'
 
 const { t, tm } = useI18n()
+const { isDark } = useTheme()
 
 const openIds = ref(new Set())
 

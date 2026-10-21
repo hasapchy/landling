@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* включает dark: на основе класса .dark на <html>, а не только системной темы —
+   см. src/composables/useTheme.js (ставит класс по системе И по ручному выбору) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* цвета */
   --color-bg: white;
@@ -29,6 +33,7 @@ body {
   background: var(--color-bg);
   color: #0a1a2b;
   font-family: var(--font-sans);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 html {
   scroll-behavior: smooth;
@@ -37,6 +42,54 @@ html {
 section[id] {
   scroll-margin-top: 100px;
 }
+
+/* ============================================================
+   Тёмная тема — глобальный слой переопределений.
+   Вместо правки dark:-варианта в каждом файле, здесь переопределяются
+   самые часто используемые в проекте классы (bg-white, text-black/*,
+   border-black/5, bg-[#F4F7FC]) — так тема применяется сразу почти
+   везде. Точечные/редкие цвета (градиенты кнопок, бейджей, glow-карточек)
+   оставлены как есть — на тёмном фоне они и так хорошо читаются.
+   Класс .dark ставится в src/composables/useTheme.js.
+   ============================================================ */
+.dark body {
+  --color-bg: #0a1420;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.dark .bg-white { background-color: #10192b !important; }
+.dark .bg-white\/90 { background-color: rgba(16, 25, 43, 0.9) !important; }
+.dark .bg-white\/80 { background-color: rgba(16, 25, 43, 0.8) !important; }
+.dark .bg-white\/60 { background-color: rgba(16, 25, 43, 0.6) !important; }
+.dark .bg-white\/40 { background-color: rgba(16, 25, 43, 0.5) !important; }
+.dark .bg-white\/35 { background-color: rgba(16, 25, 43, 0.45) !important; }
+.dark .bg-white\/20 { background-color: rgba(255, 255, 255, 0.08) !important; }
+.dark .bg-white\/10 { background-color: rgba(255, 255, 255, 0.06) !important; }
+
+.dark .text-black,
+.dark .text-black\/70,
+.dark .text-black\/60,
+.dark .text-black\/50,
+.dark .text-black\/40 {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+.dark .text-black\/70 { color: rgba(255, 255, 255, 0.76) !important; }
+.dark .text-black\/60 { color: rgba(255, 255, 255, 0.64) !important; }
+.dark .text-black\/50 { color: rgba(255, 255, 255, 0.54) !important; }
+.dark .text-black\/40 { color: rgba(255, 255, 255, 0.44) !important; }
+
+.dark .border-black\/5 { border-color: rgba(255, 255, 255, 0.08) !important; }
+
+.dark .bg-\[\#F4F7FC\] { background-color: rgba(255, 255, 255, 0.06) !important; }
+
+.dark .shadow-\[0_4px_24px_rgba\(5\,76\,134\,0\.08\)\] {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* исключение: миниатюра-демка (AccountSetupDemo) всегда остаётся светлой —
+   это имитация реального интерфейса приложения, её не нужно красить под тему сайта */
+.dark .demo-no-dark.bg-white,
+.dark .demo-no-dark .bg-white { background-color: #fff !important; }
 @layer components {
 
   /* ===== Кнопка ===== */

@@ -8,12 +8,15 @@
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" @click="close"></div>
 
         <!-- окно -->
-        <div class="relative z-[1] w-full max-w-[920px] max-h-[92vh] overflow-y-auto rounded-[24px] bg-white shadow-[0_20px_60px_rgba(5,76,134,0.25)]
+        <div class="relative z-[1] w-full max-w-[920px] max-h-[92vh] overflow-y-auto rounded-[24px] bg-[#ffffff]
+                    dark:bg-[linear-gradient(150deg,#16293f_0%,#0b1726_55%,#060b12_100%)]
+                    shadow-[0_20px_60px_rgba(5,76,134,0.25)]
+                    dark:shadow-[0_20px_60px_rgba(0,0,0,0.55),0_0_0_1px_rgba(3,146,255,0.14)_inset]
                     grid grid-cols-1 md:grid-cols-2">
 
           <!-- кнопка закрытия -->
           <button type="button" @click="close"
-            class="absolute top-4 right-4 sm:top-5 sm:right-5 z-[2] flex h-9 w-9 items-center justify-center rounded-full bg-white/80 text-black/50 hover:bg-black/5 hover:text-black transition-colors">
+            class="absolute top-4 right-4 sm:top-5 sm:right-5 z-[2] flex h-9 w-9 items-center justify-center rounded-full bg-[#ffffff]/80 text-black/50 hover:bg-black/5 hover:text-black dark:bg-white/10 dark:text-white/60 dark:hover:bg-white/15 dark:hover:text-white transition-colors">
             <svg viewBox="0 0 16 16" fill="none" class="h-4 w-4">
               <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
             </svg>
@@ -24,7 +27,7 @@
             <div class="flex flex-col gap-2 pr-8">
               <h3
                 class="text-2xl sm:text-3xl font-display font-bold
-                         bg-clip-text text-transparent bg-[linear-gradient(90deg,#054C86,#065A9D)] [-webkit-text-fill-color:transparent]">
+                         bg-clip-text text-transparent bg-[linear-gradient(90deg,#054C86,#065A9D)] dark:bg-[linear-gradient(90deg,#38A6EA,#7fc4ff)] [-webkit-text-fill-color:transparent]">
                 {{ t('contactModal.title') }}
               </h3>
               <p class="text-sm sm:text-base text-black/60 leading-relaxed">{{ t('contactModal.subtitle') }}</p>
@@ -54,32 +57,32 @@
 
               <div class="flex flex-col gap-1.5">
                 <input v-model="form.name" type="text" :placeholder="t('contactModal.name')" @blur="touched.name = true"
-                  class="w-full rounded-xl bg-[#F4F7FC] border px-4 py-3.5 text-sm sm:text-base outline-none transition-colors placeholder:text-black/40"
-                  :class="errors.name ? 'border-red-400' : 'border-transparent focus:border-[#0392FF]'" />
+                  class="w-full rounded-xl bg-[#F4F7FC] dark:bg-white/[0.06] border px-4 py-3.5 text-sm sm:text-base outline-none transition-colors placeholder:text-black/40 dark:placeholder:text-white/30"
+                  :class="errors.name ? 'border-red-400' : 'border-transparent dark:border-white/10 focus:border-[#0392FF]'" />
                 <span v-if="errors.name" class="text-xs text-red-500">{{ errors.name }}</span>
               </div>
 
               <div class="flex flex-col gap-1.5">
                 <input v-model="form.email" type="email" :placeholder="t('contactModal.email')"
                   @blur="touched.email = true"
-                  class="w-full rounded-xl bg-[#F4F7FC] border px-4 py-3.5 text-sm sm:text-base outline-none transition-colors placeholder:text-black/40"
-                  :class="errors.email ? 'border-red-400' : 'border-transparent focus:border-[#0392FF]'" />
+                  class="w-full rounded-xl bg-[#F4F7FC] dark:bg-white/[0.06] border px-4 py-3.5 text-sm sm:text-base outline-none transition-colors placeholder:text-black/40 dark:placeholder:text-white/30"
+                  :class="errors.email ? 'border-red-400' : 'border-transparent dark:border-white/10 focus:border-[#0392FF]'" />
                 <span v-if="errors.email" class="text-xs text-red-500">{{ errors.email }}</span>
               </div>
 
               <div class="flex flex-col gap-1.5">
                 <input v-model="form.phone" type="tel" :placeholder="t('contactModal.phone')"
                   @blur="touched.phone = true"
-                  class="w-full rounded-xl bg-[#F4F7FC] border px-4 py-3.5 text-sm sm:text-base outline-none transition-colors placeholder:text-black/40"
-                  :class="errors.phone ? 'border-red-400' : 'border-transparent focus:border-[#0392FF]'" />
+                  class="w-full rounded-xl bg-[#F4F7FC] dark:bg-white/[0.06] border px-4 py-3.5 text-sm sm:text-base outline-none transition-colors placeholder:text-black/40 dark:placeholder:text-white/30"
+                  :class="errors.phone ? 'border-red-400' : 'border-transparent dark:border-white/10 focus:border-[#0392FF]'" />
                 <span v-if="errors.phone" class="text-xs text-red-500">{{ errors.phone }}</span>
               </div>
 
               <div class="flex flex-col gap-1.5">
                 <textarea v-model="form.message" rows="4" :placeholder="t('contactModal.messagePlaceholder')"
                   @blur="touched.message = true"
-                  class="w-full rounded-xl bg-[#F4F7FC] border px-4 py-3.5 text-sm sm:text-base outline-none transition-colors resize-none placeholder:text-black/40"
-                  :class="errors.message ? 'border-red-400' : 'border-transparent focus:border-[#0392FF]'"></textarea>
+                  class="w-full rounded-xl bg-[#F4F7FC] dark:bg-white/[0.06] border px-4 py-3.5 text-sm sm:text-base outline-none transition-colors resize-none placeholder:text-black/40 dark:placeholder:text-white/30"
+                  :class="errors.message ? 'border-red-400' : 'border-transparent dark:border-white/10 focus:border-[#0392FF]'"></textarea>
                 <span v-if="errors.message" class="text-xs text-red-500">{{ errors.message }}</span>
               </div>
 
@@ -93,39 +96,53 @@
 
           <!-- правая колонка: картинка + контакты -->
           <div
-            class="relative bg-[#F4F7FC] p-6 sm:p-8 md:p-10 flex flex-col justify-between gap-6 rounded-b-[24px] md:rounded-b-none md:rounded-r-[24px]">
+            class="relative bg-[#F4F7FC] dark:bg-[linear-gradient(160deg,rgba(15,111,191,0.16)_0%,rgba(8,16,26,0.7)_100%)] p-6 sm:p-8 md:p-10 flex flex-col justify-between gap-6 rounded-b-[24px] md:rounded-b-none md:rounded-r-[24px]">
 
-            <!-- место под изображение (добавишь сама) -->
-            <div class="relative flex items-center justify-center flex-1 min-h-[160px]">
-              <img src="/images/logo.png" alt="" class="w-full max-w-[280px] object-contain" />
+            <!-- большая карта с офисом — первой в колонке, занимает всё свободное место -->
+            <div class="relative flex-1 min-h-[260px] md:min-h-[320px] overflow-hidden rounded-2xl border border-black/5 dark:border-white/10 shadow-[0_6px_20px_rgba(5,76,134,0.10)]">
+              <iframe :src="CONTACTS.mapEmbed" title="HasApp — карта" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="absolute inset-0 h-full w-full border-0"></iframe>
             </div>
 
             <!-- контактная информация -->
             <div class="flex flex-col gap-3.5">
               <div class="flex items-start gap-3">
-                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[#054C86]">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#ffffff] text-[#054C86] dark:bg-white/10 dark:text-[#6cb6f2]">
                   <svg viewBox="0 0 16 16" fill="none" class="h-4 w-4">
                     <path d="M8 14.5s5-4.2 5-8.2A5 5 0 0 0 3 6.3c0 4 5 8.2 5 8.2z" stroke="currentColor"
                       stroke-width="1.3" />
                     <circle cx="8" cy="6.3" r="1.8" stroke="currentColor" stroke-width="1.3" />
                   </svg>
                 </span>
-                <p class="text-sm text-black/70 leading-snug pt-2">{{ t('contactModal.address') }}</p>
+                <div class="flex flex-col items-start gap-1 pt-1.5 min-w-0">
+                  <a :href="CONTACTS.mapHref" target="_blank" rel="noopener"
+                    class="text-sm text-black/70 leading-snug transition-colors hover:text-[#054C86] dark:hover:text-[#6cb6f2]">
+                    {{ t('contactModal.address') }}
+                  </a>
+                  <a :href="CONTACTS.mapHref" target="_blank" rel="noopener"
+                    class="text-xs font-semibold text-[#054C86] dark:text-[#6cb6f2] underline-offset-2 hover:underline">
+                    {{ t('contactModal.showOnMap') }} →
+                  </a>
+                </div>
               </div>
 
               <div class="flex items-center gap-3">
-                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[#054C86]">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#ffffff] text-[#054C86] dark:bg-white/10 dark:text-[#6cb6f2]">
                   <svg viewBox="0 0 16 16" fill="none" class="h-4 w-4">
                     <path
                       d="M2.5 3h2.2l1 3-1.4 1a8 8 0 0 0 3.7 3.7l1-1.4 3 1v2.2c0 .6-.5 1-1 1C6.6 13.5 2.5 9.4 2.5 4c0-.5.4-1 1-1z"
                       stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
                   </svg>
                 </span>
-                <p class="text-sm text-black/70">{{ CONTACTS.phone }}</p>
+                <div class="flex flex-col gap-0.5">
+                  <a :href="CONTACTS.phoneHref" class="text-sm text-black/70 transition-colors hover:text-[#054C86] dark:hover:text-[#6cb6f2]">{{ CONTACTS.phone }}</a>
+                  <a :href="CONTACTS.phone2Href" class="text-sm text-black/70 transition-colors hover:text-[#054C86] dark:hover:text-[#6cb6f2]">{{ CONTACTS.phone2 }}</a>
+                </div>
               </div>
 
               <div class="flex items-center gap-3">
-                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[#054C86]">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#ffffff] text-[#054C86] dark:bg-white/10 dark:text-[#6cb6f2]">
                   <svg viewBox="0 0 16 16" fill="none" class="h-4 w-4">
                     <rect x="1.5" y="3" width="13" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2" />
                     <path d="M2 4l6 4.5L14 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"

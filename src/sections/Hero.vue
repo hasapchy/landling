@@ -1,8 +1,9 @@
 <template>
   <section
-    class="relative overflow-hidden text-center pt-16 sm:pt-20 md:pt-24 px-4 sm:px-6 pb-10 sm:pb-12 md:pb-15 w-full max-w-[1440px] mx-auto">
+    class="relative overflow-hidden text-center pt-[88px] sm:pt-20 md:pt-24 px-4 sm:px-6 pb-10 sm:pb-12 md:pb-15 w-full max-w-[1440px] mx-auto">
 
-    <img src="/images/hero-grid.png" alt="" class="absolute top-0 left-1/2 z-0 pointer-events-none -translate-x-1/2 object-contain
+    <img src="/images/hero-grid.png" alt="" width="1600" height="1436" loading="eager" fetchpriority="high"
+      decoding="async" class="absolute top-0 left-1/2 z-0 pointer-events-none -translate-x-1/2 object-contain
            w-[320px]
            xs:w-[400px]
            sm:w-[500px]
@@ -45,7 +46,7 @@
         {{ t('nav.cta') }}
       </button>
 
-      <GlowCard src="/images/HERO.jpg" :alt="t('hero.badge')"
+      <GlowCard src="/images/HERO.jpg" :alt="t('hero.badge')" eager width="1312" height="814"
         class="-mt-8 sm:-mt-12 md:-mt-16 transition-all duration-1000 ease-out"
         :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'" style="transition-delay: 540ms" />
     </div>
