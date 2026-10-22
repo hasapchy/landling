@@ -173,20 +173,20 @@ const badgeActive =
   "border-[rgba(190,225,255,0.4)] text-white bg-[linear-gradient(145deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04))] shadow-[0_0_10px_rgba(60,150,255,0.35),inset_0_0_10px_rgba(120,190,255,0.2)] [&>svg]:drop-shadow-[0_0_4px_rgba(180,220,255,0.6)]"
 
 // Логотипы, иконки и картинки — здесь; тексты — в locales (cases.items).
-// image: большая иллюстрация отрасли справа в карточке — файлы кладём в public/images/cases/
+// image: большая иллюстрация отрасли справа в карточке — файлы кладём в public/images/cwebps/
 //        (JPG/PNG/WebP ~1200×900, тёмно-синий фон). Нет файла или null — показывается иконка.
 const META = [
-  { key: 'print', client: 'Altyn Arzuw', logo: '/images/partners/aa-light.svg', logoDark: '/images/partners/aa-dark.svg', mono: 'AA', image: '/images/cases/1.jpg',
+  { key: 'print', client: 'Altyn Arzuw', logo: '/images/partners/aa-light.svg', logoDark: '/images/partners/aa-dark.svg', mono: 'AA', image: '/images/cases/1.webp',
     icon: 'M6 9V3h12v6 M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2 M6 14h12v7H6z' },
-  { key: 'logistics', client: 'Zehinli', logo: '/images/partners/ZNY.png', logoDark: '/images/partners/ZNY.png', mono: 'ZNY', image: '/images/cases/1.jpg',
+  { key: 'logistics', client: 'Zehinli', logo: '/images/partners/ZNY.png', logoDark: '/images/partners/ZNY.png', mono: 'ZNY', image: '/images/cases/2.webp',
     icon: 'M2 6h11v10H2z M13 9h4l3 3v4h-7z M6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' },
-  { key: 'ads', client: 'LT', logo: '/images/partners/lt-light.svg', logoDark: '/images/partners/lt-dark.svg', mono: 'LT', image: '/images/cases/1.jpg',
+  { key: 'ads', client: 'LT', logo: '/images/partners/lt-light.svg', logoDark: '/images/partners/lt-dark.svg', mono: 'LT', image: '/images/cases/3.webp',
     icon: 'M3 11v3a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z M15 9a4 4 0 0 1 0 6 M18 6.5a8 8 0 0 1 0 11' },
-  { key: 'edu', client: 'Takyk Abzal', logo: '/images/partners/ta-light.svg', logoDark: '/images/partners/ta-dark.svg', mono: 'TA', image: '/images/cases/1.jpg',
+  { key: 'edu', client: 'Takyk Abzal', logo: '/images/partners/ta-light.svg', logoDark: '/images/partners/ta-dark.svg', mono: 'TA', image: '/images/cases/4.webp',
     icon: 'M2 9l10-5 10 5-10 5z M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5 M22 9v6' },
-  { key: 'hammam', client: '7 Hammam', logo: '/images/partners/7H.png', mono: '7 hammam', image: '/images/cases/1.jpg',
+  { key: 'hammam', client: '7 Hammam', logo: '/images/partners/7H.png', mono: '7 hammam', image: '/images/cases/5.webp',
     icon: 'M5 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17 M15 9h3a1 1 0 0 1 1 1v11 M3 21h18 M9 7h2 M9 11h2 M9 15h2' },
-  { key: 'beauty', client: '', logo: null, mono: '', soon: true, image: '/images/cases/1.jpg',
+  { key: 'beauty', client: '', logo: null, mono: '', soon: true, image: '/images/cases/6.webp',
     icon: 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z' },
 ]
 

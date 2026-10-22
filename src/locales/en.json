@@ -46,6 +46,12 @@
         "title": "Configurable",
         "titleAccent": " to your business",
         "subtitle": "Custom fields, categories and access rights — 300+ permissions in the system. Multi-currency and multi-company support for businesses with several legal entities. Works even offline, with data staying on your own server."
+      },
+      {
+        "label": "Email",
+        "title": "Your own email",
+        "titleAccent": " right inside the CRM",
+        "subtitle": "Connect your mailbox and work with emails without leaving the system: receive and send messages in the same window as the rest of your work."
       }
     ]
   },
