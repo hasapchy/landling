@@ -22,4 +22,9 @@ export const CONTACTS = {
 
     email: 'info@ltm.studio',
     emailHref: 'mailto:info@ltm.studio',
+
+    // мобильное приложение: пока '#' — кнопки показывают «Скоро».
+    // Когда будут реальные ссылки на магазины — впиши их сюда, и кнопки заработают везде.
+    appStore: 'https://apps.apple.com/tm/app/hasapp/id6768267016?l=ru',
+    googlePlay: 'https://play.google.com/store/apps/details?id=studio.ltm.hasap&pcampaignid=web_share',
 }

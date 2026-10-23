@@ -36,10 +36,16 @@
         "subtitle": "Haryt kabul edişligi, satyn almalar, hasapdan öçürmeler, yzyna gaýtarmalar we inwentarizasiýa — Excel-syz we «hiç kimiň düşündirip bilmeýän kemçilikleri» bolmazdan."
       },
       {
-        "label": "Aýlyk we wagt",
-        "title": "Zähmet haky we iş wagty",
+        "label": "Iş wagty",
+        "title": "Iş wagtynyň hasabaty",
         "titleAccent": " ýalňyşsyz",
-        "subtitle": "Iş wagtynyň hasabaty, işgärleriň hasabatlary, rugsat günleriniň tertibi we aýlyk hasaplamalary — iş gününiň başlangyjyny we ahyryny belläp alýan fiziki registrator goldawy bilen."
+        "subtitle": "Tabel, işgärleriň hasabatlary we rugsat günleriniň tertibi. Eýýäm wagt registratoryňyz barmy? Ony birikdirip, HasApp bilen sinhronlaşdyrarys. Entek ýok bolsa, menejerimiz nämäni satyn almalydygyny maslahat berer."
+      },
+      {
+        "label": "Aýlyk",
+        "title": "Işgärleriň aýlygy",
+        "titleAccent": " elde hasaplamasyz",
+        "subtitle": "Aýlyk hasaplamasy göni ulgamyň içinde — tablisasyz we elde gaýtadan hasaplamasyz."
       },
       {
         "label": "Çeýelik we howpsuzlyk",
@@ -52,6 +58,18 @@
         "title": "Öz poçtaňyz",
         "titleAccent": " göni CRM-iň içinde",
         "subtitle": "Poçta gutyňyzy birikdiriň we ulgamdan çykman hat bilen işläň: beýleki işiňiziň ýanynda hatlary alyň we iberiň."
+      },
+      {
+        "label": "Hasabatlar",
+        "title": "Biznesiň esasy görkezijileri",
+        "titleAccent": " bir ekranda",
+        "subtitle": "Söwda, müşderiler, ammar, taslamalar we maliýe boýunça wiždetler: gerekli bolanlaryny goşuň we bütin ýagdaýy görüň."
+      },
+      {
+        "label": "AI",
+        "title": "Kömekçi",
+        "titleAccent": " göni ulgamyň içinde",
+        "subtitle": "HasApp-yň içindäki AI-çatlar: ulgamdan çykman çat dörediň we soraglaryňyzy beriň."
       }
     ]
   },
@@ -267,7 +285,10 @@
       "phone": "Dogry telefon belgisini giriziň",
       "email": "Dogry email salgysyny giriziň",
       "message": "Habary giriziň"
-    }
+    },
+    "consentPre": "Formany iberip, siz",
+    "consentLink": "gizlinlik syýasaty",
+    "consentPost": " bilen razylaşýarsyňyz."
   },
   "footer": {
     "description": "HasApp — biznesi dolandyrmak üçin döwrebap ulgamdyr: söwda, ammar, maliýe we işgärler bir ýerde.",
@@ -325,19 +346,80 @@
     "storyHeadlineAccent": "ýetdik",
     "storyDescription": "HasApp-yň işlenip taýýarlanylmagy mundan iki ýyl ozal ýekeje modul — nagt pul akymlaryny we çykdajylaryny yzarlaýan ýönekeý gural bilen başlandy. Wagtyň geçmegi bilen ol doly derejeli biznesi dolandyryş platformasyna öwrüldi.",
     "knowMore": "Habarlaşmak",
-    "timeline": [
-      {
-        "year": "2024",
-        "label": "Prototip: nagt pul yzarlamasy"
-      },
-      {
-        "year": "2025",
-        "label": "Modullaryň ösmegi: CRM, ammar, maliýe"
-      },
-      {
-        "year": "2026",
-        "label": "Täze modullar: işgärler, aýlyk, iş wagty"
-      }
+    "modulesTitle": "Ulgamyň içinde ýene-de",
+    "modules": [
+      "Tabşyryklar",
+      "Çatlar",
+      "Disk",
+      "Taslamalar",
+      "Kalendar",
+      "Kontaktlar",
+      "Işgärler",
+      "Kompaniýalar"
     ]
+  },
+  "app": {
+    "title": "Mobil programma",
+    "hint": "Ýa-da mobil programmany ýükläp alyň",
+    "getOn": "Ýükläp almak:",
+    "bannerTitle": "HasApp mobil programmasy",
+    "bannerSoon": "Ýakynda App Store we Google Play-da",
+    "bannerLive": "App Store we Google Play-da elýeterli"
+  },
+  "privacy": {
+    "title": "Gizlinlik syýasaty",
+    "updated": "Redaksiýa: 2026-njy ýylyň 23-nji oktýabry",
+    "sections": [
+      {
+        "title": "1. Umumy düzgünler",
+        "text": "Bu syýasat HasApp web-sahypasynyň («Sahypa») haýsy şahsy maglumatlary ýygnaýandygyny, olary nähili ulanýandygyny we goraýandygyny düşündirýär. Maglumatlaryň operatory LTM Studio («Operator»), Aşgabat ş., Türkmenistan. Sahypadaky formany iberip, siz bu syýasatyň şertleri bilen razylaşýarsyňyz."
+      },
+      {
+        "title": "2. Haýsy maglumatlary ýygnaýarys",
+        "intro": "Ýüz tutma formasy arkaly biz şulary alýarys:",
+        "items": [
+          "adyňyz;",
+          "telefon belgiňiz;",
+          "e-poçta salgyňyz;",
+          "özüňiziň ýazan habaryňyzyň teksti."
+        ],
+        "text": "Mundan başga-da, spamdan we botlardan goramak üçin Cloudflare Turnstile hyzmaty ulanylýar. Ol enjamyňyzyň tehniki maglumatlaryny we IP salgysyny işläp biler. Biz bank kartlarynyň maglumatlaryny we beýleki duýgur maglumatlary ýygnamaýarys."
+      },
+      {
+        "title": "3. Işlemegiň maksatlary",
+        "intro": "Maglumatlar diňe şu maksatlar üçin gerek:",
+        "items": [
+          "siz bilen habarlaşmak we ýüz tutmaňyza jogap bermek;",
+          "HasApp önümi we birikmegiň şertleri barada gürrüň bermek;",
+          "Sahypany spamdan we kemsidilmeden goramak."
+        ],
+        "text": "Biz maglumatlaryňyzy razylygyňyzsyz hat ugratmak üçin ulanmaýarys we üçünji taraplara satmaýarys."
+      },
+      {
+        "title": "4. Saklamak we goramak",
+        "text": "Ýüz tutmalar Operatoryň serwerinde saklanýar we olara jogap berýän işgärlere berilýär. Maglumatlary ýitgiden, rugsatsyz girişden we aýan edilmeginden goramak üçin biz zerur tehniki we guramaçylyk çärelerini görýäris. Maglumatlar ýüz tutmaňyza jogap bermek we siz bilen mundan beýläk işlemek üçin zerur wagtyň dowamynda saklanýar, soňra pozulýar ýa-da şahsyýetsizlendirilýär."
+      },
+      {
+        "title": "5. Üçünji taraplara bermek",
+        "text": "Biz maglumatlaryňyzy kanunyň talap eden ýagdaýlaryndan we Sahypanyň işlemegi üçin zerur hyzmatlardan (Cloudflare Turnstile bot goragy we ýüz tutmalar barada habarnamalary eltmek üçin poçta hyzmaty) başga ýagdaýda üçünji taraplara bermeýäris."
+      },
+      {
+        "title": "6. Cookie faýllary",
+        "text": "Sahypa diňe işlemegi üçin zerur tehniki cookie faýllaryny ulanýar (meselem, saýlanan dili we mowzugy ýatda saklamak). Mahabat we analitik cookie faýllaryny ulanmaýarys."
+      },
+      {
+        "title": "7. Siziň hukuklaryňyz",
+        "text": "Siz islendik wagt özüňiz barada haýsy maglumatlaryň saklanýandygyny soraşyp, olary düzedip ýa-da pozmagy haýyş edip bilersiňiz. Munuň üçin info{'@'}ltm.studio salgysyna ýazyň. Biz maksadalaýyk wagtda jogap bereris."
+      },
+      {
+        "title": "8. Syýasatyň üýtgemegi",
+        "text": "Biz bu syýasaty täzeläp bileris. Iň soňky görnüşi hemişe Sahypada elýeterlidir, soňky täzelenen senesi ýokarda görkezilýär."
+      },
+      {
+        "title": "9. Aragatnaşyk",
+        "text": "LTM Studio, Aşgabat ş., Türkmenistan\nTelefon: +993 12 75 37 13\nE-poçta: info{'@'}ltm.studio"
+      }
+    ],
+    "back": "Baş sahypa"
   }
 }

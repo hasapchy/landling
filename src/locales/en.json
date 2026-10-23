@@ -36,10 +36,16 @@
         "subtitle": "Receipts, purchases, write-offs, returns and stocktaking — no Excel, no «shortages nobody can explain»."
       },
       {
-        "label": "Payroll & Time",
-        "title": "Payroll and working hours",
+        "label": "Work time",
+        "title": "Working hours tracking",
         "titleAccent": " without errors",
-        "subtitle": "Time tracking, employee reports, vacation schedules and payroll calculation — including support for a physical clock-in/clock-out time recorder."
+        "subtitle": "Timesheets, employee reports and vacation schedules. Already have a time recorder? We'll connect it and sync it with HasApp. Don't have one yet? Our manager will recommend what to buy."
+      },
+      {
+        "label": "Payroll",
+        "title": "Employee payroll",
+        "titleAccent": " without manual calculations",
+        "subtitle": "Payroll calculation right in the system — no spreadsheets and no manual recalculation."
       },
       {
         "label": "Flexibility & Security",
@@ -52,6 +58,18 @@
         "title": "Your own email",
         "titleAccent": " right inside the CRM",
         "subtitle": "Connect your mailbox and work with emails without leaving the system: receive and send messages in the same window as the rest of your work."
+      },
+      {
+        "label": "Reports",
+        "title": "Key business figures",
+        "titleAccent": " on one screen",
+        "subtitle": "Widgets for sales, clients, inventory, projects and finance: add the ones you need and keep the whole picture in view."
+      },
+      {
+        "label": "AI",
+        "title": "An assistant",
+        "titleAccent": " right in the system",
+        "subtitle": "AI chats inside HasApp: create chats and ask questions without leaving the system."
       }
     ]
   },
@@ -267,7 +285,10 @@
       "phone": "Please enter a valid phone number",
       "email": "Enter a valid email",
       "message": "Please enter a message"
-    }
+    },
+    "consentPre": "By submitting, you agree to our",
+    "consentLink": "Privacy Policy",
+    "consentPost": "."
   },
   "footer": {
     "description": "HasApp is a modern business management system — sales, inventory, finance and HR all in one place.",
@@ -325,19 +346,80 @@
     "storyHeadlineAccent": "here",
     "storyDescription": "Development of HasApp started two years ago with a single module — a simple cash income and expense tracker. It gradually grew into a full business management platform.",
     "knowMore": "Get in touch",
-    "timeline": [
-      {
-        "year": "2024",
-        "label": "Prototype: cash tracking"
-      },
-      {
-        "year": "2025",
-        "label": "Module growth: CRM, inventory, finance"
-      },
-      {
-        "year": "2026",
-        "label": "New modules: HR, payroll, time tracking"
-      }
+    "modulesTitle": "And more inside",
+    "modules": [
+      "Tasks",
+      "Chats",
+      "Drive",
+      "Projects",
+      "Calendar",
+      "Contacts",
+      "Employees",
+      "Companies"
     ]
+  },
+  "app": {
+    "title": "Mobile app",
+    "hint": "Or download the mobile app",
+    "getOn": "Download on",
+    "bannerTitle": "HasApp mobile app",
+    "bannerSoon": "Coming soon to the App Store and Google Play",
+    "bannerLive": "Available on the App Store and Google Play"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: October 23, 2026",
+    "sections": [
+      {
+        "title": "1. General provisions",
+        "text": "This policy describes what personal data the HasApp website (the “Site”) collects, how it is used and how it is protected. The data operator is LTM Studio (the “Operator”), Ashgabat, Turkmenistan. By submitting a form on the Site, you agree to the terms of this policy."
+      },
+      {
+        "title": "2. What data we collect",
+        "intro": "Through the contact form we receive:",
+        "items": [
+          "your name;",
+          "your phone number;",
+          "your email address;",
+          "the text of the message you write yourself."
+        ],
+        "text": "In addition, the Cloudflare Turnstile service is used to protect against spam and bots. It may process technical data about your device and your IP address. We do not collect bank card details or other sensitive information."
+      },
+      {
+        "title": "3. Purposes of processing",
+        "intro": "We need the data only to:",
+        "items": [
+          "contact you and respond to your request;",
+          "tell you about HasApp and the terms of getting started;",
+          "protect the Site from spam and abuse."
+        ],
+        "text": "We do not use your data for mailings without your consent and we do not sell it to third parties."
+      },
+      {
+        "title": "4. Storage and protection",
+        "text": "Requests are stored on the Operator’s server and passed to the employees who respond to them. We take reasonable technical and organizational measures to protect data from loss, unauthorized access and disclosure. Data is kept for as long as needed to respond to your request and continue working with you, and is then deleted or anonymized."
+      },
+      {
+        "title": "5. Disclosure to third parties",
+        "text": "We do not share your data with third parties, except where required by law and for the services needed to run the Site (Cloudflare Turnstile bot protection and an email service for delivering request notifications)."
+      },
+      {
+        "title": "6. Cookies",
+        "text": "The Site uses only technical cookies that are needed for it to work (for example, remembering your chosen language and color theme). We do not use advertising or analytics cookies."
+      },
+      {
+        "title": "7. Your rights",
+        "text": "You can ask at any time what data about you is stored, correct it or ask for it to be deleted. To do so, write to info{'@'}ltm.studio. We will reply within a reasonable time."
+      },
+      {
+        "title": "8. Changes to this policy",
+        "text": "We may update this policy. The current version is always available on the Site, and the date of the last update is shown at the top."
+      },
+      {
+        "title": "9. Contacts",
+        "text": "LTM Studio, Ashgabat, Turkmenistan\nPhone: +993 12 75 37 13\nEmail: info{'@'}ltm.studio"
+      }
+    ],
+    "back": "Back to home"
   }
 }

@@ -67,6 +67,9 @@
                                 v-html="social.svg"></span>
                         </a>
                     </div>
+
+                    <p class="mt-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#054C86]">{{ t('app.title') }}</p>
+                    <AppStoreButtons class="mt-4" />
                 </div>
             </div>
         </div>
@@ -94,10 +97,12 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { CONTACTS } from '@/config/contacts'
+import AppStoreButtons from '@/components/AppStoreButtons.vue'
 const { t, tm } = useI18n()
+const openContactModal = inject('openContactModal')
 
 const hrefs = ['#about', '#features', '#how-it-works', '#cases', '#pricing', '#faq']
 const pageLinks = computed(() => {
@@ -107,7 +112,7 @@ const pageLinks = computed(() => {
     return links.map((link, i) => ({ label: link.label, href: hrefs[i] }))
 })
 
-const resourceHrefs = ['#', '#']
+const resourceHrefs = ['#', '/privacy']
 const resourceLinks = computed(() =>
     tm('footer.resourceLinks').map((link, i) => ({
         label: link.label,

@@ -142,21 +142,30 @@
                     </button>
                 </div>
 
-                <!-- таймлайн — ниже, на всю ширину -->
-                <div class="relative mt-20 sm:mt-28 md:mt-32 px-2 sm:px-6">
-                    <div class="absolute left-0 right-0 top-[7px] sm:top-[9px] h-[2px] bg-[#0392FF]/30"></div>
-                    <div class="relative flex justify-between">
-                        <div v-for="(point, index) in timeline" :key="point.label"
-                            :ref="el => setTimelineRef(el, index)"
-                            class="flex flex-col items-center text-center gap-2 sm:gap-3 flex-1 transition-all duration-700 ease-out"
-                            :class="visibleTimeline.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
-                            :style="{ transitionDelay: visibleTimeline.has(index) ? `${index * 150}ms` : '0ms' }">
-                            <span class="h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full border-2 border-white"
-                                :class="index === 0 ? 'bg-[#0392FF]' : 'bg-[#96D0FD]'"></span>
-                            <p class="text-sm sm:text-base font-bold text-black">{{ point.year }}</p>
-                            <p class="max-w-[110px] sm:max-w-[140px] text-[11px] sm:text-xs text-black/50 leading-snug">
-                                {{ point.label }}
-                            </p>
+                <!-- модули системы (которых нет в «Возможностях») — дорожка, ниже на всю ширину -->
+                <div class="mt-16 sm:mt-24 md:mt-28">
+                    <h4 class="text-center font-display font-bold leading-tight text-2xl sm:text-3xl
+    bg-clip-text text-transparent bg-[linear-gradient(90deg,#054C86,#065A9D)] [-webkit-text-fill-color:transparent]
+    dark:bg-[linear-gradient(90deg,#2aa4ff,#0392FF)]">
+                        {{ t('about.modulesTitle') }}
+                    </h4>
+                    <div class="relative mt-10 sm:mt-12 mx-auto max-w-[1000px]">
+                        <!-- линия дорожки (только на широких экранах) -->
+                        <div class="hidden lg:block absolute left-0 right-0 top-8 h-[2px] bg-[#0392FF]/35"></div>
+                        <div class="relative grid grid-cols-4 gap-x-2 gap-y-8 lg:flex lg:justify-between">
+                            <div v-for="(m, index) in modules" :key="m.label" :ref="el => setModuleRef(el, index)"
+                                class="flex flex-col items-center gap-3 lg:w-[110px] transition-all duration-700 ease-out"
+                                :class="visibleModules.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
+                                :style="{ transitionDelay: visibleModules.has(index) ? `${index * 80}ms` : '0ms' }">
+                                <span class="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full
+                                             border border-[#96D0FD]/80 bg-[#0392FF]/10 dark:bg-[#0392FF]/15 dark:border-[#3c8cff]/50
+                                             backdrop-blur-md
+                                             shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_8px_22px_rgba(3,146,255,0.2)] text-[#0392FF]">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                                        stroke-linejoin="round" class="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" v-html="m.icon"></svg>
+                                </span>
+                                <p class="text-center text-xs sm:text-sm lg:text-[15px] font-semibold text-black leading-snug">{{ m.label }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -170,12 +179,23 @@ import { ref, reactive, computed, inject, onMounted, onBeforeUnmount } from 'vue
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 
-const { t, tm } = useI18n()
+const { t, tm, rt } = useI18n()
 
 const openContactModal = inject('openContactModal')
 
 const stats = computed(() => tm('about.stats'))
-const timeline = computed(() => tm('about.timeline'))
+// модули, которых нет в блоке «Возможности» (названия — в переводах, порядок иконок тот же)
+const moduleIcons = [
+    '<path d="M9 6h12M9 12h12M9 18h12M3.5 6l1.2 1.2L6.8 5M3.5 12l1.2 1.2L6.8 11M3.5 18l1.2 1.2L6.8 17"/>',
+    '<path d="M4 5h16v11H9l-5 4z"/>',
+    '<path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2.5h8.5A1.5 1.5 0 0 1 21 9v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18z"/>',
+    '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>',
+    '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+    '<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4.5 2 4.5 4.5"/>',
+    '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/>',
+    '<path d="M5 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17M15 9h3a1 1 0 0 1 1 1v11M3 21h18M9 7h2M9 11h2M9 15h2"/>',
+]
+const modules = computed(() => tm('about.modules').map((m, i) => ({ label: rt(m), icon: moduleIcons[i] })))
 
 // анимация появления двух блоков независимо друг от друга
 const headingRef = ref(null)
@@ -183,17 +203,17 @@ const headingVisible = ref(false)
 const storyRef = ref(null)
 const storyVisible = ref(false)
 
-// анимация карточек статистики и точек таймлайна по очереди
+// анимация карточек статистики и блоков модулей по очереди
 const statItems = new Map()
 const visibleStats = reactive(new Set())
 function setStatRef(el, index) {
     if (el) statItems.set(index, el)
 }
 
-const timelineItems = new Map()
-const visibleTimeline = reactive(new Set())
-function setTimelineRef(el, index) {
-    if (el) timelineItems.set(index, el)
+const moduleItems = new Map()
+const visibleModules = reactive(new Set())
+function setModuleRef(el, index) {
+    if (el) moduleItems.set(index, el)
 }
 
 let observer
@@ -225,9 +245,9 @@ onMounted(() => {
                     itemObserver.unobserve(el)
                 }
             }
-            for (const [index, el] of timelineItems) {
+            for (const [index, el] of moduleItems) {
                 if (el === entry.target) {
-                    visibleTimeline.add(index)
+                    visibleModules.add(index)
                     itemObserver.unobserve(el)
                 }
             }
@@ -235,7 +255,7 @@ onMounted(() => {
     }, { threshold: 0, rootMargin: '0px 0px -5% 0px' })
 
     statItems.forEach((el) => itemObserver.observe(el))
-    timelineItems.forEach((el) => itemObserver.observe(el))
+    moduleItems.forEach((el) => itemObserver.observe(el))
 
     // подстраховка на случай прыжка по якорю (как в остальных секциях)
     requestAnimationFrame(() => {
@@ -264,11 +284,11 @@ onMounted(() => {
                 itemObserver.unobserve(el)
             }
         })
-        timelineItems.forEach((el, index) => {
-            if (visibleTimeline.has(index)) return
+        moduleItems.forEach((el, index) => {
+            if (visibleModules.has(index)) return
             const rect = el.getBoundingClientRect()
             if (rect.top < vh && rect.bottom > 0) {
-                visibleTimeline.add(index)
+                visibleModules.add(index)
                 itemObserver.unobserve(el)
             }
         })

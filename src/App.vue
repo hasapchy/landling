@@ -18,10 +18,25 @@ import ContactModal from './components/ContactModal.vue';
 import { useSeo } from '@/composables/useSeo'
 import About from './sections/About.vue';
 import Cases from './sections/Cases.vue';
+import AppBanner from './sections/AppBanner.vue';
+import PrivacyPage from './pages/PrivacyPage.vue';
 
 const { locale, t } = useI18n()
 
 useSeo()
+
+// страница политики конфиденциальности: адрес /privacy
+const isPrivacy = window.location.pathname.replace(/\/+$/, '') === '/privacy'
+if (isPrivacy) {
+  // ссылки-якоря шапки и подвала (#about и т.п.) ведут на главную страницу
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[href^="#"]')
+    if (!a) return
+    e.preventDefault()
+    const href = a.getAttribute('href')
+    window.location.href = '/' + (href === '#' ? '' : href)
+  })
+}
 
 const isModalOpen = ref(false)
 function openContactModal() {
@@ -34,16 +49,20 @@ provide('openContactModal', openContactModal)
 
 <template class="overflow-x-hidden max-w-[100vw]">
   <Header />
-  <Hero />  
-  <About />
-  <LogoMarquee />
-  <Features />
-  <Steps />
-  <Cases />
-  <!-- <Users /> -->
-  <Pricing />
-  <FAQ />
-  <CTA />
+  <PrivacyPage v-if="isPrivacy" />
+  <template v-else>
+    <Hero />
+    <About />
+    <LogoMarquee />
+    <Features />
+    <Steps />
+    <Cases />
+    <AppBanner />
+    <!-- <Users /> -->
+    <Pricing />
+    <FAQ />
+    <CTA />
+  </template>
   <Footer />
 
   <ContactModal v-model="isModalOpen" />

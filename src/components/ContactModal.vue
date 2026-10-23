@@ -91,6 +91,11 @@
               <button type="submit" :disabled="loading" class="btn-primary mt-2 w-full disabled:opacity-60">
                 {{ loading ? t('contactModal.sending') : t('contactModal.submit') }}
               </button>
+              <p class="text-center text-xs leading-relaxed text-black/50">
+                {{ t('contactModal.consentPre') }}
+                <a href="/privacy" target="_blank" rel="noopener"
+                  class="text-[#054C86] underline underline-offset-2 transition-colors hover:text-[#0392FF] dark:text-[#6cb6f2] dark:hover:text-[#7fc4ff]">{{ t('contactModal.consentLink') }}</a>{{ t('contactModal.consentPost') }}
+              </p>
             </form>
           </div>
 
