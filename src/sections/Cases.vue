@@ -262,13 +262,17 @@ function onDragEnd() {
 function onTabsClick(e) {
   if (dragMoved) { e.stopPropagation(); e.preventDefault() }
 }
-// выбор вкладки + подкрутка, чтобы выбранная была видна целиком
+// выбор вкладки + подкрутка ряда вкладок, чтобы выбранная была по центру.
+// Крутим только сам ряд (а не всю страницу), поэтому страница в стороны не сдвигается.
 function selectTab(i, e) {
   active.value = i
+  const el = tabsRef.value
   const btn = e && e.currentTarget
-  if (btn && btn.scrollIntoView && tabsRef.value && tabsRef.value.scrollWidth > tabsRef.value.clientWidth + 1 && window.innerWidth < 1024) {
-    btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
-  }
+  if (!el || !btn || el.scrollWidth <= el.clientWidth + 1) return
+  const elRect = el.getBoundingClientRect()
+  const btnRect = btn.getBoundingClientRect()
+  const delta = btnRect.left - elRect.left - (el.clientWidth - btnRect.width) / 2
+  el.scrollTo({ left: el.scrollLeft + delta, behavior: 'smooth' })
 }
 onBeforeUnmount(onDragEnd)
 

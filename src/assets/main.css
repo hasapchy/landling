@@ -25,8 +25,14 @@
   --text-4xl: 2.25rem;
   --text-5xl: 3rem;
 }
-html, body {
+html {
   overflow-x: hidden;
+}
+
+/* clip вместо hidden: так же обрезает всё, что выступает вбок, но не превращает body в «прокручиваемый контейнер»
+   (иначе position: sticky у карточек тарифов не работает) */
+body {
+  overflow-x: clip;
 }
 
 body {

@@ -62,9 +62,12 @@
             </p>
         </div>
 
-        <div :key="mode"
-            class="relative z-[2] mt-10 sm:mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-start max-w-[1000px] mx-auto">
-            <div v-for="(plan, index) in plans" :key="`${mode}-${plan.name}`" class="relative">
+        <div :key="mode" ref="gridRef"
+            class="relative z-[2] mt-10 sm:mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start max-w-[1000px] mx-auto">
+            <!-- на телефоне и планшете (карточки в столбик, до 1024px) следующий тариф при прокрутке наезжает на предыдущий:
+                 карточка «залипает» (sticky) на высоте stickyTops[index], а следующая заезжает поверх -->
+            <div v-for="(plan, index) in plans" :key="`${mode}-${plan.name}`" ref="wrapRefs"
+                class="relative max-lg:sticky" :style="stickyTops[index] !== undefined ? { top: stickyTops[index] + 'px' } : null">
                 <!-- внешний ореол свечения вокруг выделенного тарифа -->
                 <div v-if="plan.highlight" class="absolute -inset-5 sm:-inset-7 rounded-[36px] blur-2xl pointer-events-none z-0
                            bg-[radial-gradient(ellipse_75%_65%_at_50%_0%,rgba(3,80,221,0.45)_0%,transparent_70%)]
@@ -170,7 +173,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 import { useScrollReveal } from '@/composables/useScrollReveal'
@@ -217,6 +220,44 @@ const { headingRef, headingVisible, setItemRef, visibleItems } = useScrollReveal
 
 watch(mode, () => {
     visibleItems.value = new Set([0, 1])
+    nextTick(measureStack)
+})
+
+// ---- эффект «карточки накладываются друг на друга» (телефон и планшет, до 1024px — пока тарифы стоят в один столбец) ----
+// Верхняя граница, на которой залипает карточка: под шапкой, у каждой следующей чуть ниже,
+// чтобы из-под неё выглядывал край предыдущей. Если карточка выше экрана, она сначала
+// доезжает до своего низа и только потом залипает — чтобы ничего не оказалось скрытым.
+const STACK_TOP = 96      // отступ от верха экрана (под плавающей шапкой), px
+const STACK_STEP = 14     // на сколько каждая следующая карточка ниже предыдущей, px
+const STACK_BOTTOM = 16   // минимальный зазор снизу, px
+const gridRef = ref(null)
+const wrapRefs = ref([])
+const stickyTops = ref([])
+
+function measureStack() {
+    if (typeof window === 'undefined' || !window.matchMedia('(max-width: 1023px)').matches) {
+        stickyTops.value = []
+        return
+    }
+    stickyTops.value = wrapRefs.value.map((el, i) => {
+        const h = el ? el.offsetHeight : 0
+        return Math.round(Math.min(STACK_TOP + i * STACK_STEP, window.innerHeight - h - STACK_BOTTOM))
+    })
+}
+
+let ro
+onMounted(() => {
+    measureStack()
+    window.addEventListener('resize', measureStack)
+    if ('ResizeObserver' in window && gridRef.value) {
+        ro = new ResizeObserver(measureStack)
+        ro.observe(gridRef.value)
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureStack)
+})
+onBeforeUnmount(() => {
+    window.removeEventListener('resize', measureStack)
+    if (ro) ro.disconnect()
 })
 </script>
 
