@@ -131,7 +131,7 @@
                             <span
                                 class="text-3xl sm:text-4xl font-display font-bold
                                 bg-clip-text text-transparent bg-[linear-gradient(90deg,#054C86,#065A9D)] [-webkit-text-fill-color:transparent]">
-                                {{ plan.price }} TMT
+                                {{ formatPrice(plan.price) }} TMT
                             </span>
                             <span class="text-sm sm:text-base text-black/50 dark:text-white/50 mb-1">{{ periodLabel }}</span>
                         </template>
@@ -215,6 +215,9 @@ const plans = computed(() =>
         ...planMeta[i],
     }))
 )
+
+// 20000 -> «20 000» (неразрывный пробел между тысячами)
+const formatPrice = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0')
 
 const { headingRef, headingVisible, setItemRef, visibleItems } = useScrollReveal()
 
