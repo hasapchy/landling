@@ -23,7 +23,7 @@
             <img
               :src="logo.dark"
               :alt="logo.alt"
-              :width="logo.width" :height="logo.height" decoding="async"
+              :width="logo.width" :height="logo.height" loading="lazy" decoding="async"
               class="hidden dark:block h-8 sm:h-12 md:h-16 w-auto object-contain"
             />
           </div>

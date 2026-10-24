@@ -71,6 +71,8 @@ import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
 
+const emit = defineEmits(['finished'])
+
 const stage = ref(null)
 const ring = ref(null)
 const ctaBtn = ref(null)
@@ -101,7 +103,8 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms))
 function pointOf(el) {
   const s = stage.value.getBoundingClientRect()
   const b = el.getBoundingClientRect()
-  return { x: b.left - s.left + b.width / 2, y: b.top - s.top + b.height / 2 }
+  const k = s.width / stage.value.offsetWidth || 1 // сцена масштабируется родителем
+  return { x: (b.left - s.left + b.width / 2) / k, y: (b.top - s.top + b.height / 2) / k }
 }
 
 async function moveTo(el, ms = 650) {
@@ -141,8 +144,9 @@ function resetAll() {
   cursorVisible.value = false
 }
 
+// один проход: сайт → заявка → «отправлена», затем сообщаем родителю, что шаг закончился
 async function run() {
-  while (alive) {
+  {
     resetAll()
     await wait(1000)
     if (!alive) return
@@ -185,6 +189,9 @@ async function run() {
     cursorVisible.value = false
     phase.value = 'success'
     await wait(2300)
+    if (!alive) return
+
+    emit('finished')
   }
 }
 

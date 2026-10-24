@@ -86,6 +86,18 @@ section[id] {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35) !important;
 }
 
+/* заголовки с тёмно-синим градиентом в тёмной теме становятся яркими синими */
+.dark .bg-\[linear-gradient\(90deg\,\#054C86\,\#065A9D\)\],
+.dark .bg-\[linear-gradient\(180deg\,\#054C86\,\#065A9D\)\],
+.dark .bg-\[linear-gradient\(90deg\,\#0392FF\,\#054C86\)\] {
+  background-image: linear-gradient(90deg, #2aa4ff, #0392FF);
+}
+
+/* тёмная тема: тёмно-синий текст (подписи колонок футера, ссылки) становится ярким синим */
+/* элементы, у которых цвет для тёмной темы уже задан классом dark:text-..., не трогаем */
+.dark .text-\[\#054C86\]:not([class*="dark:text-"]) { color: #2aa4ff; }
+.dark .hover\:text-\[\#054C86\]:hover:not([class*="dark:hover:text-"]):not([class*="dark:text-"]) { color: #6cb6f2; }
+
 /* исключение: миниатюра-демка (AccountSetupDemo) всегда остаётся светлой —
    это имитация реального интерфейса приложения, её не нужно красить под тему сайта */
 .dark .demo-no-dark.bg-white,
@@ -340,4 +352,8 @@ section[id] {
   .label-badge{
    font-size: 14px;
   }
+}
+/* логотип в тёмной теме: делаем ярче, чтобы читался на тёмном фоне (светлая тема не меняется) */
+.dark img[src$="logo.png"] {
+  filter: brightness(2.2) saturate(1.15);
 }

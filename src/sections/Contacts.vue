@@ -1,6 +1,10 @@
 <template>
   <section id="contacts"
-    class="relative text-center pt-16 sm:pt-20 md:pt-24 px-6 sm:px-8 pb-10 sm:pb-12 md:pb-16 w-full max-w-[1440px] mx-auto">
+    class="relative text-center pt-14 sm:pt-16 md:pt-20 px-6 sm:px-8 pb-10 sm:pb-12 md:pb-16 w-full max-w-[1440px] mx-auto">
+
+    <!-- тонкая линия-разделитель между блоком CTA и контактами -->
+    <div aria-hidden="true"
+      class="pointer-events-none absolute left-1/2 top-0 h-px w-[min(90%,720px)] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(3,146,255,0.45),transparent)]"></div>
 
     <div ref="headingRef" class="relative z-[2] flex flex-col items-center gap-4 sm:gap-5 md:gap-6
              transition-all duration-700 ease-out"
@@ -16,9 +20,9 @@
       </LabelBadge>
 
       <h2 class="max-w-[90%] sm:max-w-xl md:max-w-3xl lg:max-w-5xl font-display font-bold leading-tight
-                 text-3xl sm:text-4xl md:text-6xl lg:text-7xl
+                 text-3xl sm:text-4xl md:text-5xl lg:text-6xl
                  bg-clip-text text-transparent
-                 bg-[linear-gradient(90deg,#054C86,#065A9D)]
+                 bg-[linear-gradient(90deg,#054C86,#065A9D)] dark:bg-[linear-gradient(90deg,#38A6EA,#7fc4ff)]
                  [-webkit-text-fill-color:transparent]">
         {{ t('contacts.headline') }}
       </h2>
@@ -33,24 +37,27 @@
              transition-all duration-700 ease-out"
       :class="cardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'">
 
-      <div class="contacts-card rounded-[24px] bg-white p-6 sm:p-8 md:p-10 flex flex-col gap-5 sm:gap-6">
+      <div class="contacts-card [--c1:#ffffff] [--c2:#ffffff] dark:[--c1:#16293f] dark:[--c2:#060b12] [--b1:#0392ff] [--b2:#7fc4ff] [--b3:#9dedf796] dark:[--b1:rgba(3,146,255,0.6)] dark:[--b2:rgba(127,196,255,0.28)] dark:[--b3:rgba(157,237,247,0.14)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.45)] rounded-[24px] p-6 sm:p-8 md:p-10 flex flex-col gap-5 sm:gap-6">
         <div class="flex flex-col gap-2">
           <h3
-            class="text-2xl sm:text-3xl font-display font-bold bg-clip-text text-transparent bg-[linear-gradient(90deg,#054C86,#065A9D)] [-webkit-text-fill-color:transparent]">
+            class="text-2xl sm:text-3xl font-display font-bold bg-clip-text text-transparent bg-[linear-gradient(90deg,#054C86,#065A9D)] dark:bg-[linear-gradient(90deg,#38A6EA,#7fc4ff)] [-webkit-text-fill-color:transparent]">
             {{ t('contactModal.title') }}
           </h3>
           <p class="text-sm sm:text-base text-black/60 leading-relaxed">{{ t('contactModal.subtitle') }}</p>
         </div>
-        <ContactForm />
+        <!-- в тёмной теме делаем текст и подсказки в полях светлыми -->
+        <div class="dark:[&_input]:text-white! dark:[&_textarea]:text-white! dark:[&_input::placeholder]:text-white/40! dark:[&_textarea::placeholder]:text-white/40!">
+          <ContactForm />
+        </div>
       </div>
 
-      <div class="contacts-card rounded-[24px] bg-[#F4F7FC] p-6 sm:p-8 md:p-10 flex flex-col justify-between gap-8">
+      <div class="contacts-card [--c1:#F4F7FC] [--c2:#F4F7FC] dark:[--c1:#10263d] dark:[--c2:#0a1524] [--b1:#0392ff] [--b2:#7fc4ff] [--b3:#9dedf796] dark:[--b1:rgba(3,146,255,0.6)] dark:[--b2:rgba(127,196,255,0.28)] dark:[--b3:rgba(157,237,247,0.14)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.45)] rounded-[24px] p-6 sm:p-8 md:p-10 flex flex-col gap-5">
         <div class="flex flex-col gap-5">
-          <h3 class="text-xl sm:text-2xl font-display font-bold text-[#054C86]">{{ t('contacts.infoTitle') }}</h3>
+          <h3 class="text-xl sm:text-2xl font-display font-bold text-[#054C86] dark:text-[#7fc4ff]">{{ t('contacts.infoTitle') }}</h3>
 
           <div class="flex flex-col gap-4">
             <div class="flex items-start gap-3">
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#054C86]">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ffffff] text-[#054C86] dark:bg-white/10 dark:text-[#6cb6f2]">
                 <svg viewBox="0 0 16 16" fill="none" class="h-4 w-4">
                   <path d="M8 14.5s5-4.2 5-8.2A5 5 0 0 0 3 6.3c0 4 5 8.2 5 8.2z" stroke="currentColor"
                     stroke-width="1.3" />
@@ -63,8 +70,8 @@
               </div>
             </div>
 
-            <a :href="CONTACTS.phoneHref" class="flex items-center gap-3 group">
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#054C86]">
+            <div class="flex items-center gap-3">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ffffff] text-[#054C86] dark:bg-white/10 dark:text-[#6cb6f2]">
                 <svg viewBox="0 0 16 16" fill="none" class="h-4 w-4">
                   <path
                     d="M2.5 3h2.2l1 3-1.4 1a8 8 0 0 0 3.7 3.7l1-1.4 3 1v2.2c0 .6-.5 1-1 1C6.6 13.5 2.5 9.4 2.5 4c0-.5.4-1 1-1z"
@@ -73,13 +80,15 @@
               </span>
               <div>
                 <p class="text-xs uppercase tracking-wider font-bold text-black/40">{{ t('contacts.phoneLabel') }}</p>
-                <p class="mt-1 text-sm sm:text-base text-black/70 group-hover:text-[#054C86] transition-colors">{{
-                  CONTACTS.phone }}</p>
+                <div class="mt-1 flex flex-wrap items-center gap-x-4 gap-y-0.5">
+                  <a :href="CONTACTS.phoneHref" class="text-sm sm:text-base text-black/70 hover:text-[#054C86] dark:hover:text-[#6cb6f2] transition-colors">{{ CONTACTS.phone }}</a>
+                  <a :href="CONTACTS.phone2Href" class="text-sm sm:text-base text-black/70 hover:text-[#054C86] dark:hover:text-[#6cb6f2] transition-colors">{{ CONTACTS.phone2 }}</a>
+                </div>
               </div>
-            </a>
+            </div>
 
             <a :href="CONTACTS.emailHref" class="flex items-center gap-3 group">
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#054C86]">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ffffff] text-[#054C86] dark:bg-white/10 dark:text-[#6cb6f2]">
                 <svg viewBox="0 0 16 16" fill="none" class="h-4 w-4">
                   <rect x="1.5" y="3" width="13" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2" />
                   <path d="M2 4l6 4.5L14 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
@@ -88,11 +97,19 @@
               </span>
               <div>
                 <p class="text-xs uppercase tracking-wider font-bold text-black/40">{{ t('contacts.emailLabel') }}</p>
-                <p class="mt-1 text-sm sm:text-base text-black/70 group-hover:text-[#054C86] transition-colors">{{
+                <p class="mt-1 text-sm sm:text-base text-black/70 group-hover:text-[#054C86] dark:group-hover:text-[#6cb6f2] transition-colors">{{
                   CONTACTS.email }}</p>
               </div>
             </a>
           </div>
+        </div>
+
+
+        <!-- карта офиса — занимает оставшееся место -->
+        <div class="relative flex-1 min-h-[140px] overflow-hidden rounded-2xl border border-black/5 dark:border-white/10 shadow-[0_6px_20px_rgba(5,76,134,0.10)]">
+          <iframe :src="CONTACTS.mapEmbed" title="HasApp — карта" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="absolute inset-0 h-full w-full border-0"></iframe>
         </div>
 
         <div class="flex flex-col gap-3">
@@ -172,13 +189,7 @@ onBeforeUnmount(() => {
   background-clip: padding-box, border-box;
   background-origin: border-box;
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%),
-    linear-gradient(180deg, #0392ff 0%, #7fc4ff 35%, #9dedf796 100%);
-}
-
-.contacts-card:nth-child(2) {
-  background-image:
-    linear-gradient(180deg, #F4F7FC 0%, #F4F7FC 100%),
-    linear-gradient(180deg, #0392ff 0%, #7fc4ff 35%, #9dedf796 100%);
+    linear-gradient(150deg, var(--c1), var(--c2)),
+    linear-gradient(180deg, var(--b1), var(--b2) 35%, var(--b3));
 }
 </style>

@@ -91,13 +91,9 @@ const { isDark } = useTheme()
 const openIds = ref(new Set())
 
 function toggle(id) {
-    const next = new Set(openIds.value)
-    if (next.has(id)) {
-        next.delete(id)
-    } else {
-        next.add(id)
-    }
-    openIds.value = next
+    // открыт может быть только один вопрос: при открытии нового предыдущий закрывается
+    const wasOpen = openIds.value.has(id)
+    openIds.value = wasOpen ? new Set() : new Set([id])
 }
 
 const faqs = computed(() =>

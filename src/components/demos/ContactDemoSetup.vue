@@ -23,7 +23,7 @@
     <!-- экран "новое сообщение" (пуш-уведомление) -->
     <div class="demo-notify-screen absolute inset-0 flex flex-col items-center justify-center demo-gap transition-opacity duration-500"
       :style="{ opacity: phase === 'notify' ? 1 : 0 }">
-      <p class="demo-sub" style="letter-spacing:.08em; text-transform:uppercase; opacity:.5">Заявка получена</p>
+      <p class="demo-sub" style="letter-spacing:.08em; text-transform:uppercase; opacity:.5">{{ L.notify }}</p>
 
       <div ref="acceptBtn" class="demo-notify-card" :class="{ 'demo-notify-card--pulse': phase === 'notify' }">
         <div class="demo-avatar demo-avatar--sm">
@@ -32,9 +32,9 @@
         <div class="flex flex-col items-start" style="gap:1px; min-width:0">
           <div class="flex items-center justify-between w-full">
             <span class="demo-h1" style="font-size:clamp(7px,2.2cqw,11px)">HasApp</span>
-            <span class="demo-notify-time">сейчас</span>
+            <span class="demo-notify-time">{{ L.now }}</span>
           </div>
-          <span class="demo-sub demo-notify-preview">Здравствуйте! Получили вашу заявку 👋</span>
+          <span class="demo-sub demo-notify-preview">{{ L.preview }}</span>
         </div>
       </div>
     </div>
@@ -48,35 +48,46 @@
           <svg class="demo-logo-svg demo-logo-svg--avatar"><use href="#hasapp-mark-contact" /></svg>
         </div>
         <div class="flex flex-col items-start" style="gap:1px">
-          <span class="demo-h1" style="font-size:clamp(7px,2.2cqw,11px)">Менеджер HasApp</span>
+          <span class="demo-h1" style="font-size:clamp(7px,2.2cqw,11px)">{{ L.head }}</span>
           <span class="demo-sub demo-sub--online">
-            <span class="demo-dot-online"></span> на связи
+            <span class="demo-dot-online"></span> {{ L.online }}
           </span>
         </div>
       </div>
 
       <div class="flex flex-col flex-1 demo-chat-gap px-[8%] pb-[4%] justify-end overflow-hidden">
-        <div class="demo-bubble demo-bubble--in" :class="{ 'demo-bubble--show': msg1 }">
-          Здравствуйте! Получили вашу заявку. Расскажите, сколько сотрудников у вас работает и чем занимается бизнес?
+        <div v-if="msg1" class="demo-bubble demo-bubble--in">
+          {{ L.m1 }}
         </div>
 
-        <div class="demo-typing demo-typing--out" :class="{ 'demo-bubble--show': typing === 'out' }">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="demo-bubble demo-bubble--out" :class="{ 'demo-bubble--show': msg2 }">
-          Около 15 человек, розничный магазин. Нужен учёт склада и CRM
+        <div v-if="msg2" class="demo-bubble demo-bubble--out">
+          {{ L.m2 }}
         </div>
 
-        <div class="demo-typing demo-typing--in" :class="{ 'demo-bubble--show': typing === 'in2' }">
-          <span></span><span></span><span></span>
+        <div v-if="msg3" class="demo-bubble demo-bubble--in">
+          {{ L.m3 }}
+          <div class="demo-chips">
+            <span class="demo-chip">{{ L.chips[0] }}</span>
+            <span class="demo-chip">{{ L.chips[1] }}</span>
+            <span class="demo-chip">{{ L.chips[2] }}</span>
+          </div>
         </div>
-        <div class="demo-bubble demo-bubble--in" :class="{ 'demo-bubble--show': msg3 }">
-          Отлично, подключаю демо-доступ под розничную торговлю
+
+        <div v-if="msg4" class="demo-bubble demo-bubble--in">
+          {{ L.m4 }}
+        </div>
+
+        <div v-if="msg5" class="demo-bubble demo-bubble--out">
+          {{ L.m5 }}
+        </div>
+
+        <div v-if="typing !== 'none'" class="demo-typing" :class="typing === 'out' ? 'demo-typing--out' : 'demo-typing--in'">
+          <span></span><span></span><span></span>
         </div>
       </div>
     </div>
 
-    <!-- экран "демо готово" -->
+    <!-- экран "всё согласовали" -->
     <div class="absolute inset-0 flex flex-col items-center justify-center demo-gap text-center transition-opacity duration-500"
       :style="{ opacity: phase === 'ready' ? 1 : 0 }">
       <div class="demo-check" :class="{ 'demo-check--pop': phase === 'ready' }">
@@ -84,46 +95,13 @@
           <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
-      <h3 class="demo-h1">Демо-доступ готов!</h3>
-      <p class="demo-sub">Войдите и оцените систему под свою отрасль</p>
+      <h3 class="demo-h1">{{ L.ready }}</h3>
+      <p class="demo-sub">{{ L.readySub }}</p>
       <div class="demo-btn-solid demo-btn-solid--wide">
-        ОТКРЫТЬ ДЕМО
+        {{ L.btn }}
         <svg viewBox="0 0 24 24" fill="none" class="demo-btn-arrow">
           <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-      </div>
-    </div>
-
-    <!-- экран "вот что внутри демо" -->
-    <div class="absolute inset-0 flex flex-col transition-opacity duration-500"
-      :style="{ opacity: phase === 'dashboard' ? 1 : 0 }">
-
-      <div class="demo-dash-head flex items-center justify-between">
-        <div class="flex items-center gap-[clamp(4px,1.6cqw,8px)]">
-          <svg class="demo-logo-svg"><use href="#hasapp-mark-contact" /></svg>
-          <span class="demo-sub" style="margin:0">Демо · Розничный магазин</span>
-        </div>
-        <span class="demo-dash-badge">ДЕМО-ДОСТУП</span>
-      </div>
-
-      <div class="demo-dash-grid">
-        <div class="demo-dash-card">
-          <span class="demo-dash-label">Продажи сегодня</span>
-          <span class="demo-dash-value">12 450 ТМТ</span>
-        </div>
-        <div class="demo-dash-card">
-          <span class="demo-dash-label">Остаток на складе</span>
-          <span class="demo-dash-value">340 шт.</span>
-        </div>
-        <div class="demo-dash-card">
-          <span class="demo-dash-label">Новых клиентов</span>
-          <span class="demo-dash-value">8</span>
-        </div>
-      </div>
-
-      <div class="demo-dash-chart">
-        <span v-for="(h, i) in [38, 62, 46, 80, 58, 70, 52]" :key="i" class="demo-dash-bar"
-          :style="{ height: phase === 'dashboard' ? h + '%' : '0%', transitionDelay: (i * 70) + 'ms' }"></span>
       </div>
     </div>
 
@@ -140,9 +118,29 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const emit = defineEmits(['finished'])
+const { t } = useI18n()
+
+// тексты анимации берутся из locales (howItWorks.demo.step2) и меняются вместе с языком сайта
+const L = computed(() => ({
+  notify: t('howItWorks.demo.step2.notify'),
+  now: t('howItWorks.demo.step2.now'),
+  preview: t('howItWorks.demo.step2.preview'),
+  head: t('howItWorks.demo.step2.head'),
+  online: t('howItWorks.demo.step2.online'),
+  m1: t('howItWorks.demo.step2.m1'),
+  m2: t('howItWorks.demo.step2.m2'),
+  m3: t('howItWorks.demo.step2.m3'),
+  m4: t('howItWorks.demo.step2.m4'),
+  m5: t('howItWorks.demo.step2.m5'),
+  ready: t('howItWorks.demo.step2.ready'),
+  readySub: t('howItWorks.demo.step2.readySub'),
+  btn: t('howItWorks.demo.step2.btn'),
+  chips: [t('howItWorks.demo.step2.chip1'), t('howItWorks.demo.step2.chip2'), t('howItWorks.demo.step2.chip3')],
+}))
 
 const stage = ref(null)
 const ring = ref(null)
@@ -156,7 +154,9 @@ const cursorVisible = ref(false)
 const msg1 = ref(false)
 const msg2 = ref(false)
 const msg3 = ref(false)
-const typing = ref('none') // 'none' | 'out' | 'in2'
+const msg4 = ref(false)
+const msg5 = ref(false)
+const typing = ref('none') // 'none' | 'out' | 'in'
 
 let alive = true
 
@@ -200,6 +200,8 @@ function resetAll() {
   msg1.value = false
   msg2.value = false
   msg3.value = false
+  msg4.value = false
+  msg5.value = false
   typing.value = 'none'
 }
 
@@ -220,30 +222,43 @@ async function run() {
 
     // клиент отвечает
     typing.value = 'out'
-    await wait(900)
+    await wait(800)
     if (!alive) return
     typing.value = 'none'
     msg2.value = true
-    await wait(1100)
+    await wait(1000)
     if (!alive) return
 
-    // менеджер подтверждает демо
-    typing.value = 'in2'
-    await wait(850)
+    // менеджер подбирает модули
+    typing.value = 'in'
+    await wait(800)
     if (!alive) return
     typing.value = 'none'
     msg3.value = true
-    await wait(1350)
+    await wait(1300)
     if (!alive) return
 
-    // демо-доступ готов
+    // менеджер предлагает договориться об установке
+    typing.value = 'in'
+    await wait(700)
+    if (!alive) return
+    typing.value = 'none'
+    msg4.value = true
+    await wait(900)
+    if (!alive) return
+
+    // клиент соглашается
+    typing.value = 'out'
+    await wait(700)
+    if (!alive) return
+    typing.value = 'none'
+    msg5.value = true
+    await wait(1000)
+    if (!alive) return
+
+    // договорились, дальше установка
     phase.value = 'ready'
     await wait(1700)
-    if (!alive) return
-
-    // показываем, что внутри демо-доступа
-    phase.value = 'dashboard'
-    await wait(2400)
     if (!alive) return
 
     emit('finished')
@@ -395,14 +410,29 @@ onBeforeUnmount(() => {
   border-radius: 10px;
   font-size: clamp(6px, 1.5cqw, 10px);
   line-height: 1.3;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity .4s ease, transform .4s ease;
+  animation: demoBubbleIn .4s ease both;
 }
 
-.demo-bubble--show {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes demoBubbleIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.demo-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(2px, .8cqw, 4px);
+  margin-top: clamp(3px, 1cqw, 6px);
+}
+
+.demo-chip {
+  padding: clamp(1.5px, .5cqw, 3px) clamp(4px, 1.5cqw, 8px);
+  border-radius: 999px;
+  background: #fff;
+  color: #054C86;
+  font-weight: 700;
+  font-size: clamp(5px, 1.3cqw, 8.5px);
+  box-shadow: 0 1px 3px rgba(5, 40, 90, .12);
 }
 
 .demo-bubble--in {

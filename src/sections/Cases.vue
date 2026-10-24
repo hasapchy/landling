@@ -45,9 +45,11 @@
     <div class="relative z-[2] mt-10 sm:mt-12 md:mt-16 mx-auto max-w-[1180px] flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch text-left">
 
       <!-- вкладки отраслей -->
-      <div role="tablist" class="lg:w-[350px] shrink-0 flex lg:flex-col gap-2.5 lg:gap-3 overflow-x-auto lg:overflow-visible py-3 lg:py-0 -mx-2 px-2 lg:mx-0 lg:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <!-- на узких экранах вкладки листаются: пальцем, колёсиком мыши или перетаскиванием мышью -->
+      <div ref="tabsRef" role="tablist" @wheel="onTabsWheel" @mousedown="onTabsDown" @click.capture="onTabsClick"
+        class="lg:w-[350px] shrink-0 flex lg:flex-col gap-2.5 lg:gap-3 overflow-x-auto lg:overflow-visible py-3 lg:py-0 -mx-2 px-2 lg:mx-0 lg:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:cursor-auto cursor-grab active:cursor-grabbing">
         <button v-for="(c, i) in cases" :key="c.key" type="button" role="tab" :aria-selected="i === active"
-          @click="active = i"
+          @click="selectTab(i, $event)"
           class="group flex items-center gap-3 sm:gap-4 border p-2.5 sm:p-3.5 pr-4 sm:pr-5 text-left shrink-0 lg:shrink lg:w-full cursor-pointer"
           :class="i === active
             ? tabActive
@@ -117,7 +119,7 @@
             </div>
           </div>
           <!-- логотип клиента без подложки: светлая/тёмная версия под тему -->
-          <div class="shrink-0 flex items-center justify-end w-[96px] sm:w-[150px] h-[40px] sm:h-[56px]">
+          <div class="shrink-0 flex items-center" :class="current.logoBox || logoBoxDefault">
             <template v-if="current.logo">
               <img :src="current.logo" :alt="current.client" loading="lazy" decoding="async"
                 class="max-h-full max-w-full w-auto object-contain dark:hidden" />
@@ -147,7 +149,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, inject } from 'vue'
+import { ref, reactive, computed, inject, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 import { useScrollReveal } from '@/composables/useScrollReveal'
@@ -175,16 +177,22 @@ const badgeActive =
 // Логотипы, иконки и картинки — здесь; тексты — в locales (cases.items).
 // image: большая иллюстрация отрасли справа в карточке — файлы кладём в public/images/cwebps/
 //        (JPG/PNG/WebP ~1200×900, тёмно-синий фон). Нет файла или null — показывается иконка.
+// Размер и выравнивание логотипа клиента (можно задать свой через logoBox в META).
+// Без logoBox используется logoBoxDefault — это прежние размеры, ничего не меняется.
+const logoBoxDefault = 'justify-end w-[96px] sm:w-[150px] h-[40px] sm:h-[56px]'
+const logoBoxStart = 'justify-start w-[96px] sm:w-[150px] h-[40px] sm:h-[56px]'
+const logoBoxSquare = 'justify-end w-[96px] sm:w-[150px] h-[64px] sm:h-[72px]'
+
 const META = [
   { key: 'print', client: 'Altyn Arzuw', logo: '/images/partners/aa-light.svg', logoDark: '/images/partners/aa-dark.svg', mono: 'AA', image: '/images/cases/1.webp',
     icon: 'M6 9V3h12v6 M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2 M6 14h12v7H6z' },
   { key: 'logistics', client: 'Zehinli', logo: '/images/partners/ZNY.png', logoDark: '/images/partners/ZNY.png', mono: 'ZNY', image: '/images/cases/2.webp',
     icon: 'M2 6h11v10H2z M13 9h4l3 3v4h-7z M6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' },
-  { key: 'ads', client: 'LT', logo: '/images/partners/lt-light.svg', logoDark: '/images/partners/lt-dark.svg', mono: 'LT', image: '/images/cases/3.webp',
+  { key: 'ads', client: 'LT', logo: '/images/partners/lt-light.svg', logoDark: '/images/partners/lt-dark.svg', mono: 'LT', logoBox: logoBoxStart, image: '/images/cases/3.webp',
     icon: 'M3 11v3a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z M15 9a4 4 0 0 1 0 6 M18 6.5a8 8 0 0 1 0 11' },
   { key: 'edu', client: 'Takyk Abzal', logo: '/images/partners/ta-light.svg', logoDark: '/images/partners/ta-dark.svg', mono: 'TA', image: '/images/cases/4.webp',
     icon: 'M2 9l10-5 10 5-10 5z M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5 M22 9v6' },
-  { key: 'hammam', client: '7 Hammam', logo: '/images/partners/7H.png', mono: '7 hammam', image: '/images/cases/5.webp',
+  { key: 'hammam', client: '7 Hammam', logo: '/images/partners/7H.png', mono: '7 hammam', logoBox: logoBoxSquare, image: '/images/cases/5.webp',
     icon: 'M5 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17 M15 9h3a1 1 0 0 1 1 1v11 M3 21h18 M9 7h2 M9 11h2 M9 15h2' },
   { key: 'beauty', client: '', logo: null, mono: '', soon: true, image: '/images/cases/6.webp',
     icon: 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z' },
@@ -206,6 +214,63 @@ const cases = computed(() =>
 const failed = reactive({})
 const active = ref(0)
 const current = computed(() => cases.value[active.value] || cases.value[0])
+
+// ---- прокрутка вкладок на узких экранах (когда они не помещаются в ряд) ----
+const tabsRef = ref(null)
+let dragging = false
+let dragMoved = false
+let startX = 0
+let startScroll = 0
+
+// колёсико мыши листает вкладки вбок; если дальше листать некуда — скроллится страница как обычно
+function onTabsWheel(e) {
+  const el = tabsRef.value
+  if (!el || el.scrollWidth <= el.clientWidth + 1) return
+  if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return // горизонтальный жест тачпада — браузер справится сам
+  const max = el.scrollWidth - el.clientWidth
+  const next = el.scrollLeft + e.deltaY
+  if ((e.deltaY < 0 && el.scrollLeft <= 0) || (e.deltaY > 0 && el.scrollLeft >= max - 1)) return
+  e.preventDefault()
+  el.scrollLeft = Math.max(0, Math.min(max, next))
+}
+
+// перетаскивание вкладок мышью (на телефоне работает обычный свайп)
+function onTabsDown(e) {
+  const el = tabsRef.value
+  if (e.button !== 0 || !el || el.scrollWidth <= el.clientWidth + 1) return
+  dragging = true
+  dragMoved = false
+  startX = e.clientX
+  startScroll = el.scrollLeft
+  window.addEventListener('mousemove', onDragMove)
+  window.addEventListener('mouseup', onDragEnd)
+}
+function onDragMove(e) {
+  if (!dragging) return
+  const dx = e.clientX - startX
+  if (Math.abs(dx) > 5) dragMoved = true
+  if (dragMoved) tabsRef.value.scrollLeft = startScroll - dx
+}
+function onDragEnd() {
+  dragging = false
+  window.removeEventListener('mousemove', onDragMove)
+  window.removeEventListener('mouseup', onDragEnd)
+  // dragMoved сбросим чуть позже — после click, который браузер пошлёт сразу за mouseup
+  setTimeout(() => { dragMoved = false }, 0)
+}
+// если вкладки перетаскивали — клик по вкладке не засчитываем
+function onTabsClick(e) {
+  if (dragMoved) { e.stopPropagation(); e.preventDefault() }
+}
+// выбор вкладки + подкрутка, чтобы выбранная была видна целиком
+function selectTab(i, e) {
+  active.value = i
+  const btn = e && e.currentTarget
+  if (btn && btn.scrollIntoView && tabsRef.value && tabsRef.value.scrollWidth > tabsRef.value.clientWidth + 1 && window.innerWidth < 1024) {
+    btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+  }
+}
+onBeforeUnmount(onDragEnd)
 
 const { headingRef, headingVisible } = useScrollReveal()
 </script>

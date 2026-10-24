@@ -95,7 +95,38 @@
         "title": "Gurnama we işe girizmek",
         "subtitle": "Ulgamy biznesiňize laýyklykda ornaşdyrýarys, giriş hukuklaryny sazlaýarys we işgärleri okadýarys — bary-ýogy 1–3 gün."
       }
-    ]
+    ],
+    "demo": {
+      "step2": {
+        "notify": "Arza alyndy",
+        "now": "häzir",
+        "preview": "Salam! Arzaňyzy aldyk 👋",
+        "head": "HasApp menejeri",
+        "online": "onlaýn",
+        "m1": "Salam! Arzaňyzy aldyk. Kompaniýaňyz nähili iş bilen meşgullanýar?",
+        "m2": "Söwda, 15 işgär. Bize ammar we söwda gerek",
+        "m3": "Düşündik. Size şu modullary birikdireris:",
+        "chip1": "CRM we söwda",
+        "chip2": "Ammar",
+        "chip3": "Iş wagty",
+        "m4": "Gurnama barada ylalaşalymy?",
+        "m5": "Hawa, ylalaşalyň",
+        "ready": "Hemme zat ylalaşyldy!",
+        "readySub": "Indiki ädim — ulgamy biznesiňize görä gurnamak",
+        "btn": "GURNAMAGA GEÇMEK"
+      },
+      "step3": {
+        "t1": "Ulgamy serweriňizde ýerleşdirýäris",
+        "t2": "Giriş hukuklaryny sazlaýarys",
+        "t3": "Işgärleri okadýarys",
+        "role1": "Direktor",
+        "role2": "Menejer",
+        "role3": "Ammar",
+        "done": "Taýýar! Ulgam işledi",
+        "doneText": "Gurnamak we okatmak — bary-ýogy 1–3 gün",
+        "btn": "ULGAMA GEÇMEK"
+      }
+    }
   },
   "cases": {
     "badge": "Keýsler",
@@ -248,6 +279,10 @@
         "answer": "Siz kompaniýany hasaba alýarsyňyz, gerekli modullary birikdirýärsiňiz we işläp başlaýarsyňyz — ulgamy ýerleşdirmek 1–3 gün alýar."
       },
       {
+        "question": "Habarnamalary we ýatlatmalary sazlap bolýarmy?",
+        "answer": "Hawa, habarnamalar we ýatlatmalar işgärlere we biznes proseslerine görä sazlanýar."
+      },
+      {
         "question": "Ulgamy öz biznesime görä sazlap bilerinmi?",
         "answer": "Hawa, ähli modullarda öz meýdançalaryňyzy, kategoriýalaryňyzy goşup bilersiňiz we interfeýs elementleriniň ýerleşişini islegiňize görä üýtgedip bilersiňiz."
       },
@@ -269,7 +304,7 @@
       },
       {
         "question": "Satyn almazdan ozal HasApp-y synap görüp bolýarmy?",
-        "answer": "Häzirki wagtda bu şeýle işleýär: siz ýüz tutma goýýarsyňyz, biz siz bilen habarlaşýarys, wezipeleri maslahatlaşýarys we ulgamy ornaşdyrýarys. Awtomatiki demo-giriş geljekde goşulmagy meýilleşdirilýär, şonda ýüz tutmadan soň ulgamy derrew synap görmek mümkin bolar."
+        "answer": "Hawa. HasApp-yň demo wersiýasyny şu wagt synap görüp bilersiňiz — «Demo synap görmek» düwmesine basyň. Islegleriňizi maslahatlaşmak isleseňiz, ýüz tutma goýuň: biz siz bilen habarlaşyp, ulgamy işiňize görä ornaşdyrarys."
       }
     ]
   },
@@ -277,7 +312,8 @@
     "badge": "Başlamak",
     "headline": "Biznesiňizi özgertmäge taýýarmy?",
     "description": "Eýýäm HasApp ulgamyna geçen we biznesini tertipli dolandyrýan kompaniýalara goşulyň",
-    "button": "Başlamak"
+    "button": "Başlamak",
+    "demoButton": "Demo synap görmek"
   },
   "contactModal": {
     "title": "Arza galdyrmak",
