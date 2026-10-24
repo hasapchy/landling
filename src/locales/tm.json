@@ -11,7 +11,9 @@
     "pricing": "Tarifler",
     "faq": "Soraglar",
     "darkMode": "Garaňky tema",
-    "lightMode": "Açyk tema"
+    "lightMode": "Açyk tema",
+    "contacts": "Habarlaşmak",
+    "tryDemo": "Demo synap görmek"
   },
   "hero": {
     "badge": "Türkmenistandaky telekeçilik üçin CRM",
@@ -85,13 +87,13 @@
       },
       {
         "label": "2-nji ÄDIM",
-        "title": "Habarlaşyp, demo guruşdyrarys",
-        "subtitle": "Biznesiňiziň isleglerini maslahatlaşarys we ulgamy satyn almazdan öň synap görmek üçin pudagyňyza görä demo giriş bereris."
+        "title": "Siz bilen habarlaşarys",
+        "subtitle": "Dolandyryjymyz siz bilen habarlaşar, biznesiňiziň wezipelerini maslahatlaşar we soraglaryňyza jogap berer. Size haýsy modullaryň laýyk gelýändigini aýdarys."
       },
       {
         "label": "3-nji ÄDIM",
         "title": "Gurnama we işe girizmek",
-        "subtitle": "Siz razy bolanyňyzdan soň ulgamy biznesiňiz üçin ýaýbaňlandyrarys, giriş hukuklaryny sazlarys we işgärleri okadarys — bary-ýogy 1–3 gün."
+        "subtitle": "Ulgamy biznesiňize laýyklykda ornaşdyrýarys, giriş hukuklaryny sazlaýarys we işgärleri okadýarys — bary-ýogy 1–3 gün."
       }
     ]
   },
@@ -213,7 +215,20 @@
         ],
         "cta": "Başlamak"
       }
-    ]
+    ],
+    "perMonth": "aýlyk",
+    "modes": {
+      "boxed": "Gutyçaly",
+      "cloud": "Bulutly"
+    },
+    "modeHint": {
+      "boxed": "Gutyçaly çözgüt satyn alanda isleýän serweriňize gurnalýar. Ähli maglumatlar şol ýerde — siziň infrastrukturasyňyzda saklanýar.",
+      "cloud": "Bulutly çözgüt biziň serwerlerimizde işleýär. Ähli maglumatlar bulutda saklanýar — öz infrastrukturasyňyz gerek däl."
+    },
+    "modeDescription": {
+      "boxed": "Gurnamak we öwretmek hyzmaty içinde — aýlyk tölegsiz, lisenziýany bir gezeklik satyn almak.",
+      "cloud": "Islendik ýerden girişli abuna — täzelemeler we goldaw içinde, serwerler biziň tarapymyzda."
+    }
   },
   "faq": {
     "badge": "Soraglar",
@@ -254,7 +269,7 @@
       },
       {
         "question": "Satyn almazdan ozal HasApp-y synap görüp bolýarmy?",
-        "answer": "Hawa, gysgaça gürrüňdeşlikden soň, siziň ugruňyza laýyklykda görkezme maglumatlary bolan 1 aýlyk demo-giriş hödürleýäris — satyn almazdan ozal ulgama özüňiz baha berip bilersiňiz."
+        "answer": "Häzirki wagtda bu şeýle işleýär: siz ýüz tutma goýýarsyňyz, biz siz bilen habarlaşýarys, wezipeleri maslahatlaşýarys we ulgamy ornaşdyrýarys. Awtomatiki demo-giriş geljekde goşulmagy meýilleşdirilýär, şonda ýüz tutmadan soň ulgamy derrew synap görmek mümkin bolar."
       }
     ]
   },
@@ -265,8 +280,8 @@
     "button": "Başlamak"
   },
   "contactModal": {
-    "title": "Biz bilen habarlaşyň",
-    "subtitle": "Maslahat almak ýa-da biziň bilen duşuşmak üçin arzaňyzy galdyryň — biz iň gysga wagtda siziň bilen habarlaşarys.",
+    "title": "Arza galdyrmak",
+    "subtitle": "Formany dolduryň — biz iň gysga wagtda siziň bilen habarlaşarys.",
     "name": "Adyňyz",
     "email": "Email salgyňyz",
     "phone": "Telefon belgiňiz",
@@ -421,5 +436,14 @@
       }
     ],
     "back": "Baş sahypa"
+  },
+  "contacts": {
+    "badge": "Habarlaşmak",
+    "headline": "Biz bilen habarlaşyň",
+    "description": "Arza galdyryň ýa-da göni ýazyň — ýakyn wagtda jogap bereris.",
+    "infoTitle": "Biziň kontaktlarymyz",
+    "addressLabel": "Salgysy",
+    "phoneLabel": "Telefon",
+    "emailLabel": "Email"
   }
 }

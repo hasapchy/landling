@@ -29,6 +29,8 @@
             t('nav.pricing') }}</a>
           <a href="#faq" class="whitespace-nowrap text-md font-medium text-black/70 hover:text-[#054C86] dark:hover:text-[#6cb6f2] transition-colors">{{
             t('nav.faq') }}</a>
+          <a href="#contacts" class="whitespace-nowrap text-md font-medium text-black/70 hover:text-[#054C86] dark:hover:text-[#6cb6f2] transition-colors">{{
+            t('nav.contacts') }}</a>
         </nav>
 
         <div class="flex items-center gap-2 min-[400px]:gap-3 sm:gap-4 shrink-0">
@@ -83,11 +85,10 @@
             </svg>
           </button>
 
-          <!-- кнопка -->
-          <button type="button" @click="openContactModal"
-            class="btn-primary hidden min-[480px]:inline-flex whitespace-nowrap !px-4 min-[400px]:!px-5 !py-2.5 sm:!px-6 sm:!py-3 !text-xs sm:!text-sm shrink-0">
-            {{ t('nav.cta') }}
-          </button>
+          <a href="https://demo.hasapp.online/auth/login#signup" target="_blank" rel="noopener noreferrer"
+            class="btn-primary hidden min-[480px]:inline-flex whitespace-nowrap !px-4 min-[400px]:!px-5 !py-2.5 sm:!px-6 sm:!py-3 !text-xs sm:!text-sm shrink-0 no-underline">
+            {{ t('nav.tryDemo') }}
+          </a>
         </div>
       </div>
     </div>
@@ -115,10 +116,11 @@
           </nav>
 
           <div class="menu-item mt-8" :style="{ transitionDelay: (menuLinks.length * 45 + 120) + 'ms' }">
-            <button type="button" @click="menuOpen = false; openContactModal && openContactModal()"
-              class="btn-primary w-full !py-3.5 !text-sm">
-              {{ t('nav.cta') }}
-            </button>
+            <a href="https://demo.hasapp.online/auth/login#signup" target="_blank" rel="noopener noreferrer"
+              @click="menuOpen = false"
+              class="btn-primary w-full !py-3.5 !text-sm no-underline">
+              {{ t('nav.tryDemo') }}
+            </a>
           </div>
         </div>
       </div>
@@ -127,7 +129,7 @@
 </template>
 
 <script setup>
-import { ref, computed, inject, watch, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTheme } from '@/composables/useTheme'
 const { t, locale } = useI18n()
@@ -147,9 +149,9 @@ const menuLinks = computed(() => [
   { href: '#cases', label: t('cases.badge') },
   { href: '#pricing', label: t('nav.pricing') },
   { href: '#faq', label: t('nav.faq') },
+  { href: '#contacts', label: t('nav.contacts') },
 ])
 const flagCodes = { tm: 'tm', ru: 'ru', en: 'gb' }
-const openContactModal = inject('openContactModal')
 function setLocale(lang) {
   locale.value = lang
   try {

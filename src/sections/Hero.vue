@@ -40,11 +40,14 @@
         {{ t('hero.description') }}
       </p>
 
-      <button @click="openContactModal" class="btn-primary !px-6 !py-3 sm:!px-8 sm:!py-3.5 md:!px-10 md:!py-4 z-5
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 z-5
                transition-all duration-700 ease-out"
         :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'" style="transition-delay: 420ms">
-        {{ t('nav.cta') }}
-      </button>
+        <a href="https://demo.hasapp.online/auth/login#signup" target="_blank" rel="noopener noreferrer"
+          class="btn-primary !px-6 !py-3 sm:!px-8 sm:!py-3.5 md:!px-10 md:!py-4 text-center no-underline">
+          {{ t('nav.tryDemo') }}
+        </a>
+      </div>
 
       <GlowCard src="/images/HERO.jpg" :alt="t('hero.badge')" eager width="1312" height="814"
         class="-mt-8 sm:-mt-12 md:-mt-16 transition-all duration-1000 ease-out"
@@ -55,14 +58,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, inject } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 import GlowCard from '@/components/GlowCard.vue'
 
 const { t } = useI18n()
-
-const openContactModal = inject('openContactModal')
 
 const show = ref(false)
 onMounted(() => {

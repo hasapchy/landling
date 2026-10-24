@@ -38,11 +38,7 @@
                         t('footer.resources') }}</p>
                     <ul class="mt-4 flex flex-col font-medium gap-2.5 sm:gap-3">
                         <li v-for="link in resourceLinks" :key="link.label">
-                            <button v-if="link.action === 'contact'" type="button" @click="openContactModal"
-                                class="inline-block text-left text-sm sm:text-base text-black/70 transition-transform duration-200 ease-in-out hover:translate-x-1.5 hover:text-[#054C86]">
-                                {{ link.label }}
-                            </button>
-                            <a v-else :href="link.href"
+                            <a :href="link.href"
                                 class="inline-block text-sm sm:text-base text-black/70 transition-transform duration-200 ease-in-out hover:translate-x-1.5 hover:text-[#054C86]">
                                 {{ link.label }}
                             </a>
@@ -112,12 +108,11 @@ const pageLinks = computed(() => {
     return links.map((link, i) => ({ label: link.label, href: hrefs[i] }))
 })
 
-const resourceHrefs = ['#', '/privacy']
+const resourceHrefs = ['#contacts', '/privacy']
 const resourceLinks = computed(() =>
     tm('footer.resourceLinks').map((link, i) => ({
         label: link.label,
-        href: i === 0 ? null : resourceHrefs[i],
-        action: i === 0 ? 'contact' : null,
+        href: resourceHrefs[i],
     }))
 )
 
