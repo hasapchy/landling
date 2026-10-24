@@ -11,8 +11,13 @@
 import { watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const SITE_URL = 'https://hasapp.example' // TODO: заменить на реальный домен
+const SITE_URL = 'https://hasapp.online'
 const OG_IMAGE = `${SITE_URL}/images/og-cover.jpg`
+
+// язык сайта -> код для Open Graph (ru_RU, en_US, tk_TM)
+const OG_LOCALES = { ru: 'ru_RU', en: 'en_US', tm: 'tk_TM' }
+// язык сайта -> код для атрибута lang у <html> (у туркменского стандартный код tk)
+const HTML_LANGS = { ru: 'ru', en: 'en', tm: 'tk' }
 
 function setMeta(attr, key, content) {
   let el = document.head.querySelector(`meta[${attr}="${key}"]`)
@@ -30,10 +35,10 @@ export function useSeo() {
   watchEffect(() => {
     const title = t('seo.title')
     const description = t('seo.description')
-    const ogLocale = locale.value === 'ru' ? 'ru_RU' : 'en_US'
+    const ogLocale = OG_LOCALES[locale.value] || 'ru_RU'
 
     document.title = title
-    document.documentElement.setAttribute('lang', locale.value)
+    document.documentElement.setAttribute('lang', HTML_LANGS[locale.value] || locale.value)
 
     setMeta('name', 'description', description)
     setMeta('property', 'og:title', title)
