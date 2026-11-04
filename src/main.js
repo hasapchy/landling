@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 // import { createHead } from '@unhead/vue'
 import App from './App.vue'
+import './assets/fonts.css'
 import './assets/main.css'
 import i18n from './i18n'
 import { initTheme } from './composables/useTheme'
