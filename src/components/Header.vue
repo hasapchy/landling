@@ -9,7 +9,7 @@
 
         <!-- лого -->
                 <a href="#" class="flex items-center gap-2 shrink-0">
-          <img src="/images/logo.png" alt="HasApp" width="2612" height="719" loading="eager" decoding="async"
+          <img src="/images/logo.webp" alt="HasApp" width="2612" height="719" loading="eager" decoding="async"
             class="h-7 sm:h-8 w-auto" />
         </a>
 

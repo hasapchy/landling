@@ -10,7 +10,7 @@
             <!-- лого + описание -->
             <div class="max-w-full md:max-w-xs">
                 <a href="#" class="flex items-center gap-2">
-                    <img src="/images/logo.png" alt="HasApp" width="2612" height="719" loading="lazy"
+                    <img src="/images/logo.webp" alt="HasApp" width="2612" height="719" loading="lazy"
                         decoding="async" class="h-7 sm:h-8 w-auto" />
                 </a>
                 <p class="mt-4 text-sm sm:text-base text-black/60 leading-relaxed">

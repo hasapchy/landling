@@ -360,6 +360,7 @@ section[id] {
   }
 }
 /* логотип в тёмной теме: делаем ярче, чтобы читался на тёмном фоне (светлая тема не меняется) */
-.dark img[src$="logo.png"] {
+.dark img[src$="logo.png"],
+.dark img[src$="logo.webp"] {
   filter: brightness(2.2) saturate(1.15);
 }
