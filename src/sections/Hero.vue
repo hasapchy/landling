@@ -49,7 +49,7 @@
         </a>
       </div>
 
-      <GlowCard src="/images/HERO.jpg" :alt="t('hero.badge')" eager width="1312" height="814"
+      <GlowCard src="/images/HERO.webp" :alt="t('hero.badge')" eager width="1312" height="814"
         class="-mt-8 sm:-mt-12 md:-mt-16 transition-all duration-1000 ease-out"
         :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'" style="transition-delay: 540ms" />
     </div>

@@ -120,7 +120,7 @@ const icons = {
 }
 
 const iconKeys = ['crm', 'inventory', 'time', 'money', 'security', 'mail', 'reports', 'ai']
-const images = ['/images/fea/1.jpg', '/images/fea/2-1.jpg', '/images/fea/3-1.jpg', '/images/fea/8.jpg', '/images/fea/4.jpg', '/images/fea/5.jpg', '/images/fea/6.jpg', '/images/fea/7.jpg']
+const images = ['/images/fea/1.webp', '/images/fea/2-1.webp', '/images/fea/3-1.webp', '/images/fea/8.webp', '/images/fea/4.webp', '/images/fea/5.webp', '/images/fea/6.webp', '/images/fea/7.webp']
 
 const features = computed(() =>
   tm('features.items').map((item, i) => ({

@@ -44,7 +44,7 @@
         w-24 h-24 sm:w-60 sm:h-60 rounded-[22px] sm:rounded-[28px]  bg-[linear-gradient(180deg,#64BBFA_0%,#E2F3FF_100%)]"></div>
 
                     <!-- само фото -->
-                    <img src="/images/about.jpg" alt="HasApp" width="1400" height="706" loading="lazy"
+                    <img src="/images/about.webp" alt="HasApp" width="1400" height="706" loading="lazy"
                         decoding="async"
                         class="relative w-full h-[260px] sm:h-[320px] md:h-[380px] object-cover rounded-[20px] sm:rounded-[24px] bg-[#F4F7FC]" />
                 </div>
@@ -88,7 +88,7 @@
             :class="storyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
 
             <!-- фоновое фото на весь блок — путь оставила, вставишь своё -->
-            <img src="/images/ab-2.jpg" alt="" width="1400" height="645" loading="lazy" decoding="async"
+            <img src="/images/ab-2.webp" alt="" width="1400" height="645" loading="lazy" decoding="async"
                 class="absolute inset-0 w-full h-full object-cover rounded-[30px] lg:rounded-[40px] bg-black" />
 
             <!-- осветляющий градиент слева направо — текст слева читаемый
