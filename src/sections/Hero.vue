@@ -58,17 +58,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LabelBadge from '@/components/LabelBadge.vue'
 import GlowCard from '@/components/GlowCard.vue'
 
 const { t } = useI18n()
 
-const show = ref(false)
-onMounted(() => {
-  requestAnimationFrame(() => {
-    show.value = true
-  })
-})
+// Главный блок виден сразу — и в готовом HTML, и до загрузки скриптов.
+// Раньше он включался только после запуска JavaScript (onMounted), из-за чего на медленных
+// телефонах самый важный элемент страницы (LCP) появлялся через 10+ секунд.
+const show = ref(true)
 </script>
