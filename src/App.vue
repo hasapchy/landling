@@ -22,8 +22,12 @@ useI18n()
 useSeo()
 
 // страница политики конфиденциальности: адрес /privacy
-const isPrivacy = window.location.pathname.replace(/\/+$/, '') === '/privacy'
-if (isPrivacy) {
+// (при пререндере на этапе сборки window нет — путь передаётся через __SSR_PATH__)
+const currentPath = typeof window !== 'undefined'
+  ? window.location.pathname
+  : (globalThis.__SSR_PATH__ || '/')
+const isPrivacy = currentPath.replace(/\/+$/, '') === '/privacy'
+if (isPrivacy && typeof document !== 'undefined') {
   // ссылки-якоря шапки и подвала (#about и т.п.) ведут на главную страницу
   document.addEventListener('click', (e) => {
     const a = e.target.closest && e.target.closest('a[href^="#"]')

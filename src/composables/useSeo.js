@@ -33,6 +33,9 @@ export function useSeo() {
   const { t, locale } = useI18n()
 
   watchEffect(() => {
+    // при пререндере на этапе сборки document нет — теги уже лежат в index.html
+    if (typeof document === 'undefined') return
+
     const title = t('seo.title')
     const description = t('seo.description')
     const ogLocale = OG_LOCALES[locale.value] || 'ru_RU'

@@ -32,6 +32,7 @@ const { t, tm, rt } = useI18n()
 
 // заголовок вкладки браузера
 watchEffect(() => {
+    if (typeof document === 'undefined') return
     document.title = `${t('privacy.title')} — HasApp`
 })
 
