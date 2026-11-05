@@ -49,7 +49,7 @@
         <!-- вкладки + общая сцена -->
         <div ref="showcaseRef" class="relative z-[2] mt-10 sm:mt-14 md:mt-16 lg:mt-20 w-full max-w-[880px] mx-auto
                    transition-all duration-700 ease-out"
-            :class="inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
+            :class="revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
 
             <!-- кнопки-вкладки -->
             <div class="grid grid-cols-3 gap-2 sm:gap-4" role="tablist">
@@ -148,6 +148,9 @@ const active = ref(0)
 const progress = ref(0)
 const runId = ref(0)
 const inView = ref(false)
+// блок плавно появляется один раз и дальше остаётся видимым (иначе он мигал, когда уходил под шапку);
+// inView управляет только запуском и остановкой анимации
+const revealed = ref(false)
 const stageScale = ref(1)
 
 const showcaseRef = ref(null)
@@ -200,6 +203,7 @@ onMounted(() => {
             const visible = entry.isIntersecting
             if (visible === inView.value) return
             inView.value = visible
+            if (visible) revealed.value = true
             if (visible) {
                 updateScale()
                 runId.value++
