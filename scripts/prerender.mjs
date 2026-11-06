@@ -5,6 +5,7 @@
 // страницы, чтобы он был виден в HTML без JavaScript:
 //   /         -> dist/index.html
 //   /privacy  -> dist/privacy.html
+//   /sklad, /crm и т.д. (список в src/pages/seoPages.js) -> dist/sklad.html, dist/crm.html
 // На главную добавляется разметка Schema.org (JSON-LD): Organization,
 // SoftwareApplication и FAQPage — из тех же данных, что и сам сайт
 // (ru.json и src/config/contacts.js), поэтому с текстом на странице она не расходится.
@@ -19,6 +20,7 @@ const SITE_URL = 'https://hasapp.online'
 
 const { render } = await import(pathToFileURL(resolve(root, 'dist-ssr/entry-server.js')).href)
 const { CONTACTS } = await import(pathToFileURL(resolve(root, 'src/config/contacts.js')).href)
+const { SEO_PAGES, getSeoPage } = await import(pathToFileURL(resolve(root, 'src/pages/seoPages.js')).href)
 const ru = JSON.parse(readFileSync(resolve(root, 'src/locales/ru.json'), 'utf-8'))
 
 const template = readFileSync(resolve(dist, 'index.html'), 'utf-8')
@@ -122,5 +124,42 @@ privacy = privacy
   .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${SITE_URL}/privacy$2`)
 writeFileSync(resolve(dist, 'privacy.html'), privacy)
 
+// --- отдельные страницы под запросы: свой title, description, canonical и разметка FAQ ---
+const seoPaths = Object.keys(SEO_PAGES)
+for (const path of seoPaths) {
+  const p = getSeoPage(path, 'ru', ru, ru)
+  const title = esc(p.title)
+  const desc = esc(p.description)
+  const url = `${SITE_URL}${path}`
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'FAQPage',
+        '@id': `${url}#faq`,
+        mainEntity: (p.faq || []).map((it) => ({ '@type': 'Question', name: it.q, acceptedAnswer: { '@type': 'Answer', text: it.a } })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'HasApp', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: p.badge, item: url },
+        ],
+      },
+    ],
+  }).replace(/</g, '\\u003c')
+  const html = page(await render(path))
+    .replace(/<title>[\s\S]*?<\/title>/, () => `<title>${title}</title>`)
+    .replace(/(<meta name="description" content=")[^"]*(")/, (_, a, b) => `${a}${desc}${b}`)
+    .replace(/(<meta property="og:title" content=")[^"]*(")/, (_, a, b) => `${a}${title}${b}`)
+    .replace(/(<meta property="og:description" content=")[^"]*(")/, (_, a, b) => `${a}${desc}${b}`)
+    .replace(/(<meta name="twitter:title" content=")[^"]*(")/, (_, a, b) => `${a}${title}${b}`)
+    .replace(/(<meta name="twitter:description" content=")[^"]*(")/, (_, a, b) => `${a}${desc}${b}`)
+    .replace(/(<meta property="og:url" content=")[^"]*(")/, (_, a, b) => `${a}${url}${b}`)
+    .replace(/(<link rel="canonical" href=")[^"]*(")/, (_, a, b) => `${a}${url}${b}`)
+    .replace('</head>', () => `<script type="application/ld+json">${faqLd}</script>\n  </head>`)
+  writeFileSync(resolve(dist, `${path.replace(/^\//, '')}.html`), html)
+}
+
 rmSync(resolve(root, 'dist-ssr'), { recursive: true, force: true })
-console.log(`prerender: index.html (${home.length} симв.) и privacy.html готовы; JSON-LD: ${ldTag.length} симв.`)
+console.log(`prerender: index.html (${home.length} симв.) privacy.html и ${seoPaths.length} стр. под запросы готовы; JSON-LD: ${ldTag.length} симв.`)

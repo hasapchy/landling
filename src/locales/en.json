@@ -481,5 +481,1089 @@
     "addressLabel": "Address",
     "phoneLabel": "Phone",
     "emailLabel": "Email"
+  },
+  "seoPages": {
+    "/sklad": {
+      "title": "Online Inventory Management in Turkmenistan — HasApp",
+      "description": "Online inventory management: receipts, purchases, write-offs, returns and stocktaking. Real-time stock levels, with the warehouse linked to sales. Launch in 1–3 days. Try the demo!",
+      "badge": "Inventory management",
+      "h1": "Online inventory management — no Excel and no “shortages nobody can explain”",
+      "lead": "The “Inventory” module in HasApp: receipts, purchases, write-offs, returns and stocktaking. Stock levels are visible in real time and connected to sales.",
+      "spaceTitle": "Inventory and sales — in one workspace",
+      "spaceText": "Products, stock levels, deals and clients live in one system. No need to move data between spreadsheets and programs: every stock movement is instantly visible where you need it.",
+      "spacePoints": [
+        "Products and deals — in a single system",
+        "Stock levels update in real time",
+        "Inventory widgets — on the shared reports screen"
+      ],
+      "whyTitle": "Why not a separate program for the warehouse?",
+      "whyText": "Inventory is just one of the HasApp modules. It works together with sales and finance, not apart from them.",
+      "why": [
+        {
+          "title": "Everything in one window",
+          "text": "Inventory, sales and clients in one system, not in three different programs."
+        },
+        {
+          "title": "No Excel",
+          "text": "Receipts, write-offs and stocktaking are handled in the system, not in scattered spreadsheets."
+        },
+        {
+          "title": "Always up-to-date stock",
+          "text": "Every stock movement is reflected in the balances immediately."
+        },
+        {
+          "title": "Included in the plan",
+          "text": "Inventory management is included in both HasApp plans — “Basic” and “Standard”."
+        }
+      ],
+      "capsTitle": "Inventory management features",
+      "capsText": "Everything you need to keep track of goods, in one module.",
+      "caps": [
+        {
+          "title": "Receipts",
+          "text": "Record incoming goods"
+        },
+        {
+          "title": "Purchases",
+          "text": "Purchases in the system, not in spreadsheets"
+        },
+        {
+          "title": "Write-offs",
+          "text": "Every write-off comes with a history"
+        },
+        {
+          "title": "Returns",
+          "text": "A return is recorded as a separate movement"
+        },
+        {
+          "title": "Stocktaking",
+          "text": "Compare the books with the actual count"
+        },
+        {
+          "title": "Live stock levels",
+          "text": "Up-to-date figures at any moment"
+        }
+      ],
+      "scenariosTitle": "How it works in practice",
+      "blocks": [
+        {
+          "label": "Receipts and purchases",
+          "title": "Every receipt of goods is in the system, not in a spreadsheet",
+          "text": "Record deliveries and purchases right in HasApp. Stock levels update at the same moment, and every product keeps its history."
+        },
+        {
+          "label": "Write-offs and returns",
+          "title": "You know where every item went",
+          "text": "Write-offs and returns are recorded as separate movements. No more “shortages nobody can explain”."
+        },
+        {
+          "label": "Stocktaking",
+          "title": "Reconcile stock right in the system",
+          "text": "Compare the actual quantity with the recorded one and see discrepancies instantly, without Excel or manual counting."
+        }
+      ],
+      "forTitle": "Who HasApp inventory management is for",
+      "forItems": [
+        {
+          "title": "Trading companies",
+          "text": "Inventory and sales in one system: goods, stock and deals under control."
+        },
+        {
+          "title": "Print shops and manufacturing",
+          "text": "A materials warehouse next to orders, cost calculation and production progress."
+        },
+        {
+          "title": "Advertising and production companies",
+          "text": "From the client’s request to the finished product: deadlines, materials, workshop load."
+        }
+      ],
+      "stepsTitle": "Launch in 3 steps",
+      "steps": [
+        {
+          "title": "Leave a request",
+          "text": "Tell us a bit about your business: industry, number of employees and contact details. It takes a couple of minutes."
+        },
+        {
+          "title": "We get in touch",
+          "text": "Our manager will discuss your business needs and suggest which modules suit you best."
+        },
+        {
+          "title": "Installation and launch",
+          "text": "We deploy the system for your business, set up access rights and train your staff — in just 1–3 days."
+        }
+      ],
+      "faqTitle": "Questions about inventory management",
+      "faq": [
+        {
+          "q": "How do I manage inventory online in HasApp?",
+          "a": "The “Inventory” module includes receipts, purchases, write-offs, returns and stocktaking. Stock levels update in real time and are linked to sales."
+        },
+        {
+          "q": "Is inventory management included in the plan?",
+          "a": "Yes, “Inventory management” is included in both the “Basic” and the “Standard” plans."
+        },
+        {
+          "q": "Can I manage inventory together with sales?",
+          "a": "Yes. Products, deals and clients are in a single system, so you don’t have to connect inventory and sales manually."
+        },
+        {
+          "q": "Can I try HasApp before buying?",
+          "a": "Yes. You can try the HasApp demo right now — click “Try demo”."
+        }
+      ],
+      "ctaTitle": "Put your warehouse in order",
+      "ctaText": "See the system in the demo or leave a request — we will pick the modules for your business."
+    },
+    "/crm": {
+      "title": "CRM for Small Business in Turkmenistan — HasApp",
+      "description": "CRM for small business: deals, clients, products and inventory in one system. One-time license purchase with no subscription, launch in 1–3 days. Try the demo!",
+      "badge": "CRM for small business",
+      "h1": "CRM for small business: deals, clients and inventory in one system",
+      "lead": "No more lost requests and scattered spreadsheets: the sales pipeline, client base and products live in a single system, with full visibility into every deal.",
+      "pathTitle": "The whole deal history — on one screen",
+      "path": [
+        {
+          "title": "Request",
+          "text": "A new lead goes straight into the pipeline and doesn’t get lost in correspondence."
+        },
+        {
+          "title": "Working the deal",
+          "text": "The client, products and emails are collected in a single card."
+        },
+        {
+          "title": "Agreement",
+          "text": "You can see which stage the deal is at and what to do next."
+        },
+        {
+          "title": "Payment",
+          "text": "The deal is closed, and the sales data goes straight into reports and inventory."
+        }
+      ],
+      "bentoTitle": "Everything you need for sales, in one system",
+      "bento": [
+        {
+          "title": "Deals, leads and clients in one window",
+          "text": "The sales pipeline, client base and products in a single system, with full visibility into every deal."
+        },
+        {
+          "title": "Your own email right in the CRM",
+          "text": "Connect your mailbox and work with emails without leaving the system."
+        },
+        {
+          "title": "Key figures on one screen",
+          "text": "Widgets for sales, clients, inventory, projects and finance."
+        },
+        {
+          "title": "An AI assistant inside",
+          "text": "Create chats and ask questions without leaving HasApp."
+        },
+        {
+          "title": "Configurable to your business",
+          "text": "Custom fields, categories and access rights — 300+ permissions in the system."
+        }
+      ],
+      "launchTitle": "From request to work — 1–3 days",
+      "launch": [
+        "You leave a request",
+        "A manager discusses your needs",
+        "We install and train your staff"
+      ],
+      "pricingNote": "A one-time license purchase with no monthly subscription — installation and training included.",
+      "faqTitle": "Frequently asked questions about CRM",
+      "faq": [
+        {
+          "q": "What is HasApp?",
+          "a": "HasApp is a business management system: sales, inventory, finance, HR and communication in one place."
+        },
+        {
+          "q": "Can I customize the system for my business?",
+          "a": "Yes, in every module you can add your own fields and categories and rearrange the interface elements to suit you."
+        },
+        {
+          "q": "How do I get started with HasApp?",
+          "a": "Leave a request — we will deploy the system for your business and set up access rights within 1–3 days."
+        },
+        {
+          "q": "Can I try HasApp before buying?",
+          "a": "Yes. You can try the HasApp demo right now — click “Try demo”."
+        }
+      ],
+      "ctaTitle": "Bring your sales into one system",
+      "ctaText": "See the system in the demo or leave a request — we will pick the modules for your business."
+    },
+    "/finance": {
+      "title": "Finance and Cash Management for Business in Turkmenistan — HasApp",
+      "description": "The HasApp finance module: income and expenses by cash desk, multi-currency and multi-company support, finance widgets. Linked to sales and inventory. Launch in 1–3 days. Try the demo!",
+      "badge": "Finance and cash",
+      "h1": "Finance and cash management: every income and expense in plain sight",
+      "tillIn": "Income",
+      "tillOut": "Expense",
+      "balanceLabel": "Cash balance",
+      "stageNote": "Example: this is how money gets recorded as income and expense while the balance calculates itself. The data is illustrative.",
+      "tabsTitle": "What the finance module includes",
+      "lead": "The HasApp finance module started as simple tracking of income and expenses by cash desk and grew into part of a single system: payments are linked to sales, and the key figures are collected on one screen.",
+      "cashTitle": "Income and expenses by cash desk — in real time",
+      "cashText": "Every transaction goes into the books immediately, and the cash balance updates without manual recalculation or scattered spreadsheets.",
+      "storyTitle": "It started with the cash desk — and grew into a system",
+      "story": [
+        {
+          "tag": "Two years ago",
+          "title": "Income and expenses by cash desk",
+          "text": "HasApp development began with a single module — simple tracking of income and expenses by cash desk."
+        },
+        {
+          "tag": "Next",
+          "title": "Sales, inventory, HR",
+          "text": "CRM and sales, inventory, HR, projects and communication were added to finance."
+        },
+        {
+          "tag": "Today",
+          "title": "A single system",
+          "text": "Finance works alongside the other modules, not apart from them."
+        }
+      ],
+      "bentoTitle": "What the finance module includes",
+      "bento": [
+        {
+          "title": "Income and expenses by cash desk",
+          "text": "Record receipts and payouts and see the balance of every cash desk."
+        },
+        {
+          "title": "Multi-currency",
+          "text": "Keep records in different currencies in one system."
+        },
+        {
+          "title": "Multi-company",
+          "text": "Several legal entities in one system, for businesses with more than one company."
+        },
+        {
+          "title": "Finance on the shared screen",
+          "text": "Widgets for finance, sales, clients, inventory and projects — add the ones you need."
+        },
+        {
+          "title": "You decide who sees what",
+          "text": "300+ access rights: only the people you allow can see the money."
+        }
+      ],
+      "flowTitle": "From deal to report — with no manual entry",
+      "flowText": "When a deal is closed, the sales data goes straight into reports and inventory — no need to copy it from spreadsheet to spreadsheet.",
+      "flow": [
+        "Deal",
+        "Payment",
+        "Reports and inventory"
+      ],
+      "faqTitle": "Questions about financial management",
+      "faq": [
+        {
+          "q": "What can the HasApp finance module do?",
+          "a": "It tracks income and expenses by cash desk and supports multi-currency and multi-company setups. Finance widgets are available on the shared reports screen."
+        },
+        {
+          "q": "Can I keep records in several currencies?",
+          "a": "Yes, the system supports multi-currency. Multi-currency and multi-company are included in the “Standard” plan."
+        },
+        {
+          "q": "Can I run several companies in one system?",
+          "a": "Yes, the system supports multi-company setups for businesses with several legal entities."
+        },
+        {
+          "q": "How do I restrict access to financial data?",
+          "a": "The system has 300+ access rights, so you decide who can see and do what."
+        },
+        {
+          "q": "Is finance linked to sales and inventory?",
+          "a": "Yes. Sales, inventory, finance and HR work in one system, so the data of a closed deal goes straight into reports and inventory."
+        },
+        {
+          "q": "Can I try HasApp before buying?",
+          "a": "Yes. You can try the HasApp demo right now — click “Try demo”."
+        }
+      ],
+      "ctaTitle": "Put your money in order",
+      "ctaText": "See the system in the demo or leave a request — we will pick the modules for your business."
+    },
+    "/zakazy": {
+      "title": "Order and Sales Management in Turkmenistan — HasApp",
+      "description": "Manage client orders instead of spreadsheets and messengers: requests, clients, products and services, cost calculation, deadlines and a materials warehouse in one system. Launch in 1–3 days. Try the demo!",
+      "badge": "Orders and sales",
+      "h1": "Order management: before — spreadsheets and chats, now — one system",
+      "lead": "Requests, clients, products and services, cost calculation, deadlines and a materials warehouse — all in HasApp. Every order is in plain sight, and nothing gets lost in chats and spreadsheets.",
+      "beforeTitle": "Spreadsheets and messengers",
+      "afterTitle": "HasApp",
+      "stageNote": "Drag the slider or just watch. Example, the data is illustrative.",
+      "pairsTitle": "What changes when orders live in one system",
+      "pairs": [
+        {
+          "before": "Orders get lost in chats and messengers",
+          "after": "Every order is in the system: request, client, products and services in one card"
+        },
+        {
+          "before": "Costs are calculated by hand in a spreadsheet",
+          "after": "Order cost is calculated right in the system"
+        },
+        {
+          "before": "It’s unclear whether there are enough materials for the order",
+          "after": "The materials warehouse sits right next to the orders"
+        },
+        {
+          "before": "Deadlines and team workload are kept in your head",
+          "after": "Order deadlines and team workload — on one screen"
+        },
+        {
+          "before": "Payment data is copied into reports by hand",
+          "after": "A closed order goes straight into reports and inventory"
+        }
+      ],
+      "hubTitle": "The order is at the center — everything you need around it",
+      "hubText": "The client, products, cost, inventory, deadlines and payment are linked to the order in one system — no need to look for them across different spreadsheets.",
+      "hub": [
+        {
+          "title": "Client",
+          "text": "card and history"
+        },
+        {
+          "title": "Products and services",
+          "text": "in one order"
+        },
+        {
+          "title": "Cost calculation",
+          "text": "materials and labor"
+        },
+        {
+          "title": "Materials warehouse",
+          "text": "stock levels nearby"
+        },
+        {
+          "title": "Deadlines",
+          "text": "and team workload"
+        },
+        {
+          "title": "Payment and reports",
+          "text": "right in the system"
+        }
+      ],
+      "trackTitle": "Track an order like a parcel — from request to payment",
+      "trackText": "Every step is visible in the system: you always know where the order is and what comes next. Example, statuses and times are illustrative.",
+      "track": [
+        {
+          "title": "Request accepted",
+          "text": "Client and products in the card"
+        },
+        {
+          "title": "Cost calculated",
+          "text": "Materials, labor and delivery"
+        },
+        {
+          "title": "Materials from stock",
+          "text": "Stock levels updated"
+        },
+        {
+          "title": "In progress",
+          "text": "Deadlines visible to the whole team"
+        },
+        {
+          "title": "Ready",
+          "text": "Handing over to the client"
+        },
+        {
+          "title": "Paid",
+          "text": "Data goes straight to reports and inventory"
+        }
+      ],
+      "faqTitle": "Questions about order management",
+      "faq": [
+        {
+          "q": "How do I manage orders in HasApp?",
+          "a": "Requests, clients, products and services are handled in a single system: from the first contact to payment. The data of a closed order goes straight into reports and inventory."
+        },
+        {
+          "q": "Can I calculate the cost of an order in the system?",
+          "a": "Yes, order costs are calculated in HasApp, with no manual recalculation in spreadsheets."
+        },
+        {
+          "q": "Are orders linked to inventory?",
+          "a": "Yes. The materials warehouse sits next to the orders, so the movement of materials is visible where you need it."
+        },
+        {
+          "q": "Is the system suitable for manufacturing and logistics?",
+          "a": "Yes, HasApp is used by companies from different industries, including manufacturing, advertising and logistics. We pick the set of modules for your business."
+        },
+        {
+          "q": "Can I try HasApp before buying?",
+          "a": "Yes. You can try the HasApp demo right now — click “Try demo”."
+        }
+      ],
+      "ctaTitle": "Put your orders in order",
+      "ctaText": "See the system in the demo or leave a request — we will pick the modules for your business."
+    },
+    "/personal": {
+      "title": "Employee Time Tracking and Payroll — HasApp",
+      "description": "Time tracking and payroll in one system: timesheets, employee reports, vacation schedule, org structure. Physical time recorder supported. Launch in 1–3 days. Try the demo!",
+      "badge": "HR and payroll",
+      "h1": "Employee time tracking and payroll — no spreadsheets and no manual calculations",
+      "lead": "Timesheets, employee reports, a vacation schedule and payroll right in HasApp. Time comes from the recorder and salaries are calculated in the system — no manual recalculation.",
+      "timelineTitle": "One working day — from clock-in to payroll",
+      "timelineText": "Arrivals and departures are recorded, working time goes into the timesheet, and payroll is calculated in the system.",
+      "timelineNote": "Example: this is what a team’s working day looks like. Employees, times and amounts are illustrative.",
+      "stepsTitle": "From clock-in to payroll",
+      "steps": [
+        {
+          "title": "Arrival and departure",
+          "text": "The start and end of the working day are recorded — including with a physical recorder."
+        },
+        {
+          "title": "Timesheet",
+          "text": "Each employee’s working time is collected into the timesheet without manual entry."
+        },
+        {
+          "title": "Reports",
+          "text": "Employee reports and the vacation schedule — on one screen."
+        },
+        {
+          "title": "Payroll",
+          "text": "Payroll is calculated right in the system, without spreadsheets."
+        }
+      ],
+      "bentoTitle": "Everything about your employees — in one system",
+      "bento": [
+        {
+          "title": "Work time timesheet",
+          "text": "See who worked and how long — with no manual marks or summary spreadsheets."
+        },
+        {
+          "title": "Payroll without manual calculations",
+          "text": "Payroll is calculated right in the system — no spreadsheets and no manual recalculation."
+        },
+        {
+          "title": "Org structure",
+          "text": "Departments, employees and roles are collected in a single company structure."
+        },
+        {
+          "title": "Vacation schedule",
+          "text": "Plan vacations and see who is away and when."
+        },
+        {
+          "title": "We will connect your time recorder",
+          "text": "Already have a recorder — we will connect it and sync it with HasApp. Don’t have one yet — our manager will suggest what to buy."
+        }
+      ],
+      "faqTitle": "Questions about HR management",
+      "faq": [
+        {
+          "q": "Can HasApp track employees’ working hours?",
+          "a": "Yes, including support for a physical recorder of the start and end of the working day."
+        },
+        {
+          "q": "Can I calculate payroll in the system?",
+          "a": "Yes, payroll is calculated right in HasApp — without spreadsheets or manual recalculation."
+        },
+        {
+          "q": "What if I don’t have a time recorder yet?",
+          "a": "Our manager will suggest what to buy. If you already have a recorder, we will connect it and sync it with HasApp."
+        },
+        {
+          "q": "Is time tracking included in the plan?",
+          "a": "Yes, “Time tracking” is included in both the “Basic” and the “Standard” plans. The physical time recorder is supported in the “Standard” plan."
+        },
+        {
+          "q": "Can I try HasApp before buying?",
+          "a": "Yes. You can try the HasApp demo right now — click “Try demo”."
+        }
+      ],
+      "ctaTitle": "Put your HR records in order",
+      "ctaText": "See the system in the demo or leave a request — we will pick the modules for your business."
+    },
+    "/zadachi": {
+      "title": "Project and Task Management for Business — HasApp",
+      "description": "Team projects and tasks in one system together with sales, inventory and finance. Employee reports, chats and project widgets. Launch in 1–3 days. Try the demo!",
+      "badge": "Projects and tasks",
+      "h1": "Team projects and tasks — in one system next to sales and inventory",
+      "lead": "The “Projects and tasks” module in HasApp: follow your team’s work and see employee reports and key project figures on one screen — without scattered chats and spreadsheets.",
+      "boardTitle": "The whole project — on one board",
+      "boardNote": "Example: this is how tasks travel from project to report. The data is illustrative.",
+      "stepsTitle": "How work on a project goes",
+      "steps": [
+        {
+          "title": "Project",
+          "text": "The work is gathered into a project, not scattered across chats."
+        },
+        {
+          "title": "Tasks",
+          "text": "Tasks are assigned to employees and visible to the whole team."
+        },
+        {
+          "title": "Execution",
+          "text": "You can see what is done and what is still in progress."
+        },
+        {
+          "title": "Reports",
+          "text": "Employee reports and project widgets — on one screen."
+        }
+      ],
+      "bentoTitle": "And also in the system",
+      "bento": [
+        {
+          "title": "Projects and tasks",
+          "text": "Follow the progress: tasks move from assignment to result."
+        },
+        {
+          "title": "Projects in plain sight",
+          "text": "Project widgets on the shared screen together with sales, clients, inventory and finance."
+        },
+        {
+          "title": "Employee reports",
+          "text": "A picture of the team’s work without manual summary spreadsheets."
+        },
+        {
+          "title": "Chats next to the work",
+          "text": "Talk to your team without leaving the system."
+        }
+      ],
+      "faqTitle": "Questions about projects and tasks",
+      "faq": [
+        {
+          "q": "Does HasApp have project and task management?",
+          "a": "Yes, the system has a “Projects and tasks” module, as well as employee reports and project widgets."
+        },
+        {
+          "q": "Are projects linked to sales and inventory?",
+          "a": "Yes. Sales, inventory, finance, HR and communication work in one system, so you don’t have to move data between programs."
+        },
+        {
+          "q": "Can I chat with my team inside the system?",
+          "a": "Yes, HasApp has chats and a news feed."
+        },
+        {
+          "q": "Can I customize the system for my company?",
+          "a": "Yes, in every module you can add your own fields and categories and rearrange the interface elements to suit you."
+        },
+        {
+          "q": "Can I try HasApp before buying?",
+          "a": "Yes. You can try the HasApp demo right now — click “Try demo”."
+        }
+      ],
+      "ctaTitle": "Bring your team’s work into one place",
+      "ctaText": "See the system in the demo or leave a request — we will pick the modules for your business."
+    },
+    "/tarify": {
+      "title": "HasApp Pricing — Cost of a Business Management System in Turkmenistan",
+      "description": "HasApp plans: “Basic” for 10 users — 20 000 TMT, “Standard” for 50 users — 40 000 TMT. One-time license purchase with no subscription, installation and training included.",
+      "badge": "Pricing",
+      "h1": "HasApp pricing: a one-time license purchase, no monthly subscription",
+      "lead": "Installation and training are included in the price. Choose a package by the number of users — or move the slider and we will suggest the right one.",
+      "calcTitle": "How many employees do you have?",
+      "calcText": "Move the slider — we will pick a plan by the number of users.",
+      "calcUnit": "users",
+      "calcCustom": "For a team of this size we will find a solution individually",
+      "plansTitle": "Two packages — for a team of any size",
+      "plans": [
+        {
+          "name": "Basic",
+          "text": "For small teams that need the core accounting and sales modules.",
+          "features": [
+            "Up to 10 users",
+            "CRM and sales",
+            "Inventory management",
+            "Time tracking",
+            "Installation and training included",
+            "Free updates for 1 year",
+            "1 year of warranty support"
+          ]
+        },
+        {
+          "name": "Standard",
+          "text": "For growing companies that need flexible setup and more users.",
+          "features": [
+            "Up to 50 users",
+            "CRM and sales",
+            "Inventory management",
+            "Time tracking",
+            "Installation and training included",
+            "Free updates for 1 year",
+            "Multi-currency and multi-company",
+            "300+ access rights",
+            "Physical time recorder",
+            "Priority support",
+            "1 year of warranty support"
+          ]
+        }
+      ],
+      "tableTitle": "Compare the packages",
+      "tableHead": [
+        "Feature",
+        "Basic",
+        "Standard"
+      ],
+      "rows": [
+        [
+          "Number of users",
+          "up to 10",
+          "up to 50"
+        ],
+        [
+          "CRM and sales",
+          true,
+          true
+        ],
+        [
+          "Inventory management",
+          true,
+          true
+        ],
+        [
+          "Time tracking",
+          true,
+          true
+        ],
+        [
+          "Installation and training",
+          true,
+          true
+        ],
+        [
+          "Free updates",
+          "1 year",
+          "1 year"
+        ],
+        [
+          "Warranty support",
+          "1 year",
+          "1 year"
+        ],
+        [
+          "Multi-currency and multi-company",
+          false,
+          true
+        ],
+        [
+          "300+ access rights",
+          false,
+          true
+        ],
+        [
+          "Physical time recorder",
+          false,
+          true
+        ],
+        [
+          "Priority support",
+          false,
+          true
+        ]
+      ],
+      "includedTitle": "What is included in the price",
+      "included": [
+        {
+          "chip": "One-time",
+          "title": "License",
+          "text": "A one-time purchase of a license for the chosen package, with no monthly subscription."
+        },
+        {
+          "chip": "1–3 days",
+          "title": "Installation",
+          "text": "We deploy the system for your business — it takes 1–3 days."
+        },
+        {
+          "chip": "Included",
+          "title": "Training",
+          "text": "We train your employees to work in the system."
+        },
+        {
+          "chip": "1 year",
+          "title": "Updates and support",
+          "text": "Free updates and warranty support for 1 year."
+        }
+      ],
+      "yearsTitle": "What costs extra and when",
+      "years": [
+        {
+          "tag": "First year",
+          "title": "Everything included",
+          "text": "Updates and warranty support are free. Support: answers to questions and bug fixes."
+        },
+        {
+          "tag": "Separately",
+          "title": "Custom development",
+          "text": "Your own requests and custom development are priced separately — after an assessment by the developers."
+        },
+        {
+          "tag": "From year two",
+          "title": "Update renewal",
+          "text": "25% of the package price: 5 000 TMT for “Basic” and 10 000 TMT for “Standard”."
+        }
+      ],
+      "modulesTitle": "What is in the system",
+      "modulesText": "We will pick the set of modules for your business together during installation.",
+      "modules": [
+        {
+          "title": "Sales",
+          "items": [
+            "Deals and leads",
+            "Client base",
+            "Products and services"
+          ]
+        },
+        {
+          "title": "Finance",
+          "items": [
+            "Finance module",
+            "Multi-currency",
+            "Multi-company"
+          ]
+        },
+        {
+          "title": "Inventory",
+          "items": [
+            "Receipts and purchases",
+            "Write-offs and returns",
+            "Stocktaking"
+          ]
+        },
+        {
+          "title": "Work",
+          "items": [
+            "Projects and tasks",
+            "Working time",
+            "Employee reports"
+          ]
+        },
+        {
+          "title": "HR",
+          "items": [
+            "Org structure",
+            "Employees and roles",
+            "Payroll",
+            "Vacation schedule"
+          ]
+        },
+        {
+          "title": "Communication",
+          "items": [
+            "Chats",
+            "News feed",
+            "Video conferencing"
+          ]
+        },
+        {
+          "title": "Storage",
+          "items": [
+            "File drive"
+          ]
+        },
+        {
+          "title": "Everywhere",
+          "items": [
+            "Custom fields and categories",
+            "300+ access rights",
+            "Android and iOS apps"
+          ]
+        }
+      ],
+      "modesTitle": "Where the system will run",
+      "modesText": "We sell an on-premise solution: the system is installed on a server, and the data stays with you.",
+      "modes": [
+        {
+          "title": "On your own server",
+          "text": "We install it on your company’s own server. All data is stored with you, and the system works locally — even without the internet."
+        },
+        {
+          "title": "On a cloud server",
+          "text": "If you don’t have a server, we will install it on a cloud server that you rent or that we pick. The data remains yours."
+        }
+      ],
+      "demoTitle": "Try before you buy",
+      "demoText": "The demo is online access to the system with filled-in demonstration data, for a month. See what record-keeping will look like in your business, then decide.",
+      "faqTitle": "Questions about pricing",
+      "faq": [
+        {
+          "q": "What plans does HasApp have?",
+          "a": "The license is a one-time purchase: the “Basic” package for 10 users — 20 000 TMT, the “Standard” package for 50 users — 40 000 TMT."
+        },
+        {
+          "q": "Do I need to pay every month?",
+          "a": "No. The license is a one-time purchase, with no monthly subscription — installation and training are included."
+        },
+        {
+          "q": "How do I get started with HasApp?",
+          "a": "Leave a request — we will deploy the system for your business and set up access rights within 1–3 days."
+        },
+        {
+          "q": "Can I try HasApp before buying?",
+          "a": "Yes. You can try the HasApp demo right now — click “Try demo”. If you want to discuss your needs, leave a request: we will contact you and install the system for your business."
+        },
+        {
+          "q": "What is not included in the price?",
+          "a": "Custom development and individual requests are priced separately — after an assessment by the developers. Everything else — license, installation and training — is already in the package price."
+        },
+        {
+          "q": "What happens a year after purchase?",
+          "a": "In the first year, updates and warranty support are free. After that, renewing updates costs 25% of the package price: 5 000 TMT for “Basic” and 10 000 TMT for “Standard”."
+        },
+        {
+          "q": "Do I need my own server?",
+          "a": "Not necessarily. We install the system on your server, and if you don’t have one — on a cloud server that you rent or that we pick. The data stays with you."
+        }
+      ],
+      "ctaTitle": "We will pick a package for your business",
+      "ctaText": "See the system in the demo or leave a request — a manager will suggest the right plan."
+    }
+  },
+  "seoUi": {
+    "sklad": {
+      "leave": "Leave a request",
+      "winTitle": "Inventory · Main",
+      "online": "online",
+      "stock": "Stock",
+      "pcs": "pcs",
+      "moves": "Movements",
+      "note": "Example: this is what stock movements look like in the system (illustrative data)",
+      "mods": [
+        "Inventory",
+        "Sales",
+        "Finance"
+      ],
+      "match": "match",
+      "byBook": "per books",
+      "byFact": "actual",
+      "see": "See also:",
+      "home": "home",
+      "pricing": "pricing",
+      "names": [
+        "T-shirt M",
+        "Sneakers 42",
+        "City backpack",
+        "Winter jacket L"
+      ],
+      "jacketShort": "Jacket L",
+      "v": {
+        "in": "Receipt",
+        "out": "Write-off",
+        "ret": "Return",
+        "buy": "Purchase",
+        "sale": "Sale"
+      },
+      "clientRet": "Return from client"
+    },
+    "crm": {
+      "leave": "Leave a request",
+      "funnel": "Sales funnel",
+      "online": "online",
+      "paid": "Paid this month",
+      "note": "Example: this is how deals move through the funnel (illustrative data)",
+      "sent": "sent",
+      "ask": "Ask the assistant a question…",
+      "own": [
+        "Custom fields",
+        "Categories",
+        "Access rights"
+      ],
+      "notFound": "Didn’t find an answer? Leave a request — a manager will answer any question.",
+      "see": "See also:",
+      "sklad": "inventory management",
+      "home": "home",
+      "pricing": "pricing",
+      "stages": [
+        "New",
+        "Negotiation",
+        "Paid"
+      ],
+      "deals": [
+        "Shop",
+        "Café",
+        "Car service",
+        "Beauty salon",
+        "Wholesaler",
+        "Pharmacy",
+        "Warehouse"
+      ],
+      "fun": [
+        "Requests",
+        "Negotiation",
+        "Agreement",
+        "Payment"
+      ]
+    },
+    "finance": {
+      "leave": "Leave a request",
+      "inflow": "Money in",
+      "outflow": "Money out",
+      "period": "for the period",
+      "check": "RECEIPT #",
+      "till": "Cash desk",
+      "perms": [
+        "See cash desks",
+        "Enter transactions",
+        "View reports"
+      ],
+      "see": "See also:",
+      "sklad": "inventory",
+      "orders": "orders",
+      "cost": "pricing",
+      "home": "home",
+      "ring": [
+        "Sales",
+        "Purchases",
+        "Other"
+      ],
+      "lblIn": [
+        "Order payment",
+        "Prepayment",
+        "Order payment"
+      ],
+      "lblOut": [
+        "Raw materials",
+        "Rent",
+        "Salary"
+      ]
+    },
+    "zakazy": {
+      "leave": "Leave a request",
+      "aria": "Before and after: drag to compare",
+      "was": "BEFORE",
+      "now": "AFTER",
+      "order": "Order",
+      "done": "done",
+      "wip": "in progress",
+      "cur": "now",
+      "banners": "Banners",
+      "see": "See also:",
+      "stock": "inventory",
+      "fin": "finance",
+      "cost": "pricing",
+      "home": "home",
+      "orders": [
+        "Banners",
+        "Signage",
+        "Catalog",
+        "Packaging"
+      ],
+      "st": {
+        "done": "Done",
+        "wip": "In progress",
+        "fresh": "New"
+      },
+      "chaos": [
+        "Banners — who’s doing them?",
+        "#N/A",
+        "where’s my order??",
+        "sent it yesterday, please check",
+        "the total doesn’t add up",
+        "materials? to be confirmed",
+        "who do I call?",
+        "the spreadsheet shows another number",
+        "deadline is burning!!"
+      ]
+    },
+    "personal": {
+      "leave": "Leave a request",
+      "now": "Now",
+      "atWork": "At work now",
+      "vac": "Vacation",
+      "timesheet": "Work time timesheet",
+      "payroll": "Payroll in the system",
+      "notFound": "Didn’t find an answer? Leave a request — a manager will answer any question.",
+      "see": "See also:",
+      "sklad": "inventory",
+      "fin": "finance",
+      "cost": "pricing",
+      "home": "home",
+      "roles": [
+        "Manager",
+        "Accountant",
+        "Storekeeper",
+        "Salesperson"
+      ],
+      "admin": "Administrator",
+      "driver": "Driver"
+    },
+    "zadachi": {
+      "leave": "Leave a request",
+      "project": "Project",
+      "online": "online",
+      "doneTasks": "Tasks completed",
+      "of": "of",
+      "done": "Done",
+      "wip": "In progress",
+      "note": "Example: this is how project tasks get closed one after another (illustrative data)",
+      "notFound": "Didn’t find an answer? Leave a request — a manager will answer any question.",
+      "chat1": "The task is done, ready for review",
+      "chat2": "Got it, checking now",
+      "see": "See also:",
+      "orders": "orders",
+      "staff": "HR",
+      "cost": "pricing",
+      "home": "home",
+      "cols": [
+        "New",
+        "In progress",
+        "Done"
+      ],
+      "cards": [
+        "Estimate",
+        "Contract",
+        "Purchase"
+      ],
+      "projects": [
+        "Project A",
+        "Project B",
+        "Project C"
+      ],
+      "tasks": [
+        "Prepare an estimate",
+        "Agree with the client",
+        "Buy materials",
+        "Hand over the order"
+      ]
+    },
+    "tarify": {
+      "leave": "Leave a request",
+      "fit": "Right for you",
+      "once": "one-time · no subscription",
+      "custom": "On request",
+      "rec": "Recommended",
+      "onceUsers": "one-time · for",
+      "users": "users",
+      "no": "no",
+      "boxed": "An on-premise solution — everything is already inside",
+      "zero": "Subscription 0 TMT",
+      "days": "days",
+      "see": "See also:",
+      "sklad": "inventory",
+      "home": "home"
+    }
+  },
+  "modulesMenu": {
+    "label": "Modules",
+    "more": "Learn more",
+    "items": {
+      "sklad": {
+        "title": "Warehouse",
+        "text": "Stock, write-offs and balances"
+      },
+      "crm": {
+        "title": "CRM",
+        "text": "Clients and deals in one place"
+      },
+      "zakazy": {
+        "title": "Orders",
+        "text": "From request to payment"
+      },
+      "finance": {
+        "title": "Finance",
+        "text": "Income, expenses and cash balance"
+      },
+      "personal": {
+        "title": "Staff",
+        "text": "Working time and payroll"
+      },
+      "zadachi": {
+        "title": "Tasks",
+        "text": "Projects and team work"
+      },
+      "tarify": {
+        "title": "Pricing",
+        "text": "Plans and what is included"
+      }
+    }
   }
 }

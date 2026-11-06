@@ -5,10 +5,10 @@
               rounded-full pointer-events-none
               bg-[radial-gradient(ellipse_at_center,rgba(3,146,255,0.35)_0%,rgba(5,76,134,0.15)_40%,transparent_70%)]
               blur-3xl"></div>
-        <div class="mx-auto max-w-[1320px] flex flex-col md:flex-row md:justify-between gap-10 md:gap-8">
+        <div class="mx-auto max-w-[1320px] flex flex-col xl:flex-row xl:justify-between gap-10 xl:gap-8">
 
             <!-- лого + описание -->
-            <div class="max-w-full md:max-w-xs">
+            <div class="max-w-full xl:max-w-xs">
                 <a href="#" class="flex items-center gap-2">
                     <img src="/images/logo.webp" alt="HasApp" width="2612" height="719" loading="lazy"
                         decoding="async" class="h-7 sm:h-8 w-auto" />
@@ -19,12 +19,24 @@
             </div>
 
             <!-- колонки ссылок -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12 md:gap-16">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 xl:gap-14">
                 <div>
                     <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#054C86]">{{ t('footer.pages')
                     }}</p>
                     <ul class="mt-4 flex flex-col font-medium gap-2.5 sm:gap-3">
                         <li v-for="link in pageLinks" :key="link.label">
+                            <a :href="link.href"
+                                class="inline-block text-sm sm:text-base text-black/70 transition-transform duration-200 ease-in-out hover:translate-x-1.5 hover:text-[#054C86]">
+                                {{ link.label }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#054C86]">{{ moduleTitle }}</p>
+                    <ul class="mt-4 flex flex-col font-medium gap-2.5 sm:gap-3">
+                        <li v-for="link in moduleLinks" :key="link.href">
                             <a :href="link.href"
                                 class="inline-block text-sm sm:text-base text-black/70 transition-transform duration-200 ease-in-out hover:translate-x-1.5 hover:text-[#054C86]">
                                 {{ link.label }}
@@ -97,8 +109,13 @@ import { computed, inject } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { CONTACTS } from '@/config/contacts'
 import AppStoreButtons from '@/components/AppStoreButtons.vue'
-const { t, tm } = useI18n()
+const { t, tm, locale } = useI18n()
 const openContactModal = inject('openContactModal')
+
+// колонка «Модули»: названия — в языковых файлах (modulesMenu), как в меню шапки
+const MODULE_KEYS = ['sklad', 'crm', 'zakazy', 'finance', 'personal', 'zadachi', 'tarify']
+const moduleTitle = computed(() => t('modulesMenu.label'))
+const moduleLinks = computed(() => MODULE_KEYS.map((k) => ({ label: t(`modulesMenu.items.${k}.title`), href: '/' + k })))
 
 const hrefs = ['#about', '#features', '#how-it-works', '#cases', '#pricing', '#faq']
 const pageLinks = computed(() => {

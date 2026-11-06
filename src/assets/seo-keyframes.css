@@ -1,0 +1,66 @@
+/* Только ключевые кадры (@keyframes) для анимаций на отдельных страницах (/sklad, /crm).
+   Всё остальное оформление — классами Tailwind прямо в разметке. */
+   @keyframes seo-rise { to { opacity: 1; translate: none; } }
+   @keyframes seo-slide { to { opacity: 1; translate: none; } }
+   @keyframes seo-float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -26px); } }
+   @keyframes seo-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, .55); } 50% { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); } }
+   @keyframes seo-grad { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+   @keyframes seo-node { 0%, 30%, 100% { box-shadow: 0 0 0 0 rgba(3, 146, 255, 0); } 12% { box-shadow: 0 0 0 3px rgba(3, 146, 255, .45); } }
+   @keyframes seo-travel { to { top: calc(100% - 34px); } }
+   @keyframes seo-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+   @keyframes seo-draw { to { stroke-dashoffset: 0; } }
+   @keyframes crm-type { to { width: var(--w); } }
+   @keyframes crm-bar { to { height: var(--h); } }
+   @keyframes crm-breath { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.55); } }
+   @keyframes crm-dot { 0%, 60%, 100% { opacity: .3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-4px); } }
+   @keyframes seo-spin { to { transform: rotate(360deg); } }
+   @keyframes seo-spin-rev { to { transform: rotate(-360deg); } }
+   @keyframes seo-ping { 0% { transform: scale(1); opacity: .55; } 80%, 100% { transform: scale(2.1); opacity: 0; } }
+   @keyframes seo-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -100% 0; } }
+   @keyframes seo-pop { 0% { scale: 0; } 100% { scale: 1; } }
+   @keyframes seo-dash { to { stroke-dashoffset: 0; } }
+   @keyframes seo-stamp { 0% { opacity: 0; scale: 2.4; rotate: -24deg; } 60% { opacity: 1; scale: .92; rotate: -10deg; } 100% { opacity: 1; scale: 1; rotate: -10deg; } }
+   @keyframes seo-glowpulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(3,146,255,0); } 50% { box-shadow: 0 0 34px 2px rgba(3,146,255,.28); } }
+   @keyframes seo-marquee { to { transform: translateX(-50%); } }
+   @keyframes seo-sway { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+   @keyframes seo-hover { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+   @keyframes fin-bar { 0%, 100% { transform: scaleY(.3); } 45% { transform: scaleY(1); } }
+   @keyframes fin-seg { 0%, 100% { stroke-dasharray: var(--a) 100; } 50% { stroke-dasharray: var(--b) 100; } }
+   @keyframes fin-tgl { 0%, 38% { background-color: #0392FF; } 46%, 84% { background-color: rgba(120, 140, 170, .45); } 92%, 100% { background-color: #0392FF; } }
+   @keyframes fin-knob { 0%, 38% { transform: translateX(18px); } 46%, 84% { transform: translateX(0); } 92%, 100% { transform: translateX(18px); } }
+   @keyframes fin-flip { 0%, 65%, 100% { transform: rotateY(0); } 82% { transform: rotateY(360deg); } }
+   @keyframes fin-run { 0% { left: -30%; } 100% { left: 100%; } }
+   @keyframes crm-wide { 0%, 100% { width: var(--w); } 50% { width: calc(var(--w) * .7); } }
+   @keyframes seo-spin-slow { to { transform: rotate(360deg); } }
+   @keyframes seo-travel-y { to { transform: translateY(200%); } }
+   @keyframes seo-dash-loop { 0% { stroke-dashoffset: 264; } 40%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 264; } }
+   @keyframes zk-line { 0%, 100% { opacity: .2; transform: translateY(5px); } 14%, 82% { opacity: 1; transform: translateY(0); } }
+   @keyframes zk-stock { 0%, 100% { width: var(--w); } 50% { width: calc(var(--w) * .3); } }
+   @keyframes zk-slide { 0%, 100% { translate: 0 0; } 50% { translate: var(--x) 0; } }
+   @keyframes zk-today { 0% { left: 4%; } 100% { left: 96%; } }
+   @keyframes ps-cell { 0%, 100% { opacity: .15; } 50% { opacity: 1; } }
+   @keyframes zd-move { 0%, 12% { translate: 0 0; opacity: 1; } 32%, 46% { translate: calc(100% + 12px) 0; } 66%, 82% { translate: calc(200% + 24px) 0; opacity: 1; } 92% { opacity: 0; } 100% { translate: 0 0; opacity: 0; } }
+   @keyframes zd-fill { 0% { width: 4%; } 70%, 100% { width: var(--w); } }
+   @keyframes zd-tick { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+   @keyframes zv-run { 0% { left: -14%; opacity: 0; } 6% { opacity: 1; } 94% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+   @keyframes zv-dot { 0%, 22% { background-color: #0392FF; } 30%, 70% { background-color: #f59e0b; } 78%, 100% { background-color: #22c55e; } }
+   @keyframes zv-station { 0%, 100% { box-shadow: 0 0 0 0 rgba(3, 146, 255, 0); } 50% { box-shadow: 0 0 0 10px rgba(3, 146, 255, .18); } }
+   @keyframes seo-belt { to { background-position: 36px 0; } }
+   @keyframes zv-wob { 0%, 100% { transform: rotate(var(--r, 0deg)) translateY(0); } 50% { transform: rotate(calc(var(--r, 0deg) * -0.6)) translateY(-5px); } }
+   @keyframes zv-shake { 0%, 86%, 100% { transform: translateX(0); } 90% { transform: translateX(-3px); } 94% { transform: translateX(3px); } 98% { transform: translateX(-2px); } }
+   @keyframes zv-arrow { 0%, 100% { transform: translateX(0); opacity: .6; } 50% { transform: translateX(7px); opacity: 1; } }
+   @keyframes fin-fall { 0% { transform: translateY(-250px) rotate(-30deg); opacity: 0; } 12% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(0) rotate(160deg); opacity: 0; } }
+   @keyframes fin-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+   
+   @keyframes fin-wave { to { transform: translateX(-50%); } }
+   @keyframes fin-bubble {
+     0% { transform: translateY(0) scale(.6); opacity: 0; }
+     15% { opacity: .75; }
+     100% { transform: translateY(-190px) scale(1); opacity: 0; }
+   }
+   
+   @keyframes fin-in { 0% { left: -14%; opacity: 0; } 12% { opacity: 1; } 100% { left: 96%; opacity: 1; } }
+   @keyframes fin-out { 0% { left: -6%; opacity: 1; } 88% { opacity: 1; } 100% { left: 108%; opacity: 0; } }
+   @keyframes fin-bump { 0%,100% { transform: scale(1); } 40% { transform: scale(1.04); } }
+   
+   @keyframes fin-receipt { 0% { transform: translateY(14px); opacity: 0; } 14% { transform: translateY(0); opacity: 1; } 78% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-8px); opacity: 0; } }

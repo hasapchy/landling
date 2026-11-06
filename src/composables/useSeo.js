@@ -29,25 +29,37 @@ function setMeta(attr, key, content) {
   el.setAttribute('content', content)
 }
 
-export function useSeo() {
+export function useSeo(override = null) {
   const { t, locale } = useI18n()
 
   watchEffect(() => {
     // при пререндере на этапе сборки document нет — теги уже лежат в index.html
     if (typeof document === 'undefined') return
 
-    const title = t('seo.title')
-    const description = t('seo.description')
-    const ogLocale = OG_LOCALES[locale.value] || 'ru_RU'
+    // отдельная страница под запрос (/sklad, /crm): свои title, description и адрес
+    const page = override || null
+    const title = page ? page.title : t('seo.title')
+    const description = page ? page.description : t('seo.description')
+    const url = page ? `${SITE_URL}${page.path}` : SITE_URL
+    const ogLocale = page ? 'ru_RU' : OG_LOCALES[locale.value] || 'ru_RU'
 
     document.title = title
-    document.documentElement.setAttribute('lang', HTML_LANGS[locale.value] || locale.value)
+    document.documentElement.setAttribute('lang', page ? 'ru' : HTML_LANGS[locale.value] || locale.value)
+    if (page) {
+      let link = document.head.querySelector('link[rel="canonical"]')
+      if (!link) {
+        link = document.createElement('link')
+        link.setAttribute('rel', 'canonical')
+        document.head.appendChild(link)
+      }
+      link.setAttribute('href', url)
+    }
 
     setMeta('name', 'description', description)
     setMeta('property', 'og:title', title)
     setMeta('property', 'og:description', description)
     setMeta('property', 'og:image', OG_IMAGE)
-    setMeta('property', 'og:url', SITE_URL)
+    setMeta('property', 'og:url', url)
     setMeta('property', 'og:locale', ogLocale)
     setMeta('name', 'twitter:title', title)
     setMeta('name', 'twitter:description', description)
