@@ -37,14 +37,14 @@ export function useSeo(override = null) {
     if (typeof document === 'undefined') return
 
     // отдельная страница под запрос (/sklad, /crm): свои title, description и адрес
-    const page = override || null
+    const page = (typeof override === 'function' ? override() : override) || null
     const title = page ? page.title : t('seo.title')
     const description = page ? page.description : t('seo.description')
     const url = page ? `${SITE_URL}${page.path}` : SITE_URL
-    const ogLocale = page ? 'ru_RU' : OG_LOCALES[locale.value] || 'ru_RU'
+    const ogLocale = OG_LOCALES[locale.value] || 'ru_RU'
 
     document.title = title
-    document.documentElement.setAttribute('lang', page ? 'ru' : HTML_LANGS[locale.value] || locale.value)
+    document.documentElement.setAttribute('lang', HTML_LANGS[locale.value] || locale.value)
     if (page) {
       let link = document.head.querySelector('link[rel="canonical"]')
       if (!link) {

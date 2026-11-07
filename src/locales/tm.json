@@ -596,7 +596,7 @@
       "faq": [
         {
           "q": "HasApp-da onlaýn ammar hasabatyny nähili alyp barmaly?",
-          "a": "«Ammar» modulynda haryt kabul etmek, satyn almak, hasapdan öçürmek, yzyna gaýtarmak we inwentarizasiýa bar. Galyndylar real wagtda täzelenýär we söwda bilen baglanyşykly."
+          "a": "«Ammar» modulynda haryt kabul etmek, satyn almak, hasapdan öçürmek, yzyna gaýtarmak we inwentarizasiýa bar. Galyndylar real wagtda täzelenýär."
         },
         {
           "q": "Ammar hasabaty tarife girýärmi?",
@@ -624,7 +624,7 @@
       "path": [
         {
           "title": "Ýüztutma",
-          "text": "Täze meýil derrew tapgyrlara düşýär we ýazyşmalarda ýitmeýär."
+          "text": "Täze arza derrew tapgyrlara düşýär we ýazyşmalarda ýitmeýär."
         },
         {
           "title": "Söwda bilen işlemek",
@@ -651,7 +651,7 @@
         },
         {
           "title": "Esasy sanlar bir ekranda",
-          "text": "Söwda, müşderiler, ammar, taslamalar we maliýe boýunça wiždetler."
+          "text": "Söwda, müşderiler, ammar, taslamalar we maliýe boýunça widjetler."
         },
         {
           "title": "Içinde AI kömekçi",
@@ -662,7 +662,7 @@
           "text": "Öz meýdançalaryňyz, kategoriýalaryňyz we giriş hukuklary — ulgamda 300-den gowrak hukuk."
         }
       ],
-      "launchTitle": "Ýüztutmadan işe çenli — 1–3 gün",
+      "launchTitle": "Arza galdyranyňyzdan soň işe girizmek — 1–3 gün içinde",
       "launch": [
         "Ýüztutma goýýarsyňyz",
         "Dolandyryjy wezipeleri maslahatlaşýar",
@@ -693,7 +693,7 @@
     },
     "/finance": {
       "title": "Türkmenistanda biznes üçin maliýe we kassa hasabaty — HasApp",
-      "description": "HasApp maliýe moduly: kassalar boýunça girdeji we çykdajy, köp pul birligi we köp kompaniýalylyk, maliýe boýunça wiždetler. Söwda we ammar bilen baglanyşykly. Işe girizmek — 1–3 gün. Demo synap görüň!",
+      "description": "HasApp maliýe moduly: kassalar boýunça girdeji we çykdajy, köp pul birligi we köp kompaniýalylyk, maliýe boýunça widjetler. Söwda we ammar bilen baglanyşykly. Işe girizmek — 1–3 gün. Demo synap görüň!",
       "badge": "Maliýe we kassa",
       "h1": "Maliýe we kassa hasabaty: her girdeji we çykdajy göz öňünde",
       "tillIn": "Girdeji",
@@ -719,7 +719,7 @@
         {
           "tag": "Şu gün",
           "title": "Bitewi ulgam",
-          "text": "Maliýe beýleki modullar bilen ýanaşyk işleýär, olardan aýry däl."
+          "text": "Maliýe beýleki modullar bilelikde işleýär, olardan aýry däl."
         }
       ],
       "bentoTitle": "Maliýe modulynda näme bar",
@@ -738,11 +738,11 @@
         },
         {
           "title": "Umumy ekranda maliýe",
-          "text": "Maliýe, söwda, müşderiler, ammar we taslamalar boýunça wiždetler — gerek bolanlaryny goşuň."
+          "text": "Maliýe, söwda, müşderiler, ammar we taslamalar boýunça widjetler — gerek bolanlaryny goşuň."
         },
         {
           "title": "Kimiň näme görýänini özüňiz kesgitleýärsiňiz",
-          "text": "300-den gowrak giriş hukugy: pul barada diňe size rugsat berenleriňiz görýär."
+          "text": "300-den gowrak giriş hukugy: pul baradaky maglumatlary diňe siziň rugsat berenleriňiz görer."
         }
       ],
       "flowTitle": "Söwdadan hasabata çenli — elde girizmesiz",
@@ -756,7 +756,7 @@
       "faq": [
         {
           "q": "HasApp maliýe moduly näme edip bilýär?",
-          "a": "Ol kassalar boýunça girdeji we çykdajynyň hasabyny alyp barýar, köp pul birligini we köp kompaniýalylygy goldaýar. Maliýe boýunça wiždetler umumy hasabat ekranynda elýeterlidir."
+          "a": "Ol kassalar boýunça girdeji we çykdajynyň hasabyny alyp barýar, köp pul birligini we köp kompaniýalylygy goldaýar. Maliýe boýunça widjetler umumy hasabat ekranynda elýeterlidir."
         },
         {
           "q": "Hasaby birnäçe pul birliginde alyp bolýarmy?",
@@ -764,7 +764,7 @@
         },
         {
           "q": "Bir ulgamda birnäçe kompaniýany alyp bolýarmy?",
-          "a": "Hawa, ulgam birnäçe ýuridik şahsy bolan biznes üçin köp kompaniýalylygy goldaýar."
+          "a": "Hawa, ulgam birnäçe kompaniýadan ybarat bolan biznes üçin köp kompaniýalylygy goldaýar."
         },
         {
           "q": "Maliýe maglumatlaryna girişi nädip çäklendirmeli?",
@@ -779,7 +779,7 @@
           "a": "Hawa. HasApp-yň demo wersiýasyny häzirki wagtyň özünde synap görüp bilersiňiz — «Demo synap görmek» düwmesine basyň."
         }
       ],
-      "ctaTitle": "Pulda tertip dörediň",
+      "ctaTitle": "Maliýe işlerinde tertip dörediň",
       "ctaText": "Ulgamy demo wersiýada görüň ýa-da ýüztutma goýuň — biz biznesiňize laýyk modullary saýlarys."
     },
     "/zakazy": {
@@ -842,7 +842,7 @@
           "text": "derrew ulgamda"
         }
       ],
-      "trackTitle": "Sargydy posylka ýaly yzarlaň — ýüztutmadan tölege çenli",
+      "trackTitle": "Sargydy ähli tapgyrda real ýagdaýda yzarlaň — ýüztutmadan tölege çenli",
       "trackText": "Her ädim ulgamda görünýär: sargydyň nirededigini we mundan beýläk näme boljakdygyny hemişe bilýärsiňiz. Mysal, ýagdaýlar we wagt şertli.",
       "track": [
         {
@@ -881,7 +881,7 @@
           "a": "Hawa, sargydyň bahasy HasApp-da hasaplanýar, tablisalarda elde gaýtadan hasaplamasyz."
         },
         {
-          "q": "Sargytlar ammar bilen baglanyşykly?",
+          "q": "Sargytlar ammar bilen baglanyşyklymy?",
           "a": "Hawa. Materiallar ammary sargytlaryň ýanynda, şonuň üçin materiallaryň hereketi gerek ýerinde görünýär."
         },
         {
@@ -902,10 +902,10 @@
       "badge": "Işgärler we aýlyk",
       "h1": "Işgärleriň iş wagtynyň hasabaty we aýlygy — tablisasyz we elde hasaplamasyz",
       "lead": "Tabel, işgärleriň hasabatlary, rugsat günleriniň tertibi we aýlyk hasaplamasy göni HasApp-da. Wagt registratordan gelýär, aýlyk bolsa ulgamda hasaplanýar — elde gaýtadan hasaplamasyz.",
-      "timelineTitle": "Bir iş güni — gelişden aýlyga çenli",
+      "timelineTitle": "Bir iş güni — ähli maglumatlar bir ýerde jemlenen",
       "timelineText": "Gelmek we gitmek bellenýär, iş wagty tabele düşýär, aýlyk bolsa ulgamda hasaplanýar.",
       "timelineNote": "Mysal: toparyň iş güni şeýle görünýär. Işgärler, wagt we mukdarlar şertli.",
-      "stepsTitle": "Işe gelişden aýlyga çenli",
+      "stepsTitle": "Iş başlan wagtyndan aýlyga çenli",
       "steps": [
         {
           "title": "Gelmek we gitmek",
@@ -943,7 +943,7 @@
           "text": "Rugsatlary meýilleşdiriň we kimiň haçan ýoklugyny görüň."
         },
         {
-          "title": "Iş wagty registratoryňyzy birikdirýäris",
+          "title": "Iş wagtyny registratoryňyza birikdirýäris",
           "text": "Registratoryňyz eýýäm barmy — ony birikdirip, HasApp bilen sinhronlaşdyrarys. Entek ýok bolsa, menejerimiz nämäni satyn almalydygyny maslahat berer."
         }
       ],
@@ -974,22 +974,22 @@
       "ctaText": "Ulgamy demo wersiýada görüň ýa-da ýüztutma goýuň — biz biznesiňize laýyk modullary saýlarys."
     },
     "/zadachi": {
-      "title": "Biznes üçin taslamalary we wezipeleri dolandyrmak — HasApp",
-      "description": "Toparyň taslamalary we wezipeleri söwda, ammar we maliýe bilen bilelikde bir ulgamda. Işgärleriň hasabatlary, çatlar we taslamalar boýunça wiždetler. Işe girizmek — 1–3 gün. Demo synap görüň!",
-      "badge": "Taslamalar we wezipeler",
-      "h1": "Toparyň taslamalary we wezipeleri — söwda we ammar bilen ýanaşyk, bir ulgamda",
-      "lead": "HasApp-daky «Taslamalar we wezipeler» moduly: toparyň işine gözegçilik ediň, işgärleriň hasabatlaryny we taslamalar boýunça esasy sanlary bir ekranda görüň — dagynyk çatlarsyz we tablisasyz.",
-      "boardTitle": "Bütin taslama — bir tagtada",
-      "boardNote": "Mysal: wezipeler taslamadan hasabata çenli şeýle geçýär. Maglumatlar şertli.",
-      "stepsTitle": "Taslama üstündäki iş nähili geçýär",
+      "title": "Biznes üçin proýektleri we tabşyryklary dolandyrmak — HasApp",
+      "description": "Toparyň proýektleri we wezipeleri söwda, ammar we maliýe bilen bilelikde bir ulgamda. Işgärleriň hasabatlary, çatlar we taslamalar boýunça widjetler. Işe girizmek — 1–3 gün. Demo synap görüň!",
+      "badge": "Proýektler we tabşyryklar",
+      "h1": "Toparyň proýektleri we wezipeleri — söwda we ammar bilen ýanaşyk, bir ulgamda",
+      "lead": "HasApp-daky «Proýektler we tabşyryklar» moduly: toparyň işine gözegçilik ediň, işgärleriň hasabatlaryny we taslamalar boýunça esasy sanlary bir ekranda görüň — dagynyk çatlarsyz we tablisasyz.",
+      "boardTitle": "Bütin proýekt — bir tagtada",
+      "boardNote": "Mysal: wezipeler proýektden hasabata çenli şeýle geçýär. Maglumatlar şertli.",
+      "stepsTitle": "Proýekt üstündäki iş nähili geçýär",
       "steps": [
         {
-          "title": "Taslama",
-          "text": "Iş ýazyşmalara dagadylman, taslamada jemlenýär."
+          "title": "Proýektler",
+          "text": "Iş ýazyşmalarda dagadylman, proýektde jemlenýär."
         },
         {
-          "title": "Wezipeler",
-          "text": "Wezipeler işgärlere paýlanýar we tutuş topara görünýär."
+          "title": "Tabşyryklar",
+          "text": "Tabşyryklar işgärlere paýlanýar we tutuş topara görünýär."
         },
         {
           "title": "Ýerine ýetirmek",
@@ -997,18 +997,18 @@
         },
         {
           "title": "Hasabatlar",
-          "text": "Işgärleriň hasabatlary we taslamalar boýunça wiždetler — bir ekranda."
+          "text": "Işgärleriň hasabatlary we proýektler boýunça widjetler — bir ekranda."
         }
       ],
       "bentoTitle": "Ulgamda ýene-de",
       "bento": [
         {
-          "title": "Taslamalar we wezipeler",
-          "text": "Işiň barşyna gözegçilik ediň: wezipeler goýulyşyndan netijä çenli hereket edýär."
+          "title": "Proýektler we tabşyryklar",
+          "text": "Işiň barşyna gözegçilik ediň: tabşyryklar goýulyşyndan netijä çenli hereket edýär."
         },
         {
-          "title": "Taslamalar göz öňünde",
-          "text": "Taslamalar boýunça wiždetler umumy ekranda — söwda, müşderiler, ammar we maliýe bilen bile."
+          "title": "Proýektler göz öňünde",
+          "text": "Proýektler boýunça widjetler umumy ekranda — söwda, müşderiler, ammar we maliýe bilen bilelikde."
         },
         {
           "title": "Işgärleriň hasabatlary",
@@ -1019,14 +1019,14 @@
           "text": "Ulgamdan çykman topar bilen aragatnaşyk saklaň."
         }
       ],
-      "faqTitle": "Taslamalar we wezipeler barada soraglar",
+      "faqTitle": "Proýektler we tabşyryklar barada soraglar",
       "faq": [
         {
-          "q": "HasApp-da taslamalary we wezipeleri dolandyrmak barmy?",
-          "a": "Hawa, ulgamda «Taslamalar we wezipeler» moduly, şeýle hem işgärleriň hasabatlary we taslamalar boýunça wiždetler bar."
+          "q": "HasApp-da proýektleri we tabşyryklary dolandyrmak barmy?",
+          "a": "Hawa, ulgamda «Proýektler we tabşyryklar» moduly, şeýle hem işgärleriň hasabatlary we proýektler boýunça widjetler bar."
         },
         {
-          "q": "Taslamalar söwda we ammar bilen baglanyşykly?",
+          "q": "Proýektler söwda we ammar bilen baglanyşykly?",
           "a": "Hawa. Söwda, ammar, maliýe, işgärler we aragatnaşyk bir ulgamda işleýär, şonuň üçin maglumatlary programmalar arasynda göçürmek gerek däl."
         },
         {
@@ -1050,9 +1050,9 @@
       "description": "HasApp tarifleri: 10 ulanyjy üçin «Esasy» — 20 000 TMT, 50 ulanyjy üçin «Standart» — 40 000 TMT. Aýlyk tölegsiz lisenziýany bir gezeklik satyn almak, gurnamak we öwretmek içinde.",
       "badge": "Tarifler",
       "h1": "HasApp tarifleri: lisenziýany bir gezeklik satyn almak, aýlyk tölegsiz",
-      "lead": "Gurnamak we öwretmek bahasyna girýär. Paketi ulanyjylaryň sanyna görä saýlaň — ýa-da süýşürgiji süýşüriň, biz laýyk paketi aýdarys.",
+      "lead": "Gurnamak we öwretmek bahasyna girýär. Paketi ulanyjylaryň sanyna görä saýlaň — sanyňyzy görkeziň, biz laýyk paketi aýdarys.",
       "calcTitle": "Siziň näçe işgäriňiz bar?",
-      "calcText": "Süýşürgiji süýşüriň — ulanyjylaryň sanyna görä tarif saýlarys.",
+      "calcText": "Süýşüriň we sanyňyzy görkeziň — ulanyjylaryň sanyna görä tarif saýlarys.",
       "calcUnit": "ulanyjy",
       "calcCustom": "Şeýle topar üçin çözgüdi aýratyn saýlarys",
       "plansTitle": "Iki paket — islendik topar üçin",
@@ -1166,7 +1166,7 @@
         {
           "chip": "Içinde",
           "title": "Öwretmek",
-          "text": "Işgärleriňizi ulgamda işlemäge öwredýäris."
+          "text": "Işgärleriňize ulgamda işlemägi öwredýäris."
         },
         {
           "chip": "1 ýyl",
@@ -1174,7 +1174,7 @@
           "text": "1 ýylyň dowamynda mugt täzelemeler we kepillik goldawy."
         }
       ],
-      "yearsTitle": "Nämäniň tölegli we haçan",
+      "yearsTitle": "Näme tölegli we nähili",
       "years": [
         {
           "tag": "Ilkinji ýyl",
@@ -1189,7 +1189,7 @@
         {
           "tag": "Ikinji ýyldan",
           "title": "Täzelemeleri uzaltmak",
-          "text": "Paketiň bahasynyň 25%-i: «Esasy» üçin 5 000 TMT we «Standart» üçin 10 000 TMT."
+          "text": "Paketiň bahasynyň 25%-i: «Esasy» tarif üçin 5 000 TMT we «Standart» tarif üçin 10 000 TMT."
         }
       ],
       "modulesTitle": "Ulgamda näme bar",
@@ -1222,7 +1222,7 @@
         {
           "title": "Iş",
           "items": [
-            "Taslamalar we wezipeler",
+            "Proýektler we tabşyryklar",
             "Iş wagty",
             "Işgärleriň hasabatlary"
           ]
@@ -1253,14 +1253,14 @@
         {
           "title": "Hemme ýerde",
           "items": [
-            "Öz meýdançalar we kategoriýalar",
+            "Öz meýdançalaryň we kategoriýalaryň",
             "300-den gowrak giriş hukugy",
             "Android we iOS programmalary"
           ]
         }
       ],
       "modesTitle": "Ulgam nirede işlär",
-      "modesText": "Biz gutyçaly çözgüt satýarys: ulgam serwere gurnalýar, maglumatlar bolsa özüňizde galýar.",
+      "modesText": "Biz gutuly çözgüt satýarys: ulgam serwere gurnalýar, maglumatlar bolsa özüňizde galýar.",
       "modes": [
         {
           "title": "Öz serweriňizde",
@@ -1272,7 +1272,7 @@
         }
       ],
       "demoTitle": "Satyn almazdan ozal synap görüň",
-      "demoText": "Demo wersiýa — doldurylan demonstrasiýa maglumatlary bilen ulgama bir aýlyk onlaýn elýeterlilik. Biznesiňizde hasabyň nähili görünjekdigine seredip, soň karar ediň.",
+      "demoText": "Demo wersiýa — doldurylan demonstrasiýa maglumatlary bilen ulgama bir aýlyk onlaýn elýeterlilik. Biznesiňizde hasabyň nähili görünjekdigine seredip, soň karar beriň.",
       "faqTitle": "Tarifler barada soraglar",
       "faq": [
         {
@@ -1289,7 +1289,7 @@
         },
         {
           "q": "HasApp-y satyn almazdan ozal synap bolýarmy?",
-          "a": "Hawa. HasApp-yň demo wersiýasyny häzirki wagtyň özünde synap görüp bilersiňiz — «Demo synap görmek» düwmesine basyň. Wezipeleriňizi maslahatlaşmak isleseňiz, ýüztutma goýuň: biz siz bilen habarlaşarys we ulgamy biznesiňize laýyklykda gurnarys."
+          "a": "Hawa. HasApp-yň demo wersiýasyny häzirki wagtyň özünde synap görüp bilersiňiz — «Demo synap görmek» düwmesine basyň. Tabşyryklaryňyzy maslahatlaşmak isleseňiz, ýüztutma goýuň: biz siz bilen habarlaşarys we ulgamy biznesiňize laýyklykda gurnarys."
         },
         {
           "q": "Bahasyna näme girmeýär?",
@@ -1301,7 +1301,7 @@
         },
         {
           "q": "Öz serwerim gerekmi?",
-          "a": "Hökman däl. Ulgamy sizde serwere gurnaýarys, ýok bolsa — özüňiz kärendesine alýan ýa-da biziň saýlaýan bulut serwerimize. Maglumatlar özüňizde galýar."
+          "a": "Hökman däl. Ulgamy sizde serwere gurnaýarys, ýok bolsa — özüňiz kärendesine alýan ýa-da biziň saýlaýan bulut serwerimizde. Maglumatlar özüňizde galýar."
         }
       ],
       "ctaTitle": "Biznesiňize laýyk paketi saýlarys",
@@ -1353,7 +1353,7 @@
       "sent": "iberildi",
       "ask": "Kömekçä sorag beriň…",
       "own": [
-        "Öz meýdançalar",
+        "Öz meýdançalaryňyz",
         "Kategoriýalar",
         "Giriş hukuklary"
       ],
@@ -1370,7 +1370,7 @@
       "deals": [
         "Dükan",
         "Kafe",
-        "Awtoservis",
+        "Awtoserwis",
         "Gözellik salony",
         "Lomaý satyjy",
         "Dermanhana",
@@ -1385,8 +1385,8 @@
     },
     "finance": {
       "leave": "Arza galdyrmak",
-      "inflow": "Girýär",
-      "outflow": "Çykýar",
+      "inflow": "Girdejiler",
+      "outflow": "Çykdajylar",
       "period": "döwür üçin",
       "check": "ÇEK №",
       "till": "Kassa",
@@ -1451,7 +1451,7 @@
         "materiallar? anyklamaly",
         "kime jaň etmeli?",
         "tablisada başga san",
-        "möhlet gysýar!!"
+        "möhlet azalýar!!"
       ]
     },
     "personal": {
@@ -1478,15 +1478,15 @@
     },
     "zadachi": {
       "leave": "Arza galdyrmak",
-      "project": "Taslama",
+      "project": "Proýekt",
       "online": "onlaýn",
-      "doneTasks": "Ýerine ýetirilen wezipeler",
+      "doneTasks": "Ýerine ýetirilen tabşyryklar",
       "of": "/",
       "done": "Taýýar",
       "wip": "Işde",
-      "note": "Mysal: taslamanyň wezipeleri biri-biriniň yzyndan şeýle ýapylýar (maglumatlar şertli)",
+      "note": "Mysal: proýektiň tabşyryklary biri-biriniň yzyndan şeýle ýapylýar (maglumatlar şertli)",
       "notFound": "Jogabyňyzy tapmadyňyzmy? Ýüztutma goýuň — menejer islendik soraga jogap berer.",
-      "chat1": "Wezipe taýýar, barlap bolýar",
+      "chat1": "Tabşyrylan ýumuşlar taýýar, barlap bolýar",
       "chat2": "Kabul edildi, seredýärin",
       "see": "Şeýle hem görüň:",
       "orders": "sargytlar",
@@ -1504,9 +1504,9 @@
         "Satyn alma"
       ],
       "projects": [
-        "Taslama A",
-        "Taslama B",
-        "Taslama D"
+        "Proýekt A",
+        "Proýekt B",
+        "Proýekt D"
       ],
       "tasks": [
         "Smeta taýýarlamak",
@@ -1524,7 +1524,7 @@
       "onceUsers": "bir gezek ·",
       "users": "ulanyjy üçin",
       "no": "ýok",
-      "boxed": "Gutyçaly çözgüt — hemme zat içinde",
+      "boxed": "Gutuly çözgüt — hemme zat içinde",
       "zero": "Aýlyk töleg 0 TMT",
       "days": "gün",
       "see": "Şeýle hem görüň:",
